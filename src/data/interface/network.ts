@@ -18,6 +18,8 @@ export type TimeStamp = number;
 
 export interface GetDecKeyResp {
     Success?: string;
+    Part?: string;
+    Full?: string;
     Price?: number;
 };
 

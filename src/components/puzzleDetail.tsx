@@ -1,5 +1,4 @@
 // puzzle detail component
-// TODO: 答案计时器
 
 import { useEffect, useRef, useState } from "react";
 import { PuzzleData } from "../data/constants";
@@ -12,6 +11,7 @@ import ReactMarkdown from 'react-markdown';
 import './puzzleDetail.css';
 const { Panel } = Collapse;
 import { UnlockFilled } from '@ant-design/icons';
+import confetti from 'canvas-confetti';
 
 
 export interface PuzzleDetailProp {
@@ -52,9 +52,18 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             description: detail,
         });
     };
+    const onConfetti = () => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { x: 0.5, y: 0.5 },
+        });
+    };
 
     // puzzle content
-    const unlocked = useRef(puzzle?.content.decipher_id && getKey(puzzle?.content.decipher_id) !== undefined);
+    const [unlocked, setUnlocked] = useState(puzzle?.content.decipher_id !== undefined && getKey(puzzle?.content.decipher_id) !== undefined);
+    const [disabled, setDisabled] = useState(puzzle?.content.decipher_id === undefined || getPrice(puzzle?.content.decipher_id) === -1);
+    const pending = useRef(false);
     const onUnlock = async (dec_id: number | undefined) => {
         if (dec_id === undefined) {
             // unreachable
@@ -76,12 +85,12 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                     console.warn('unlock', old_key, cur_key);
                     setKey(dec_id, old_key);
                 }
-                unlocked.current = true;
+                setUnlocked(true);
             }
             else if (resp.data.Success) {
                 const new_key = resp.data.Success.key;
                 setKey(dec_id, new_key);
-                unlocked.current = true;
+                setUnlocked(true);
                 onToast('解锁成功', `花费点数${resp.data.Success.price}，剩余点数${resp.data.Success.new_balance}`, 'info');
             }
             else {
@@ -96,6 +105,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         if (answer === undefined || key === undefined) {
             return;
         }
+        pending.current = true;
         setInput(undefined);
         const ciphertext = cipher(answer, key);
         const resp = await request<PostSubmitResp>(`/api/submit_answer`, "POST", { puzzle_id: props.puzzleId, answer: ciphertext });
@@ -104,28 +114,57 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             alert(resp.data);
         }
         else {
-            // TODO: 修改提醒
             if (resp.data.WrongAnswer) {
-                const time = new Date(resp.data.WrongAnswer.try_again_after * 1000).toLocaleString();
+                const time = new Date(resp.data.WrongAnswer.try_again_after * 1000);
                 onToast('答案错误', `扣除点数${resp.data.WrongAnswer.penalty_token}，
-                    剩余点数${resp.data.WrongAnswer.new_balance}；请于${time}之后再试`, 'error');
+                    剩余点数${resp.data.WrongAnswer.new_balance}；请于${time.toLocaleString()}之后再试`, 'error');
+                const ctime = new Date();
+                const cnt = time.getTime() - ctime.getTime();
+                if (cnt > 0) {
+                    pending.current = true;
+                    setTimeout(() => {
+                        pending.current = false;
+                    }, cnt);
+                }
+                else {
+                    pending.current = false;
+                }
             }
             else if (resp.data.TryAgainAfter) {
-                const time = new Date(resp.data.TryAgainAfter * 1000).toLocaleString();
-                onToast('提交过快', `请于${time}之后再试`, 'warning');
+                const time = new Date(resp.data.TryAgainAfter * 1000);
+                onToast('提交过快', `请于${time.toLocaleString()}之后再试`, 'warning');
+                const ctime = new Date();
+                const cnt = time.getTime() - ctime.getTime();
+                if (cnt > 0) {
+                    pending.current = true;
+                    setTimeout(() => {
+                        pending.current = false;
+                    }, cnt);
+                }
+                else {
+                    pending.current = false;
+                }
             }
             else if (resp.data.HasSubmitted) {
-                onToast('您已通过本题', '', 'info');
+                onToast('重复提交', '', 'info');
+                pending.current = false;
             }
             else if (resp.data.PleaseToast) {
                 onToast('提示', resp.data.PleaseToast, 'info');
+                pending.current = false;
             }
             else if (resp.data.Success) {
                 onToast('答案正确', `获得点数${resp.data.Success.award_token}，
                     目前点数${resp.data.Success.new_balance}`, 'success');
                 if (resp.data.Success.finish) {
                     onToast('解密成功！', '', 'success');
+                    setDisabled(true);
+                    onConfetti();
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2500);
                 }
+                pending.current = false;
             }
             else {
                 // unreachable
@@ -149,13 +188,23 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             if (resp.data.Price) {
                 setPrice(dec_id, resp.data.Price);
                 if (dec_id === puzzle?.content.decipher_id) {
-                    unlocked.current = false;
+                    setUnlocked(false);
+                    setDisabled(false);
                 }
             }
-            else if (resp.data.Success) {
-                const new_key = resp.data.Success;
+            else if (resp.data.Success || resp.data.Part || resp.data.Full) {
+                const new_key = resp.data.Success || resp.data.Part || resp.data.Full || '';
                 setKey(dec_id, new_key);
-                unlocked.current = true;
+                if (dec_id === puzzle?.content.decipher_id) {
+                    setUnlocked(true);
+                    if (resp.data.Full) {
+                        setDisabled(true);
+                        setPrice(dec_id, -1);
+                    }
+                    else {
+                        setDisabled(false);
+                    }
+                }
             }
             else {
                 // unreachable
@@ -178,7 +227,10 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             getDecKey(dec_id);
         }
         else {
-            unlocked.current = (key !== undefined);
+            setUnlocked(key !== undefined);
+            setDisabled(price === -1);
+            // console.log(price, disabled.current, props.puzzleId);
+
             setLoading(false);
         }
     }, [props.puzzleId]);
@@ -199,6 +251,9 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             await getDecKey(dec_id);
             key = getKey(dec_id);
             price = getPrice(dec_id);
+            if (price === -1) {
+                setDisabled(true);
+            }
             setLoading(false);
         };
 
@@ -287,7 +342,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         </h1>
         {/* <Divider style={{ marginTop: 0, marginBottom: 0 }} /> */}
         <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '50px' }}>
-            <div style={{ backgroundColor: 'white', padding: '0 20px 50px 20px', marginBottom: '20px', flex: 1 }}>
+            <div style={{ backgroundColor: 'white', padding: '0 20px 30px 20px', marginBottom: '20px', flex: 1 }}>
                 <Tabs
                     activeKey={select}
                     onChange={(active_key) => setSelect(active_key)}
@@ -301,23 +356,24 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                             label: '观测',
                             key: 'hint',
                             children: loading ? <Spin className='content' /> : <PuzzleHints />,
-                            disabled: !unlocked.current,
+                            disabled: !unlocked,
                         },
                         {
                             label: '解析',
                             key: 'skip',
                             children: loading ? <Spin className='content' /> : <PuzzleContent skip />,
-                            disabled: !unlocked.current,
+                            disabled: !unlocked,
                         },
                     ]}
                 />
             </div>
             <Input
-                placeholder='请在此处输入答案'
+                style={{ display: disabled || !unlocked || loading ? 'none' : undefined }}
+                placeholder={pending.current ? '提交过快，请稍后再试' : '请在此处输入答案'}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onPressEnter={() => onSubmit(input)}
-                disabled={loading}
+                disabled={loading || disabled || !unlocked || pending.current}
             />
         </div>
     </div>;
