@@ -2,7 +2,7 @@
 
 import './puzzleList.css'
 import { Button, Menu } from "antd";
-import { RightOutlined, LeftOutlined, QuestionOutlined } from '@ant-design/icons';
+import { RightOutlined, LeftOutlined, QuestionOutlined, DownOutlined, MenuOutlined } from '@ant-design/icons';
 import { useEffect, useState } from "react";
 import { PuzzleData } from "../data/constants";
 import { PuzzleDetail, PuzzleStatus } from '../data/interface/puzzle';
@@ -15,9 +15,10 @@ export interface PuzzleListProp {
 };
 
 export const PuzzleList = (props: PuzzleListProp) => {
+    const isMobile = window.innerWidth < 768;
     const active_id = props.puzzleId;
     const setActive = props.setPuzzleId;
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(isMobile);
     const [status, setStatus] = useState<PuzzleStatus[]>([]);
     const [updated, setUpdated] = useState<TimeStamp>();
 
@@ -58,42 +59,48 @@ export const PuzzleList = (props: PuzzleListProp) => {
     }
     useEffect(() => { getStatus(); }, [setStatus]);
 
-    return <div style={{ width: !collapsed ? '25%' : undefined, marginRight: '20px', position: 'sticky', top: 0 }}>
+    return <div style={{
+        width: !collapsed && !isMobile ? '25%' : undefined,
+        marginRight: '20px', position: isMobile ? 'fixed' : 'sticky',
+        top: '84px', zIndex: 99, right: isMobile ? 0 : undefined,
+    }}>
         <Button
             type="default"
             className='fold'
             onClick={() => setCollapsed((x) => !x)}
         >
-            {collapsed ? <RightOutlined /> : <LeftOutlined />}
+            {collapsed ? (isMobile ? <MenuOutlined /> : <RightOutlined />)
+                : (isMobile ? <DownOutlined /> : <LeftOutlined />)}
         </Button>
-        {puzzleList1.length !== 0 &&
+        {puzzleList1.length !== 0 && (!isMobile || !collapsed) &&
             <Menu
                 className='puzzle-menu'
                 // defaultSelectedKeys={[`puzzle-${active_id}`]}
                 selectedKeys={[`puzzle-${active_id}`]}
                 mode="inline"
                 theme="light"
-                inlineCollapsed={collapsed}
+                inlineCollapsed={collapsed || isMobile}
             // items={items}
             >
                 {puzzleList1}
             </Menu>
         }
         <div style={{ height: '10px' }} />
-        {puzzleList2.length !== 0 &&
+        {puzzleList2.length !== 0 && (!isMobile || !collapsed) &&
             <Menu
                 className='puzzle-menu'
                 // defaultSelectedKeys={[`puzzle-${active_id}`]}
                 selectedKeys={[`puzzle-${active_id}`]}
                 mode="inline"
                 theme="light"
-                inlineCollapsed={collapsed}
+                inlineCollapsed={collapsed || isMobile}
             // items={items}
             >
                 {puzzleList2}
             </Menu>
         }
-        {updated && !collapsed &&
+        {/* <div className="mask" style={{ display: isMobile && !collapsed ? 'block' : 'none' }}></div> */}
+        {!isMobile && updated && !collapsed &&
             <div style={{ marginTop: '10px', color: 'rgba(1, 1, 1, 0.3)', fontSize: 'small' }}>
                 {`更新于 ${new Date(updated * 1000).toLocaleString()}`}
             </div>
