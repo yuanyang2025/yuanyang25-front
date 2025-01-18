@@ -12,6 +12,11 @@ export const request = async <T>(
 ): Promise<Resp<T>> => {
     const headers: Record<string, string> = {};
     let body;
+    
+    if (url.startsWith('/api/')) {
+        url = `https://back-sbojkjgphc.cn-beijing.fcapp.run${url.slice(4)}`;  // 去掉 '/api' 前缀
+    }
+
     if (method !== "GET" && data) {
         headers["Content-Type"] = "application/json";
         body = JSON.stringify(data);
@@ -20,7 +25,7 @@ export const request = async <T>(
         headers["Authorization"] = `Bearer ${auth}`;
     }
 
-    const response = await fetch(url, { method, headers, body });
+    const response = await fetch(url, { method, headers, body, credentials: "include" });
     let res, cres;
 
     try {
