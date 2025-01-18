@@ -1,0 +1,17 @@
+.fold {
+    /* background-color: transparent !important; */
+    border: none !important;
+    /* box-shadow: none !important; */
+    /* margin-bottom: 10px !important; */
+    height: 40px;
+    width: 40px;
+    margin: 10px 10px 20px 10px;
+}
+
+.puzzle-menu {
+    padding: 5px 5px;
+}
+
+.ant-menu-inline-collapsed {
+    max-width: 60px;
+}
