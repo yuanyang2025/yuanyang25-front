@@ -1,3 +1,5 @@
+//page userRegister @ /userRegister
+
 import { Button, Form, Input } from "antd"
 import React, { useState } from "react"
 import type { FormProps } from "antd"
@@ -64,7 +66,7 @@ export const UserRegisterPage:React.FC = () => {
                 navigate('/')
             }
             if (resp.data.Failed) {
-                alert('注册码解析失败!请检查是否已在公众号上获取注册码。')
+                alert('注册码解析失败!请检查是否已在公众号上获取最新的注册码。')
             }
         }
     }

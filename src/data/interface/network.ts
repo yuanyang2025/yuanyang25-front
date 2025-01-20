@@ -77,3 +77,16 @@ export interface RegisterResp {
     Success?: number
     Failed?: string
 }
+
+export interface LoginReq {
+    userid: number
+    auth: {
+        method: string
+        data: string
+    }
+}
+
+export interface LoginResp {
+    Success?: number
+    Failed?: string
+}
