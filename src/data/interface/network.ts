@@ -66,3 +66,14 @@ export interface GetInfoResp {
     team_id: number | null;
     token_balance: number | null;
 };
+
+export interface RegisterReq {
+    username: string
+    token: string
+    password: string
+}
+
+export interface RegisterResp {
+    Success?: number
+    Failed?: string
+}
