@@ -1,7 +1,7 @@
 import { Button, Form, Input } from "antd"
-import { useState } from "react"
+import React, { useState } from "react"
 import type { FormProps } from "antd"
-import { cipher } from "../utils/cipher"
+import * as CryptoJS from 'crypto-js';
 import { isOk, request } from "../utils/network"
 import { RegisterResp } from "../data/interface/network"
 import { useNavigate } from "react-router-dom"
@@ -12,7 +12,7 @@ type FieldType = {
     token: string
 }
 
-export const UserRegisterPage = () => {
+export const UserRegisterPage:React.FC = () => {
     const [form] = Form.useForm()
     const [usernamelength, setUsernameLength] = useState<number>(0)
     const formItemLayout = {
@@ -41,12 +41,13 @@ export const UserRegisterPage = () => {
 
     const navigate = useNavigate()
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
+        console.log('Button Pressed!')
         let username = values.username
         let password = values.password
         let token = values.token
         /* let data: Array<string> = [username, password, token]
         return data */
-        const cpass = cipher(password, username)
+        const cpass = CryptoJS.SHA256(password).toString()
         const resp = await request<RegisterResp>(`/api/register`, "POST", {
             username: username,
             token: token,
@@ -59,6 +60,7 @@ export const UserRegisterPage = () => {
         else {
             if (resp.data.Success) {
                 alert('注册成功!')
+                console.log('user_id:', resp.data.Success)
                 navigate('/')
             }
             if (resp.data.Failed) {
@@ -76,8 +78,9 @@ export const UserRegisterPage = () => {
             className = 'register-form'
             {...formItemLayout}
             onFinish={onFinish}
+            autoComplete="off"
         >
-            <Form.Item
+            <Form.Item<FieldType>
                 label = '用户名'
                 name = 'username'
                 rules = {[
@@ -105,16 +108,17 @@ export const UserRegisterPage = () => {
                         required: true, 
                         message: '密码不能为空!' 
                     },
-                    
+                    /*
                     {
-                        validator: (_, value) => {
+                        validator(_, value) {
                             if (value && form.getFieldValue('confirm')) {
                                 form.validateFields(['confirm'])
+                                return Promise.resolve()
                             }
                             return Promise.resolve()
                         }
                     }
-                        
+                        */
                 ]}
                 hasFeedback
             >
@@ -128,15 +132,16 @@ export const UserRegisterPage = () => {
                 name = 'confirm'
                 dependencies={['password']}
                 rules={[
-                    {required: true,
-                    message: '密码不能为空！'
+                    {
+                        required: true,
+                        message: '密码不能为空！'
                     },
                     ({ getFieldValue }) => ({
                         validator(_, value) {
                             if (!value || getFieldValue('password') === value) {
                                 return Promise.resolve();
                             }
-                            return Promise.reject(new Error('两次输入的密码不一致!'));
+                            else return Promise.reject(new Error('两次输入的密码不一致!'));
                         }
                     })
                 ]}
@@ -162,7 +167,7 @@ export const UserRegisterPage = () => {
                         />
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
-                    <Button type="primary" htmlType="submit">
+                    <Button type="primary" htmlType="submit" >
                         注册
                     </Button>
                 </Form.Item>

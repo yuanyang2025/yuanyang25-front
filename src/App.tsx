@@ -6,6 +6,8 @@ import { Navbar } from './layout';
 import { NotFoundPage } from './pages/404';
 import { SamplePage } from './pages/sample';
 import { DashboardPage } from './pages/dashboard';
+import { UserRegisterPage } from './pages/userRegister';
+
 // import 'antd/dist/antd.css';
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
 				<Route path="/" element={<SamplePage text='home' />} />
 				<Route path="/dashboard" element={<DashboardPage />} />
 				<Route path="*" element={<NotFoundPage />} />
+				<Route path="/userRegister" element={<UserRegisterPage />} />
 			</Routes>
 		} />
 	</Router>

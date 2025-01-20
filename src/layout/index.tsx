@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.css'
 import { Layout, Menu } from 'antd';
-import { HomeFilled, MenuOutlined, MoneyCollectFilled, SearchOutlined } from '@ant-design/icons';
+import { HomeFilled, LoginOutlined, MenuOutlined, MoneyCollectFilled, SearchOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { GetInfoResp } from '../data/interface/network';
 import { isOk, request } from '../utils/network';
@@ -22,6 +22,7 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
         { key: '', name: isMobile ? undefined : '首页', icon: <HomeFilled /> },
         { key: 'dashboard', name: isMobile ? undefined : '题目', icon: <MenuOutlined /> },
         { key: 'search', name: isMobile ? undefined : '搜索', icon: <SearchOutlined /> },
+        { key: 'userRegister', name: isMobile ? undefined : '注册', icon: <LoginOutlined /> }
     ];
     const [info, setInfo] = useState<GetInfoResp>();
     const getInfo = async () => {
