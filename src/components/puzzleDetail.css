@@ -1,31 +1,31 @@
 p:has(code) {
-    display: block;
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: rgba(1, 1, 1, 0.08);
-    color: rgba(1, 1, 1, 0.7);
-    padding: 2px 10px 2px 10px !important;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: rgba(1, 1, 1, 0.08);
+  color: rgba(1, 1, 1, 0.7);
+  padding: 2px 10px 2px 10px !important;
 
-    code {
-        margin-left: 10px !important;
-        margin-right: 10px !important;
-    }
+  code {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
 }
 
 pre:has(code) {
-    display: block;
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: rgba(1, 1, 1, 0.08);
-    color: rgba(1, 1, 1, 0.7);
-    padding: 2px 10px 2px 10px !important;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: rgba(1, 1, 1, 0.08);
+  color: rgba(1, 1, 1, 0.7);
+  padding: 2px 10px 2px 10px !important;
 
-    code {
-        margin-left: 10px !important;
-        margin-right: 10px !important;
-    }
+  code {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
 }
