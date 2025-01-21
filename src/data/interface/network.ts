@@ -88,6 +88,16 @@ export interface LoginReq {
   };
 }
 
+//If Success is not found, then failed
 export interface LoginResp {
   Success: number;
 }
+
+export interface CreateTeamResp {
+  Success?: number,
+  AlreadyInTeam?: number,
+}
+
+export type TeamTOTPResp = { Success: { id: number; totp: string } };
+
+

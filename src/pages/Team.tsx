@@ -1,6 +1,8 @@
 //page userRegister @ /userRegister
 import React, { useState } from "react";
 import { Button, Form, Input, Space } from "antd";
+import { TeamTOTPResp } from "../data/interface/network";
+import { isOk, request } from "../utils/network";
 
 interface JoinTeamFieldType {
   teamId: string;
@@ -29,9 +31,19 @@ export const TeamManagementPage: React.FC = () => {
     setLeaveTeamMessage("已退出队伍！");
   };
 
-  const handleGetInviteCode = () => {
-    console.log("Getting invite code...");
-    setGetInviteCodeMessage("邀请码是：ABCD-1234-EFGH");
+  const handleGetInviteCode = async() => {
+    const resp = await request<TeamTOTPResp>(`/api/team_veri`, "GET");
+    
+    if (!isOk(resp)) {
+      console.error("GetInviteCode:", resp.data);
+      setGetInviteCodeMessage("获取队伍邀请码失败" + resp.data);
+    } else {
+      if ("Success" in resp.data) {
+        setGetInviteCodeMessage("队伍邀请码（约4min内有效）是：" + resp.data.Success.totp);
+      }  else {
+        setGetInviteCodeMessage("获取队伍邀请码失败，未知错误。"+ resp.data);
+      }
+    }
   };
 
   const formItemLayout = {
