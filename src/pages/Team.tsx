@@ -8,6 +8,8 @@ import {
   TeamTOTPResp,
 } from "../data/interface/network";
 import { isOk, request } from "../utils/network";
+import { InfoContext } from "../layout";
+import { TeamOutlined, UsergroupAddOutlined } from "@ant-design/icons";
 
 interface JoinTeamFieldType {
   teamId: string;
@@ -44,6 +46,9 @@ export const TeamManagementPage: React.FC = () => {
     }
   };
 
+  const context = React.useContext(InfoContext);
+  if (!context) return null;
+
   const handleJoinTeam = async (values: JoinTeamFieldType) => {
     // console.log("Joining team with:", values);
     // setJoinTeamMessage("成功加入队伍！");
@@ -74,6 +79,7 @@ export const TeamManagementPage: React.FC = () => {
         setJoinTeamMessage("加入队伍失败：" + resp.data);
       }
     }
+    context.getInfo();
   };
 
   const handleLeaveTeam = async () => {
@@ -83,14 +89,17 @@ export const TeamManagementPage: React.FC = () => {
 
     if (!isOk(resp)) {
       console.error("CreateTeam:", resp.data);
-      setLeaveTeamMessage("退出队伍失败" + resp.data);
+      setLeaveTeamMessage("请求失败：" + resp.data);
     } else {
-      if ("Success" in resp.data) {
+      if (resp.data == "NotAllowed") {
+        setLeaveTeamMessage("根据规则，此队伍已经不能退出。");
+      } else if ("Success" in resp.data) {
         setLeaveTeamMessage("已退出队伍！");
       } else {
         setLeaveTeamMessage("退出队伍失败，未知错误。" + resp.data);
       }
     }
+    context.getInfo();
   };
 
   const handleGetInviteCode = async () => {
@@ -110,6 +119,7 @@ export const TeamManagementPage: React.FC = () => {
         setGetInviteCodeMessage("获取队伍邀请码失败，未知错误。" + resp.data);
       }
     }
+    context.getInfo();
   };
 
   const formItemLayout = {
@@ -125,7 +135,6 @@ export const TeamManagementPage: React.FC = () => {
 
   return (
     <div>
-      注：这个页面还只是个样子货，没有接入API。
       <Form
         form={form}
         layout="vertical"
@@ -156,7 +165,11 @@ export const TeamManagementPage: React.FC = () => {
             { pattern: /^\d+$/, message: "队伍ID必须是自然数！" },
           ]}
         >
-          <Input type="number" placeholder="请输入队伍ID" />
+          <Input
+            type="number"
+            placeholder="请输入队伍ID"
+            prefix={<TeamOutlined />}
+          />
         </Form.Item>
         <Form.Item
           label="邀请码"
@@ -180,6 +193,7 @@ export const TeamManagementPage: React.FC = () => {
         >
           <Input
             placeholder="请输入队伍邀请码"
+            prefix={<UsergroupAddOutlined />}
             maxLength={19}
             onChange={(e) => {
               const input = e.target.value.replace(/\s+/g, "");

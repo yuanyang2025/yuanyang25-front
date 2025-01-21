@@ -108,6 +108,8 @@ export interface JoinTeamReq {
 export type JoinTeamResp = {
   Success: { id: number };
 };
-export type ExitTeamResp = {
-  Success: { id: number };
-};
+export type ExitTeamResp =
+  | {
+      Success: { id: number };
+    }
+  | "NotAllowed";

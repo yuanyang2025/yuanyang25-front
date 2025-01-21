@@ -1,13 +1,14 @@
 // page userLogin @ /userLogin
 
-import { Button, Form, Input, Radio, Flex } from "antd";
+import { Button, Form, Input, Radio, Flex, Tooltip, Typography } from "antd";
 import React, { useState } from "react";
 import type { FormProps } from "antd";
 import * as CryptoJS from "crypto-js";
 import { isOk, request } from "../utils/network";
 import { LoginResp } from "../data/interface/network";
-import LogoutButton from "./userLogout";
+import LogoutButton from "../components/logoutButton";
 import { InfoContext } from "../layout";
+import { LockOutlined } from "@ant-design/icons";
 
 type LoginFieldType = {
   userId: string;
@@ -120,21 +121,20 @@ export const UserLoginPage: React.FC = () => {
                   required: true,
                   message: "密码不能为空!",
                 },
-                () => ({
-                  validator(_, value) {
-                    console.log(value);
-                    return Promise.resolve();
-                  },
-                }),
               ]}
               hasFeedback
             >
-              <Input.Password placeholder="请输入密码" />
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="请输入密码"
+              />
             </Form.Item>
-            <span>
-              忘记密码？选择TOTP验证码方式 或者
-              <a href="/userRegister">去修改密码</a>
-            </span>
+
+            <Tooltip title="点击前往注册页面">
+              <Typography.Link href="/userRegister">
+                忘记密码？选择TOTP验证码方式或点击前往注册页面
+              </Typography.Link>
+            </Tooltip>
           </Form.Item>
         )}
         {authMethod === "totp" && (
@@ -179,7 +179,7 @@ export const UserLoginPage: React.FC = () => {
         <Form.Item {...tailFormItemLayout}>
           <Flex gap="small">
             <Button type="primary" htmlType="submit">
-              登录
+              登入
             </Button>
             <LogoutButton />
             或者 <a href="/userRegister">尚未注册？去注册</a>

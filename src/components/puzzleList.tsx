@@ -30,15 +30,12 @@ export const PuzzleList = (props: PuzzleListProp) => {
 
   const getMenuItem = (data: PuzzleDetail) => {
     const st = status.find((st) => st.puzzle_id === data.puzzle_id);
-    return (
-      <Menu.Item
-        className="puzzle-item"
-        key={`puzzle-${data.puzzle_id}`}
-        onClick={() => {
-          setActive(data.puzzle_id);
-        }}
-        icon={<QuestionOutlined />}
-      >
+    return {
+      key: `puzzle-${data.puzzle_id}`,
+      className: "puzzle-item",
+      onClick: () => setActive(data.puzzle_id),
+      icon: <QuestionOutlined />,
+      label: (
         <div
           style={{
             display: "flex",
@@ -63,8 +60,8 @@ export const PuzzleList = (props: PuzzleListProp) => {
             </div>
           )}
         </div>
-      </Menu.Item>
-    );
+      ),
+    };
   };
   let puzzleList1 = PuzzleData.filter((data) => !data.meta).map(getMenuItem);
   let puzzleList2 = PuzzleData.filter((data) => data.meta).map(getMenuItem);
@@ -118,9 +115,9 @@ export const PuzzleList = (props: PuzzleListProp) => {
           mode="inline"
           theme="light"
           inlineCollapsed={collapsed || isMobile}
-          // items={items}
+          items={puzzleList1}
         >
-          {puzzleList1}
+          {/* {puzzleList1} */}
         </Menu>
       )}
       <div style={{ height: "10px" }} />
@@ -132,9 +129,9 @@ export const PuzzleList = (props: PuzzleListProp) => {
           mode="inline"
           theme="light"
           inlineCollapsed={collapsed || isMobile}
-          // items={items}
+          items={puzzleList2}
         >
-          {puzzleList2}
+          {/* {puzzleList2} */}
         </Menu>
       )}
       {/* <div className="mask" style={{ display: isMobile && !collapsed ? 'block' : 'none' }}></div> */}
