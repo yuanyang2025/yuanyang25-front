@@ -81,7 +81,7 @@ export interface RegisterResp {
 }
 
 export interface LoginReq {
-  userid: number;
+  user_id: number;
   auth: {
     method: string;
     data: string;
@@ -94,10 +94,20 @@ export interface LoginResp {
 }
 
 export interface CreateTeamResp {
-  Success?: number,
-  AlreadyInTeam?: number,
+  Success?: {id: number},
+  AlreadyInTeam?: {id: number},
 }
 
 export type TeamTOTPResp = { Success: { id: number; totp: string } };
 
+export interface JoinTeamReq {
+  team_id: number
+  vericode: string
+}
 
+export type JoinTeamResp = {
+  Success: { id: number }
+}
+export type ExitTeamResp = {
+  Success: { id: number }
+}

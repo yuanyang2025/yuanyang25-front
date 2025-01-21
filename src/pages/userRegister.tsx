@@ -6,7 +6,6 @@ import type { FormProps } from "antd";
 import * as CryptoJS from "crypto-js";
 import { isOk, request } from "../utils/network";
 import { RegisterResp } from "../data/interface/network";
-import { useNavigate } from "react-router-dom";
 
 type FieldType = {
   username: string;
@@ -60,7 +59,7 @@ export const UserRegisterPage: React.FC = () => {
       if (resp.data.Success) {
         alert("注册/重置密码成功!");
         //重新加载页面以更新页面上方的信息
-        window.location.href = "/";
+        window.location.href = "/userLogin";
       } else {
         alert("注册码解析失败!请检查是否已在公众号上获取最新的注册码。");
       }
@@ -103,17 +102,6 @@ export const UserRegisterPage: React.FC = () => {
               required: true,
               message: "密码不能为空!",
             },
-            /*
-                    {
-                        validator(_, value) {
-                            if (value && form.getFieldValue('confirm')) {
-                                form.validateFields(['confirm'])
-                                return Promise.resolve()
-                            }
-                            return Promise.resolve()
-                        }
-                    }
-                        */
           ]}
           hasFeedback
         >
@@ -163,6 +151,7 @@ export const UserRegisterPage: React.FC = () => {
           <Button type="primary" htmlType="submit">
             注册 / 重置密码
           </Button>
+          &nbsp;&nbsp;&nbsp; <a href="/userLogin">注册好了？去登录</a>
         </Form.Item>
       </Form>
     </div>

@@ -20,15 +20,8 @@ function App() {
           <Routes>
             <Route path="/" element={<SamplePage text="home" />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route
-              path="/user"
-              element={
-                <div>
-                  <UserLoginPage />
-                  <UserRegisterPage />
-                </div>
-              }
-            />
+            <Route path="/userLogin" element={<UserLoginPage />} />
+            <Route path="/userRegister" element={<UserRegisterPage />} />
             <Route path="/team" element={<TeamManagementPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

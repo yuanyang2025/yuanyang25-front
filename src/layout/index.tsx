@@ -8,7 +8,7 @@ import {
   LoginOutlined,
   MenuOutlined,
   TeamOutlined,
-  SearchOutlined,
+  // SearchOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { GetInfoResp } from "../data/interface/network";
@@ -32,7 +32,7 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
       icon: <MenuOutlined />,
     },
     {
-      key: "user",
+      key: "userLogin",
       name: isMobile ? undefined : "注册登录",
       icon: <LoginOutlined />,
     },
@@ -41,11 +41,11 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
       name: isMobile ? undefined : "组队",
       icon: <TeamOutlined />,
     },
-    {
+    /*{
       key: "search",
       name: isMobile ? undefined : "搜索",
       icon: <SearchOutlined />,
-    },
+    },*/
   ];
   const [info, setInfo] = useState<GetInfoResp | undefined>();
   const getInfo = async () => {
