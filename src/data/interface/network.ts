@@ -105,11 +105,17 @@ export interface JoinTeamReq {
   vericode: string;
 }
 
-export type JoinTeamResp = {
-  Success: { id: number };
-};
+export type JoinTeamResp =
+  | {
+      Success: { id: number };
+    }
+  | "AlreadyInTeam"
+  | "TeamFull"
+  | "AuthError";
+
 export type ExitTeamResp =
   | {
       Success: { id: number };
     }
-  | "NotAllowed";
+  | "NotAllowed"
+  | "NotInTeam";

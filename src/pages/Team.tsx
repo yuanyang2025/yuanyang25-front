@@ -49,9 +49,6 @@ export const TeamManagementPage: React.FC = () => {
     }
   };
 
-  const context = React.useContext(InfoContext);
-  if (!context) return null;
-
   const handleJoinTeam = async (values: JoinTeamFieldType) => {
     // console.log("Joining team with:", values);
     // setJoinTeamMessage("成功加入队伍！");
@@ -68,16 +65,16 @@ export const TeamManagementPage: React.FC = () => {
       console.error("加入队伍失败！：" + resp.data);
       setJoinTeamMessage("加入队伍失败：" + resp.data);
     } else {
-      if ("Success" in resp.data) {
-        setJoinTeamMessage("加入队伍成功！");
-      } else if ("AlreadyInTeam" in resp.data) {
+      if (resp.data === "AlreadyInTeam") {
         setJoinTeamMessage("加入队伍失败：您已经在队伍内。");
-      } else if ("TeamFull" in resp.data) {
+      } else if ("TeamFull" === resp.data) {
         setJoinTeamMessage("加入队伍失败：您所加的队伍已满员。");
-      } else if ("AuthError" in resp.data) {
+      } else if ("AuthError" === resp.data) {
         setJoinTeamMessage(
           "加入队伍失败：邀请码错误（请检查您所加队伍的邀请码是否正确和是否在有效期内）。",
         );
+      } else if ("Success" in resp.data) {
+        setJoinTeamMessage("加入队伍成功！");
       } else {
         setJoinTeamMessage("加入队伍失败：" + resp.data);
       }
@@ -96,6 +93,8 @@ export const TeamManagementPage: React.FC = () => {
     } else {
       if (resp.data == "NotAllowed") {
         setLeaveTeamMessage("根据规则，此队伍已经不能退出。");
+      } else if (resp.data == "NotInTeam") {
+        setLeaveTeamMessage("退出队伍失败：您尚未加入任何一个队伍。");
       } else if ("Success" in resp.data) {
         setLeaveTeamMessage("已退出队伍！");
       } else {
@@ -197,7 +196,6 @@ export const TeamManagementPage: React.FC = () => {
           <Input
             prefix={<UsergroupAddOutlined />}
             placeholder="请输入队伍邀请码"
-            prefix={<UsergroupAddOutlined />}
             maxLength={19}
             onChange={(e) => {
               const input = e.target.value.replace(/\s+/g, "");
