@@ -31,17 +31,19 @@ export const TeamManagementPage: React.FC = () => {
     setLeaveTeamMessage("已退出队伍！");
   };
 
-  const handleGetInviteCode = async() => {
+  const handleGetInviteCode = async () => {
     const resp = await request<TeamTOTPResp>(`/api/team_veri`, "GET");
-    
+
     if (!isOk(resp)) {
       console.error("GetInviteCode:", resp.data);
       setGetInviteCodeMessage("获取队伍邀请码失败" + resp.data);
     } else {
       if ("Success" in resp.data) {
-        setGetInviteCodeMessage("队伍邀请码（约4min内有效）是：" + resp.data.Success.totp);
-      }  else {
-        setGetInviteCodeMessage("获取队伍邀请码失败，未知错误。"+ resp.data);
+        setGetInviteCodeMessage(
+          "队伍邀请码（约4min内有效）是：" + resp.data.Success.totp,
+        );
+      } else {
+        setGetInviteCodeMessage("获取队伍邀请码失败，未知错误。" + resp.data);
       }
     }
   };

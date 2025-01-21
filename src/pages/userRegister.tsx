@@ -7,6 +7,7 @@ import * as CryptoJS from "crypto-js";
 import { isOk, request } from "../utils/network";
 import { RegisterResp } from "../data/interface/network";
 import { useNavigate } from "react-router-dom";
+import { InfoContext } from "../layout";
 
 type FieldType = {
   username: string;
@@ -41,6 +42,9 @@ export const UserRegisterPage: React.FC = () => {
     },
   };
 
+  const context = React.useContext(InfoContext);
+  if (!context) return null;
+
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     let username = values.username;
     let password = values.password;
@@ -59,12 +63,11 @@ export const UserRegisterPage: React.FC = () => {
     } else {
       if (resp.data.Success) {
         alert("注册/重置密码成功!");
-        //重新加载页面以更新页面上方的信息
-        window.location.href = "/";
       } else {
         alert("注册码解析失败!请检查是否已在公众号上获取最新的注册码。");
       }
     }
+    context.getInfo();
   };
 
   return (
