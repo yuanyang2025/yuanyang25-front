@@ -1,6 +1,15 @@
 // page userLogin @ /userLogin
 
-import { Button, Form, Input, Radio, Flex } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Radio,
+  Flex,
+  Space,
+  Tooltip,
+  Typography,
+} from "antd";
 import React, { useState } from "react";
 import type { FormProps } from "antd";
 import * as CryptoJS from "crypto-js";
@@ -8,6 +17,7 @@ import { isOk, request } from "../utils/network";
 import { LoginResp } from "../data/interface/network";
 import LogoutButton from "./userLogout";
 import { InfoContext } from "../layout";
+import { LockOutlined } from "@ant-design/icons";
 
 type LoginFieldType = {
   userId: string;
@@ -15,6 +25,17 @@ type LoginFieldType = {
   totp?: string;
 };
 
+/*const PasswordInput = () => (
+  <div>
+    <div>
+    <Input.Password prefix={<LockOutlined />} placeholder="请输入密码" />
+  </div>
+  <div>
+    忘记密码？选择TOTP验证码方式 或者
+    <a href="/userRegister">去修改密码</a>
+  </div>
+  </div>
+)*/
 export const UserLoginPage: React.FC = () => {
   const [form] = Form.useForm();
   const [authMethod, setAuthMethod] = useState<"password" | "totp">("password");
@@ -113,20 +134,30 @@ export const UserLoginPage: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         {authMethod === "password" && (
-          <Form.Item<LoginFieldType>
-            label="密码"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "密码不能为空!",
-              },
-            ]}
-            hasFeedback
-          >
-            <Input.Password placeholder="请输入密码" />
-            忘记密码？选择TOTP验证码方式 或者
-            <a href="/userRegister">去修改密码</a>
+          <Form.Item<LoginFieldType> label="密码">
+            <Space>
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "密码不能为空!",
+                  },
+                ]}
+                hasFeedback
+                noStyle
+              >
+                <Input.Password
+                  prefix={<LockOutlined />}
+                  placeholder="请输入密码"
+                />
+              </Form.Item>
+              <Tooltip title="点击前往注册页面">
+                <Typography.Link href="/userRegister">
+                  忘记密码？选择TOTP验证码方式或点击前往注册页面
+                </Typography.Link>
+              </Tooltip>
+            </Space>
           </Form.Item>
         )}
         {authMethod === "totp" && (

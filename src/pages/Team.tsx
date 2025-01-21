@@ -22,7 +22,7 @@ export const TeamManagementPage: React.FC = () => {
   const [leaveTeamMessage, setLeaveTeamMessage] = useState<string>("");
   const [getInviteCodeMessage, setGetInviteCodeMessage] = useState<string>("");
 
-  const context = React.useContext(InfoContext)
+  const context = React.useContext(InfoContext);
   if (!context) return null;
 
   const handleCreateTeam = async () => {
