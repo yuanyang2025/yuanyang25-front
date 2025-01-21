@@ -9,6 +9,7 @@ import {
 } from "../data/interface/network";
 import { isOk, request } from "../utils/network";
 import { InfoContext } from "../layout";
+import { TeamOutlined, UsergroupAddOutlined } from '@ant-design/icons'
 
 interface JoinTeamFieldType {
   teamId: string;
@@ -129,7 +130,6 @@ export const TeamManagementPage: React.FC = () => {
 
   return (
     <div>
-      注：这个页面还只是个样子货，没有接入API。
       <Form
         form={form}
         layout="vertical"
@@ -160,7 +160,7 @@ export const TeamManagementPage: React.FC = () => {
             { pattern: /^\d+$/, message: "队伍ID必须是自然数！" },
           ]}
         >
-          <Input type="number" placeholder="请输入队伍ID" />
+          <Input type="number" placeholder="请输入队伍ID" prefix={<TeamOutlined />} />
         </Form.Item>
         <Form.Item
           label="邀请码"
@@ -183,6 +183,7 @@ export const TeamManagementPage: React.FC = () => {
           ]}
         >
           <Input
+            prefix={<UsergroupAddOutlined />}
             placeholder="请输入队伍邀请码"
             maxLength={19}
             onChange={(e) => {
