@@ -46,7 +46,6 @@ export const UserLoginPage: React.FC = () => {
   if (!context) return null;
 
   const onFinish: FormProps<LoginFieldType>["onFinish"] = async (values) => {
-    console.log("Button Pressed!");
     const { userId, password, totp } = values;
     const data = password
       ? CryptoJS.SHA256(password).toString()
@@ -55,7 +54,6 @@ export const UserLoginPage: React.FC = () => {
         : "";
 
     let method;
-
     if (password) {
       method = "Password";
     } else {
@@ -113,20 +111,30 @@ export const UserLoginPage: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         {authMethod === "password" && (
-          <Form.Item<LoginFieldType>
-            label="密码"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "密码不能为空!",
-              },
-            ]}
-            hasFeedback
-          >
-            <Input.Password placeholder="请输入密码" />
-            忘记密码？选择TOTP验证码方式 或者
-            <a href="/userRegister">去修改密码</a>
+          <Form.Item label="密码">
+            <Form.Item<LoginFieldType>
+              noStyle
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "密码不能为空!",
+                },
+                () => ({
+                  validator(_, value) {
+                    console.log(value);
+                    return Promise.resolve();
+                  },
+                }),
+              ]}
+              hasFeedback
+            >
+              <Input.Password placeholder="请输入密码" />
+            </Form.Item>
+            <span>
+              忘记密码？选择TOTP验证码方式 或者
+              <a href="/userRegister">去修改密码</a>
+            </span>
           </Form.Item>
         )}
         {authMethod === "totp" && (
