@@ -6,7 +6,6 @@ import type { FormProps } from "antd";
 import * as CryptoJS from "crypto-js";
 import { isOk, request } from "../utils/network";
 import { RegisterResp } from "../data/interface/network";
-import { useNavigate } from "react-router-dom";
 import { InfoContext } from "../layout";
 
 type FieldType = {

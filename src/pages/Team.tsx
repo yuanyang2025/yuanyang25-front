@@ -8,6 +8,7 @@ import {
   TeamTOTPResp,
 } from "../data/interface/network";
 import { isOk, request } from "../utils/network";
+import { InfoContext } from "../layout";
 
 interface JoinTeamFieldType {
   teamId: string;
@@ -20,6 +21,9 @@ export const TeamManagementPage: React.FC = () => {
   const [joinTeamMessage, setJoinTeamMessage] = useState<string>("");
   const [leaveTeamMessage, setLeaveTeamMessage] = useState<string>("");
   const [getInviteCodeMessage, setGetInviteCodeMessage] = useState<string>("");
+
+  const context = React.useContext(InfoContext)
+  if (!context) return null;
 
   const handleCreateTeam = async () => {
     /*console.log("Creating team...");
