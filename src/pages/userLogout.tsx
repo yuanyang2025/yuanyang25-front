@@ -1,10 +1,15 @@
 import { Button } from "antd";
 import { request } from "../utils/network";
+import { InfoContext } from "../layout";
+import React from "react";
 
 const LogoutButton = () => {
+  const context = React.useContext(InfoContext);
+  if (!context) return null;
+
   const logOut = async () => {
     await request<number>("/api/logout", "GET");
-    window.location.reload();
+    context.getInfo();
   };
 
   return (

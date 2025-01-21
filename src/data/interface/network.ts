@@ -94,8 +94,8 @@ export interface LoginResp {
 }
 
 export interface CreateTeamResp {
-  Success?: {id: number},
-  AlreadyInTeam?: {id: number},
+  Success?: {id: number};
+  AlreadyInTeam?: {id: number};
 }
 
 export type TeamTOTPResp = { Success: { id: number; totp: string } };

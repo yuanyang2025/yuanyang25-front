@@ -15,6 +15,11 @@ import { GetInfoResp } from "../data/interface/network";
 import { isOk, request } from "../utils/network";
 
 const { Header, Content } = Layout;
+
+export const InfoContext = React.createContext<{ getInfo: () => void } | null>(
+  null,
+);
+
 interface MenuItem {
   key: string;
   name?: string;
@@ -115,15 +120,17 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
         </div>
       </Header>
 
-      <Content
-        style={{
-          padding: isMobile ? "0 10px" : "0 50px",
-          marginTop: "64px",
-          overflowY: "auto",
-        }}
-      >
-        <div style={{ padding: "20px 0" }}>{children}</div>
-      </Content>
+      <InfoContext.Provider value={{ getInfo }}>
+        <Content
+          style={{
+            padding: isMobile ? "0 10px" : "0 50px",
+            marginTop: "64px",
+            overflowY: "auto",
+          }}
+        >
+          <div style={{ padding: "20px 0" }}>{children}</div>
+        </Content>
+      </InfoContext.Provider>
     </Layout>
   );
 };

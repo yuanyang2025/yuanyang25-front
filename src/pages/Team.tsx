@@ -91,9 +91,9 @@ export const TeamManagementPage: React.FC = () => {
     }
   };
 
-  const handleGetInviteCode = async() => {
+  const handleGetInviteCode = async () => {
     const resp = await request<TeamTOTPResp>(`/api/team_veri`, "GET");
-    
+
     if (!isOk(resp)) {
       console.error("GetInviteCode:", resp.data);
       setGetInviteCodeMessage("获取队伍邀请码失败" + resp.data);

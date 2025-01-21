@@ -7,6 +7,7 @@ import * as CryptoJS from "crypto-js";
 import { isOk, request } from "../utils/network";
 import { LoginResp } from "../data/interface/network";
 import LogoutButton from "./userLogout";
+import { InfoContext } from "../layout";
 
 type LoginFieldType = {
     userId: string;
@@ -39,7 +40,10 @@ export const UserLoginPage: React.FC = () => {
         offset: 8,
     },
     },
-};
+  };
+
+  const context = React.useContext(InfoContext);
+  if (!context) return null;
 
 const onFinish: FormProps<LoginFieldType>["onFinish"] = async (values) => {
     console.log("Button Pressed!");
@@ -72,13 +76,13 @@ const onFinish: FormProps<LoginFieldType>["onFinish"] = async (values) => {
     } else {
     if (resp.data.Success) {
         alert("登录成功!");
-        //重新加载页面以更新页面上方的ID等信息
-        window.location.href = "/";
-    } else {
+      } else {
         alert("登录失败");
     }
     }
-};
+    //更新导航栏上的信息
+    context.getInfo();
+  };
 
 return (
     <div>
