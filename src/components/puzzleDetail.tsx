@@ -23,9 +23,11 @@ import { isOk, request } from "../utils/network";
 import { cipher, decipher } from "../utils/cipher";
 import ReactMarkdown from "react-markdown";
 import "./puzzleDetail.css";
-const { Panel } = Collapse;
+
 import { UnlockFilled } from "@ant-design/icons";
 import confetti from "canvas-confetti";
+import { InfoContext } from "../layout";
+import React from "react";
 
 export interface PuzzleDetailProp {
   puzzleId: number;
@@ -130,6 +132,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
           `花费点数${resp.data.Success.price}，剩余点数${resp.data.Success.new_balance}`,
           "info",
         );
+        context?.getInfo();
       } else {
         // unreachable
         console.error("unlock");
@@ -137,6 +140,10 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
       setLoading(false);
     }
   };
+
+  const context = React.useContext(InfoContext);
+  if (!context) return null;
+
   const onSubmit = async (answer: string | undefined) => {
     const key = keys.current.find(
       (data) => data.dec_id === puzzle?.content.decipher_id,
@@ -163,6 +170,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                     剩余点数${resp.data.WrongAnswer.new_balance}；请于${time.toLocaleString()}之后再试`,
           "error",
         );
+        context.getInfo();
         const ctime = new Date();
         const cnt = time.getTime() - ctime.getTime();
         if (cnt > 0) {
@@ -175,7 +183,11 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         }
       } else if (resp.data.TryAgainAfter) {
         const time = new Date(resp.data.TryAgainAfter * 1000);
-        onToast("提交过快", `请于${time.toLocaleString()}之后再试`, "warning");
+        onToast(
+          "错误答案惩罚",
+          `请于${time.toLocaleString()}之后再试`,
+          "warning",
+        );
         const ctime = new Date();
         const cnt = time.getTime() - ctime.getTime();
         if (cnt > 0) {
@@ -212,6 +224,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         // unreachable
         console.error("submitans");
       }
+      context.getInfo();
     }
   };
   const getDecKey = async (dec_id: number | undefined) => {
@@ -322,7 +335,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                   icon={<UnlockFilled />}
                   style={{ marginBottom: "5px" }}
                 >
-                  {`解锁本条观测（${price}点数）`}
+                  {`解锁本条提示（${price}点数）`}
                 </Button>
               </Popconfirm>
             </div>
@@ -353,12 +366,17 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         </div>
       );
     }
+
     return (
       <div>
         {
           <ReactMarkdown>
             {decipher(
-              props.hint ? props.hint.cipher.cipher : puzzle.content.cipher,
+              props.skip
+                ? puzzle.skip.cipher
+                : props.hint
+                  ? props.hint.cipher.cipher
+                  : puzzle.content.cipher,
               key,
             ).join("\n")}
           </ReactMarkdown>
@@ -384,15 +402,16 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
       });
     }, [keys.current, puzzle]);
     return (
-      <Collapse bordered={false}>
-        {puzzle.hints.map((hint) => {
-          return (
-            <Panel key={hint.cipher.decipher_id} header={hint.title}>
-              <PuzzleContent hint={hint} />
-            </Panel>
-          );
+      <Collapse
+        bordered={false}
+        items={puzzle.hints.map((hint) => {
+          return {
+            key: "hint" + hint.cipher.decipher_id,
+            label: hint.title,
+            children: <PuzzleContent hint={hint} />,
+          };
         })}
-      </Collapse>
+      />
     );
   };
 
@@ -442,7 +461,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                 ),
               },
               {
-                label: "观测",
+                label: "提示",
                 key: "hint",
                 children: loading ? (
                   <Spin className="content" />
@@ -469,12 +488,13 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             display: disabled || !unlocked || loading ? "none" : undefined,
           }}
           placeholder={
-            pending.current ? "提交过快，请稍后再试" : "请在此处输入答案"
+            pending.current ? "错误答案惩罚，请稍后再试" : "请在此处输入答案"
           }
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onPressEnter={() => onSubmit(input)}
           disabled={loading || disabled || !unlocked || pending.current}
+          onFocus={() => console.log("current", pending.current)}
         />
       </div>
     </div>

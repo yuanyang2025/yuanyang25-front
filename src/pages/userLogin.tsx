@@ -1,21 +1,12 @@
 // page userLogin @ /userLogin
 
-import {
-  Button,
-  Form,
-  Input,
-  Radio,
-  Flex,
-  Space,
-  Tooltip,
-  Typography,
-} from "antd";
+import { Button, Form, Input, Radio, Flex, Tooltip, Typography } from "antd";
 import React, { useState } from "react";
 import type { FormProps } from "antd";
 import * as CryptoJS from "crypto-js";
 import { isOk, request } from "../utils/network";
 import { LoginResp } from "../data/interface/network";
-import LogoutButton from "./userLogout";
+import LogoutButton from "../components/logoutButton";
 import { InfoContext } from "../layout";
 import { LockOutlined } from "@ant-design/icons";
 
@@ -67,7 +58,6 @@ export const UserLoginPage: React.FC = () => {
   if (!context) return null;
 
   const onFinish: FormProps<LoginFieldType>["onFinish"] = async (values) => {
-    console.log("Button Pressed!");
     const { userId, password, totp } = values;
     const data = password
       ? CryptoJS.SHA256(password).toString()
@@ -76,7 +66,6 @@ export const UserLoginPage: React.FC = () => {
         : "";
 
     let method;
-
     if (password) {
       method = "Password";
     } else {
@@ -134,30 +123,29 @@ export const UserLoginPage: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         {authMethod === "password" && (
-          <Form.Item<LoginFieldType> label="密码">
-            <Space>
-              <Form.Item
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: "密码不能为空!",
-                  },
-                ]}
-                hasFeedback
-                noStyle
-              >
-                <Input.Password
-                  prefix={<LockOutlined />}
-                  placeholder="请输入密码"
-                />
-              </Form.Item>
-              <Tooltip title="点击前往注册页面">
-                <Typography.Link href="/userRegister">
-                  忘记密码？选择TOTP验证码方式或点击前往注册页面
-                </Typography.Link>
-              </Tooltip>
-            </Space>
+          <Form.Item label="密码">
+            <Form.Item<LoginFieldType>
+              noStyle
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "密码不能为空!",
+                },
+              ]}
+              hasFeedback
+            >
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="请输入密码"
+              />
+            </Form.Item>
+
+            <Tooltip title="点击前往注册页面">
+              <Typography.Link href="/userRegister">
+                忘记密码？选择TOTP验证码方式或点击前往注册页面
+              </Typography.Link>
+            </Tooltip>
           </Form.Item>
         )}
         {authMethod === "totp" && (
@@ -202,7 +190,7 @@ export const UserLoginPage: React.FC = () => {
         <Form.Item {...tailFormItemLayout}>
           <Flex gap="small">
             <Button type="primary" htmlType="submit">
-              登录
+              登入
             </Button>
             <LogoutButton />
             或者 <a href="/userRegister">尚未注册？去注册</a>

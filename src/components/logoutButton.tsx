@@ -14,7 +14,7 @@ const LogoutButton = () => {
 
   return (
     <Button danger onClick={logOut}>
-      退出登录
+      登出
     </Button>
   );
 };

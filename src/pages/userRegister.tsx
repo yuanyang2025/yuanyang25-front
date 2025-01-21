@@ -154,7 +154,7 @@ export const UserRegisterPage: React.FC = () => {
           <Button type="primary" htmlType="submit">
             注册 / 重置密码
           </Button>
-          &nbsp;&nbsp;&nbsp; <a href="/userLogin">注册好了？去登录</a>
+          &nbsp;&nbsp;&nbsp; <a href="/userLogin">回到登录页</a>
         </Form.Item>
       </Form>
     </div>
