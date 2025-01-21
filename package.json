@@ -14,6 +14,7 @@
     "antd": "^5.23.1",
     "canvas-confetti": "^1.9.3",
     "crypto-js": "^4.2.0",
+    "npx": "^10.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^9.0.3",

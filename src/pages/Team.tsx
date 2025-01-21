@@ -1,7 +1,12 @@
 //page userRegister @ /userRegister
 import React, { useState } from "react";
 import { Button, Form, Input, Space } from "antd";
-import { CreateTeamResp, ExitTeamResp, JoinTeamResp, TeamTOTPResp } from "../data/interface/network";
+import {
+  CreateTeamResp,
+  ExitTeamResp,
+  JoinTeamResp,
+  TeamTOTPResp,
+} from "../data/interface/network";
 import { isOk, request } from "../utils/network";
 
 interface JoinTeamFieldType {
@@ -16,77 +21,74 @@ export const TeamManagementPage: React.FC = () => {
   const [leaveTeamMessage, setLeaveTeamMessage] = useState<string>("");
   const [getInviteCodeMessage, setGetInviteCodeMessage] = useState<string>("");
 
-  const handleCreateTeam = async() => {
+  const handleCreateTeam = async () => {
     /*console.log("Creating team...");
     setCreateTeamMessage("队伍创建成功！");*/
-    const resp = await request<CreateTeamResp>(`/api/create_team`, "POST")
+    const resp = await request<CreateTeamResp>(`/api/create_team`, "POST");
 
     if (!isOk(resp)) {
       console.error("CreateTeam:", resp.data);
       setCreateTeamMessage("创建队伍失败" + resp.data);
-    }
-    else {
+    } else {
       if ("Success" in resp.data) {
-        setCreateTeamMessage("队伍创建成功！您的队伍ID是" + resp.data.Success?.id);
-      } 
-      else if ("AlreadyInTeam" in resp.data) {
-        setCreateTeamMessage("您已经在队伍内！您的队伍ID是"+ resp.data.AlreadyInTeam?.id);
-      }
-      else {
-        setCreateTeamMessage("创建队伍失败：" + resp.data)
+        setCreateTeamMessage(
+          "队伍创建成功！您的队伍ID是" + resp.data.Success?.id,
+        );
+      } else if ("AlreadyInTeam" in resp.data) {
+        setCreateTeamMessage(
+          "您已经在队伍内！您的队伍ID是" + resp.data.AlreadyInTeam?.id,
+        );
+      } else {
+        setCreateTeamMessage("创建队伍失败：" + resp.data);
       }
     }
   };
 
-  const handleJoinTeam = async(values: JoinTeamFieldType) => {
+  const handleJoinTeam = async (values: JoinTeamFieldType) => {
     // console.log("Joining team with:", values);
     // setJoinTeamMessage("成功加入队伍！");
-    console.log(values.inviteCode)
-    let teamId = Number(values.teamId)
-    let vericode = values.inviteCode.replace(/\s+/g,"")
-    let lower_vericode = vericode.toLowerCase()
+    console.log(values.inviteCode);
+    let teamId = Number(values.teamId);
+    let vericode = values.inviteCode.replace(/\s+/g, "");
+    let lower_vericode = vericode.toLowerCase();
     const resp = await request<JoinTeamResp>(`/api/join_team`, "POST", {
       team_id: teamId,
-      vericode: lower_vericode
+      vericode: lower_vericode,
     });
 
     if (!isOk(resp)) {
-      console.error("加入队伍失败！：" + resp.data)
-      setJoinTeamMessage("加入队伍失败：" + resp.data)
-    }
-    else {
+      console.error("加入队伍失败！：" + resp.data);
+      setJoinTeamMessage("加入队伍失败：" + resp.data);
+    } else {
       if ("Success" in resp.data) {
-        setJoinTeamMessage('加入队伍成功！')
-      }
-      else if ("AlreadyInTeam" in resp.data) {
-        setJoinTeamMessage('加入队伍失败：您已经在队伍内。')
-      }
-      else if ("TeamFull" in resp.data) {
-        setJoinTeamMessage('加入队伍失败：您所加的队伍已满员。')
-      }
-      else if ("AuthError" in resp.data) {
-        setJoinTeamMessage('加入队伍失败：邀请码错误（请检查您所加队伍的邀请码是否正确和是否在有效期内）。')
-      }
-      else {
-        setJoinTeamMessage('加入队伍失败：' + resp.data)
+        setJoinTeamMessage("加入队伍成功！");
+      } else if ("AlreadyInTeam" in resp.data) {
+        setJoinTeamMessage("加入队伍失败：您已经在队伍内。");
+      } else if ("TeamFull" in resp.data) {
+        setJoinTeamMessage("加入队伍失败：您所加的队伍已满员。");
+      } else if ("AuthError" in resp.data) {
+        setJoinTeamMessage(
+          "加入队伍失败：邀请码错误（请检查您所加队伍的邀请码是否正确和是否在有效期内）。",
+        );
+      } else {
+        setJoinTeamMessage("加入队伍失败：" + resp.data);
       }
     }
   };
 
-  const handleLeaveTeam = async() => {
+  const handleLeaveTeam = async () => {
     // console.log("Leaving team...");
     // setLeaveTeamMessage("已退出队伍！");
-    const resp = await request<ExitTeamResp>(`/api/exit_team`, "POST")
+    const resp = await request<ExitTeamResp>(`/api/exit_team`, "POST");
 
     if (!isOk(resp)) {
       console.error("CreateTeam:", resp.data);
       setLeaveTeamMessage("退出队伍失败" + resp.data);
-    }
-    else {
+    } else {
       if ("Success" in resp.data) {
         setLeaveTeamMessage("已退出队伍！");
       } else {
-        setLeaveTeamMessage("退出队伍失败，未知错误。"+ resp.data);
+        setLeaveTeamMessage("退出队伍失败，未知错误。" + resp.data);
       }
     }
   };
@@ -99,13 +101,13 @@ export const TeamManagementPage: React.FC = () => {
       setGetInviteCodeMessage("获取队伍邀请码失败" + resp.data);
     } else {
       if ("Success" in resp.data) {
-        setGetInviteCodeMessage("队伍邀请码（约4min内有效）是：" + resp.data.Success.totp);
-      }
-      else if ("NotInTeam" in resp.data) {
+        setGetInviteCodeMessage(
+          "队伍邀请码（约4min内有效）是：" + resp.data.Success.totp,
+        );
+      } else if ("NotInTeam" in resp.data) {
         setGetInviteCodeMessage("获取队伍邀请码失败：您未加入队伍。");
-      }
-      else {
-        setGetInviteCodeMessage("获取队伍邀请码失败，未知错误。"+ resp.data);
+      } else {
+        setGetInviteCodeMessage("获取队伍邀请码失败，未知错误。" + resp.data);
       }
     }
   };

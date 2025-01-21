@@ -94,20 +94,20 @@ export interface LoginResp {
 }
 
 export interface CreateTeamResp {
-  Success?: {id: number};
-  AlreadyInTeam?: {id: number};
+  Success?: { id: number };
+  AlreadyInTeam?: { id: number };
 }
 
 export type TeamTOTPResp = { Success: { id: number; totp: string } };
 
 export interface JoinTeamReq {
-  team_id: number
-  vericode: string
+  team_id: number;
+  vericode: string;
 }
 
 export type JoinTeamResp = {
-  Success: { id: number }
-}
+  Success: { id: number };
+};
 export type ExitTeamResp = {
-  Success: { id: number }
-}
+  Success: { id: number };
+};
