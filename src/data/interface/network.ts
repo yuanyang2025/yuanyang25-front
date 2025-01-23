@@ -46,7 +46,7 @@ export interface PostSubmitResp {
     new_balance: number;
   };
   TryAgainAfter?: TimeStamp;
-  HasSubmitted?: any;
+  HasSubmitted?: string;
   Success?: {
     puzzle_id: number;
     award_token: number;
@@ -120,6 +120,7 @@ export type ExitTeamResp =
   | "NotAllowed"
   | "NotInTeam";
 
+// Oracle
 export interface CreateOracleReq {
   puzzle_id: number;
   content: string;
@@ -127,21 +128,26 @@ export interface CreateOracleReq {
 
 export type CreateOracleResp =
   | {
-      Success: { id: number };
+      Success: {
+        oracle_id: number;
+        cost: number;
+        new_balance: number;
+      };
     }
   | "TooManyActiveOracle";
 
-export type OracleStatusResp = {
+export interface CheckOracleResp {
   active: number[];
   inactive: number[];
-};
+}
 
 export interface GetOracleResp {
   id: number;
   puzzle: number;
   team: number;
-  active: boolean;
+  active: string;
   cost: number;
+  refund: number;
   query: string;
   response: string;
 }
@@ -156,13 +162,13 @@ export type StaffReplyOracleResp = "InvalidQuery";
 
 export interface StaffOracleAbstract {
   id: number;
-  active: boolean;
+  active: string;
   cost: number;
   refund: number;
   team: number;
   puzzle: number;
 }
 
-export type StaffListOracleResp = {
+export interface StaffListOracleResp {
   oracles: StaffOracleAbstract[];
-};
+}

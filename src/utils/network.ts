@@ -13,6 +13,7 @@ export const request = async <T>(
   const headers: Record<string, string> = {};
   let body;
 
+  // 链接本地后端调试时注释掉这一部分
   if (url.startsWith("/api/")) {
     url = `https://back-sbojkjgphc.cn-beijing.fcapp.run${url.slice(4)}`; // 去掉 '/api' 前缀
   }

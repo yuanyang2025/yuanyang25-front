@@ -58,7 +58,7 @@ export const StaffOraclePage: React.FC = () => {
     (_, i) => ({
       key: i,
       id: i,
-      active: false,
+      active: `false`,
       cost: i * 100,
       puzzle: 5,
       team: i * 3 + 1,

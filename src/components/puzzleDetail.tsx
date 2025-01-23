@@ -145,15 +145,18 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
   if (!context) return null;
 
   const onSubmit = async (answer: string | undefined) => {
-    const key = keys.current.find(
-      (data) => data.dec_id === puzzle?.content.decipher_id,
-    )?.key;
-    if (answer === undefined || key === undefined) {
-      return;
-    }
-    pending.current = true;
-    setInput(undefined);
-    const ciphertext = cipher(answer, key);
+    // const key = keys.current.find(
+    //   (data) => data.dec_id === puzzle?.content.decipher_id,
+    // )?.key;
+    // if (answer === undefined || key === undefined) {
+    //   return;
+    // }
+    // pending.current = true;
+    // setInput(undefined);
+
+    if (answer === undefined) return;
+    const ciphertext = cipher(answer, "");
+
     const resp = await request<PostSubmitResp>(`/api/submit_answer`, "POST", {
       puzzle_id: props.puzzleId,
       answer: ciphertext,
@@ -199,7 +202,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
           pending.current = false;
         }
       } else if (resp.data.HasSubmitted) {
-        onToast("重复提交", "", "info");
+        onToast("重复提交", resp.data.HasSubmitted, "info");
         pending.current = false;
       } else if (resp.data.PleaseToast) {
         onToast("提示", resp.data.PleaseToast, "info");
@@ -366,6 +369,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         </div>
       );
     }
+    console.log(disabled);
 
     return (
       <div>
@@ -485,7 +489,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         </div>
         <Input
           style={{
-            display: disabled || !unlocked || loading ? "none" : undefined,
+            display: !unlocked || loading ? "none" : undefined,
           }}
           placeholder={
             pending.current ? "错误答案惩罚，请稍后再试" : "请在此处输入答案"
@@ -493,7 +497,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onPressEnter={() => onSubmit(input)}
-          disabled={loading || disabled || !unlocked || pending.current}
+          disabled={loading || !unlocked || pending.current}
           onFocus={() => console.log("current", pending.current)}
         />
       </div>
