@@ -46,7 +46,7 @@ export interface PostSubmitResp {
     new_balance: number;
   };
   TryAgainAfter?: TimeStamp;
-  HasSubmitted?: any;
+  HasSubmitted?: string;
   Success?: {
     puzzle_id: number;
     award_token: number;
