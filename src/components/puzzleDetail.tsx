@@ -153,9 +153,8 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     // }
     // pending.current = true;
     // setInput(undefined);
-    
 
-    if(answer === undefined) return;
+    if (answer === undefined) return;
     const ciphertext = cipher(answer, "");
 
     const resp = await request<PostSubmitResp>(`/api/submit_answer`, "POST", {
@@ -498,7 +497,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onPressEnter={() => onSubmit(input)}
-          disabled={loading  || !unlocked || pending.current}
+          disabled={loading || !unlocked || pending.current}
           onFocus={() => console.log("current", pending.current)}
         />
       </div>
