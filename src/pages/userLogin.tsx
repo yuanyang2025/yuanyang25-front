@@ -16,17 +16,6 @@ type LoginFieldType = {
   totp?: string;
 };
 
-/*const PasswordInput = () => (
-  <div>
-    <div>
-    <Input.Password prefix={<LockOutlined />} placeholder="请输入密码" />
-  </div>
-  <div>
-    忘记密码？选择TOTP验证码方式 或者
-    <a href="/userRegister">去修改密码</a>
-  </div>
-  </div>
-)*/
 export const UserLoginPage: React.FC = () => {
   const [form] = Form.useForm();
   const [authMethod, setAuthMethod] = useState<"password" | "totp">("password");
