@@ -119,3 +119,50 @@ export type ExitTeamResp =
     }
   | "NotAllowed"
   | "NotInTeam";
+
+export interface CreateOracleReq {
+  puzzle_id: number;
+  content: string;
+}
+
+export type CreateOracleResp =
+  | {
+      Success: { id: number };
+    }
+  | "TooManyActiveOracle";
+
+export type OracleStatusResp = {
+  active: number[];
+  inactive: number[];
+};
+
+export interface GetOracleResp {
+  id: number;
+  puzzle: number;
+  team: number;
+  active: boolean;
+  cost: number;
+  query: string;
+  response: string;
+}
+
+export interface StaffReplyOracleReq {
+  oracle_id: number;
+  refund_amount: number;
+  content: string;
+}
+
+export type StaffReplyOracleResp = "InvalidQuery";
+
+export interface StaffOracleAbstract {
+  id: number;
+  active: boolean;
+  cost: number;
+  refund: number;
+  team: number;
+  puzzle: number;
+}
+
+export type StaffListOracleResp = {
+  oracles: StaffOracleAbstract[];
+};
