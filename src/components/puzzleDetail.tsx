@@ -11,6 +11,7 @@ import {
   Skeleton,
   Spin,
   Tabs,
+  message,
   notification,
 } from "antd";
 import { Hint, KeyData } from "../data/interface/puzzle";
@@ -110,7 +111,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     );
     if (!isOk(resp)) {
       console.error("unlock", resp.data);
-      alert(resp.data);
+      message.error("错误！" + String(resp.data));
     } else {
       if (resp.data.AlreadyUnlocked) {
         const old_key = resp.data.AlreadyUnlocked;
@@ -163,7 +164,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     });
     if (!isOk(resp)) {
       console.error("submitans", resp.data);
-      alert(resp.data);
+      message.error("错误！" + String(resp.data));
     } else {
       if (resp.data.WrongAnswer) {
         const time = new Date(resp.data.WrongAnswer.try_again_after * 1000);
@@ -242,7 +243,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     );
     if (!isOk(resp)) {
       console.error("getdeckey", resp.data);
-      alert(resp.data);
+      message.error("错误！" + String(resp.data));
     } else {
       if (resp.data.Price) {
         setPrice(dec_id, resp.data.Price);
