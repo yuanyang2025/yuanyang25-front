@@ -28,4 +28,12 @@ function findMaxDecipherId(data: any) {
 
 export const MaxDecID = 1 + findMaxDecipherId(PuzzleData);
 
+export const PuzzleTitle: Map<number, string> = PuzzleData.reduce(
+  (map, puzzle) => {
+    map.set(puzzle.puzzle_id, puzzle.title);
+    return map;
+  },
+  new Map<number, string>(),
+);
+
 console.info("MaxDecID", MaxDecID);
