@@ -1,7 +1,7 @@
 // puzzle list component
 
 import "./puzzleList.css";
-import { Button, Menu } from "antd";
+import { Button, Menu, message } from "antd";
 import {
   RightOutlined,
   LeftOutlined,
@@ -69,7 +69,7 @@ export const PuzzleList = (props: PuzzleListProp) => {
     const resp = await request<GetListResp>(`/api/puzzle_status`, "GET");
     if (!isOk(resp)) {
       console.error("status", resp.data);
-      alert(resp.data);
+      message.error("错误！" + String(resp.data))
     } else {
       setUpdated(resp.data.updated);
       setStatus(resp.data.data);
