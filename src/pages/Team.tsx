@@ -1,6 +1,6 @@
 //page userRegister @ /userRegister
-import React, { useState } from "react";
-import { Button, Form, Input, Space } from "antd";
+import React from "react";
+import { Button, Form, Input, message, Space } from "antd";
 import {
   CreateTeamResp,
   ExitTeamResp,
@@ -18,10 +18,6 @@ interface JoinTeamFieldType {
 
 export const TeamManagementPage: React.FC = () => {
   const [form] = Form.useForm();
-  const [createTeamMessage, setCreateTeamMessage] = useState<string>("");
-  const [joinTeamMessage, setJoinTeamMessage] = useState<string>("");
-  const [leaveTeamMessage, setLeaveTeamMessage] = useState<string>("");
-  const [getInviteCodeMessage, setGetInviteCodeMessage] = useState<string>("");
 
   const context = React.useContext(InfoContext);
   if (!context) return null;
@@ -33,18 +29,16 @@ export const TeamManagementPage: React.FC = () => {
 
     if (!isOk(resp)) {
       console.error("CreateTeam:", resp.data);
-      setCreateTeamMessage("创建队伍失败" + resp.data);
+      message.error("创建队伍失败" + resp.data);
     } else {
       if ("Success" in resp.data) {
-        setCreateTeamMessage(
-          "队伍创建成功！您的队伍ID是" + resp.data.Success?.id,
-        );
+        message.success("队伍创建成功！您的队伍ID是" + resp.data.Success?.id);
       } else if ("AlreadyInTeam" in resp.data) {
-        setCreateTeamMessage(
+        message.error(
           "您已经在队伍内！您的队伍ID是" + resp.data.AlreadyInTeam?.id,
         );
       } else {
-        setCreateTeamMessage("创建队伍失败：" + resp.data);
+        message.error("创建队伍失败：" + resp.data);
       }
     }
   };
@@ -63,20 +57,20 @@ export const TeamManagementPage: React.FC = () => {
 
     if (!isOk(resp)) {
       console.error("加入队伍失败！：" + resp.data);
-      setJoinTeamMessage("加入队伍失败：" + resp.data);
+      message.error("加入队伍失败：" + resp.data);
     } else {
       if (resp.data === "AlreadyInTeam") {
-        setJoinTeamMessage("加入队伍失败：您已经在队伍内。");
+        message.error("加入队伍失败：您已经在队伍内。");
       } else if ("TeamFull" === resp.data) {
-        setJoinTeamMessage("加入队伍失败：您所加的队伍已满员。");
+        message.error("加入队伍失败：您所加的队伍已满员。");
       } else if ("AuthError" === resp.data) {
-        setJoinTeamMessage(
+        message.error(
           "加入队伍失败：邀请码错误（请检查您所加队伍的邀请码是否正确和是否在有效期内）。",
         );
       } else if ("Success" in resp.data) {
-        setJoinTeamMessage("加入队伍成功！");
+        message.success("加入队伍成功！");
       } else {
-        setJoinTeamMessage("加入队伍失败：" + resp.data);
+        message.error("加入队伍失败：" + resp.data);
       }
     }
     context.getInfo();
@@ -89,16 +83,16 @@ export const TeamManagementPage: React.FC = () => {
 
     if (!isOk(resp)) {
       console.error("CreateTeam:", resp.data);
-      setLeaveTeamMessage("请求失败：" + resp.data);
+      message.error("请求失败：" + resp.data);
     } else {
       if (resp.data == "NotAllowed") {
-        setLeaveTeamMessage("根据规则，此队伍已经不能退出。");
+        message.error("根据规则，此队伍已经不能退出。");
       } else if (resp.data == "NotInTeam") {
-        setLeaveTeamMessage("退出队伍失败：您尚未加入任何一个队伍。");
+        message.error("退出队伍失败：您尚未加入任何一个队伍。");
       } else if ("Success" in resp.data) {
-        setLeaveTeamMessage("已退出队伍！");
+        message.warning("已退出队伍！");
       } else {
-        setLeaveTeamMessage("退出队伍失败，未知错误。" + resp.data);
+        message.error("退出队伍失败，未知错误。" + resp.data);
       }
     }
     context.getInfo();
@@ -109,16 +103,18 @@ export const TeamManagementPage: React.FC = () => {
 
     if (!isOk(resp)) {
       console.error("GetInviteCode:", resp.data);
-      setGetInviteCodeMessage("获取队伍邀请码失败" + resp.data);
+      message.error("获取队伍邀请码失败" + resp.data);
     } else {
       if ("Success" in resp.data) {
-        setGetInviteCodeMessage(
-          "队伍邀请码（约4min内有效）是：" + resp.data.Success.totp,
-        );
+        message.open({
+          type: "success",
+          content: "获取成功！您的队伍邀请码是：" + resp.data.Success.totp,
+          duration: 12,
+        });
       } else if ("NotInTeam" in resp.data) {
-        setGetInviteCodeMessage("获取队伍邀请码失败：您未加入队伍。");
+        message.error("获取队伍邀请码失败：您未加入队伍。");
       } else {
-        setGetInviteCodeMessage("获取队伍邀请码失败，未知错误。" + resp.data);
+        message.error("获取队伍邀请码失败，未知错误。" + resp.data);
       }
     }
     context.getInfo();
@@ -149,14 +145,12 @@ export const TeamManagementPage: React.FC = () => {
           <Button type="primary" onClick={handleCreateTeam}>
             创建队伍
           </Button>
-          <span>{createTeamMessage}</span>
         </Space>
 
         <Space style={{ marginBottom: 20, display: "block" }}>
           <Button type="primary" onClick={handleGetInviteCode}>
             获取队伍邀请码
           </Button>
-          <span>{getInviteCodeMessage}</span>
         </Space>
 
         <Form.Item
@@ -213,7 +207,6 @@ export const TeamManagementPage: React.FC = () => {
             <Button type="primary" htmlType="submit">
               加入队伍
             </Button>
-            <span>{joinTeamMessage}</span>
           </Space>
         </Form.Item>
 
@@ -221,7 +214,6 @@ export const TeamManagementPage: React.FC = () => {
           <Button type="primary" danger onClick={handleLeaveTeam}>
             退出队伍
           </Button>
-          <span>{leaveTeamMessage}</span>
         </Space>
       </Form>
     </div>

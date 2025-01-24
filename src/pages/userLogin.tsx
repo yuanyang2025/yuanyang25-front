@@ -1,6 +1,15 @@
 // page userLogin @ /userLogin
 
-import { Button, Form, Input, Radio, Flex, Tooltip, Typography } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Radio,
+  Flex,
+  Tooltip,
+  Typography,
+  message,
+} from "antd";
 import React, { useState } from "react";
 import type { FormProps } from "antd";
 import * as CryptoJS from "crypto-js";
@@ -74,9 +83,9 @@ export const UserLoginPage: React.FC = () => {
       alert(resp.data);
     } else {
       if (resp.data.Success) {
-        alert("登录成功!");
+        message.success("登录成功！");
       } else {
-        alert("登录失败");
+        message.error("登录失败");
       }
     }
     //更新导航栏上的信息

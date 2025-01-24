@@ -145,7 +145,7 @@ export interface GetOracleResp {
   id: number;
   puzzle: number;
   team: number;
-  active: string;
+  active: boolean;
   cost: number;
   refund: number;
   query: string;
@@ -158,11 +158,9 @@ export interface StaffReplyOracleReq {
   content: string;
 }
 
-export type StaffReplyOracleResp = "InvalidQuery";
-
 export interface StaffOracleAbstract {
   id: number;
-  active: string;
+  active: boolean;
   cost: number;
   refund: number;
   team: number;
@@ -171,4 +169,5 @@ export interface StaffOracleAbstract {
 
 export interface StaffListOracleResp {
   oracles: StaffOracleAbstract[];
+  //oracles: string[]
 }

@@ -1,6 +1,6 @@
 //page userRegister @ /userRegister
 
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import React, { useState } from "react";
 import type { FormProps } from "antd";
 import * as CryptoJS from "crypto-js";
@@ -61,9 +61,11 @@ export const UserRegisterPage: React.FC = () => {
       alert(resp.data);
     } else {
       if (resp.data.Success) {
-        alert("注册/重置密码成功!");
+        message.success("注册/重置密码成功!");
       } else {
-        alert("注册码解析失败!请检查是否已在公众号上获取最新的注册码。");
+        message.error(
+          "注册码解析失败!请检查是否已在公众号上获取最新的注册码。",
+        );
       }
     }
     context.getInfo();
