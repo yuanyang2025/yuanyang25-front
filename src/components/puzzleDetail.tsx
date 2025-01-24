@@ -155,7 +155,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     // setInput(undefined);
 
     if (answer === undefined) return;
-    const ciphertext = cipher(answer, "");
+    const ciphertext = cipher(answer.trim(), "");
 
     const resp = await request<PostSubmitResp>(`/api/submit_answer`, "POST", {
       puzzle_id: props.puzzleId,
