@@ -104,7 +104,8 @@ export const Oracle = (props: OracleProp) => {
     } else {
       let active = query.data.active;
       let inactive = query.data.inactive;
-
+      active.sort((a, b) => +a - +b);
+      inactive.sort((a, b) => +a - +b);
       setActiveOracleList(active);
       setInActiveOracleList(inactive);
 
@@ -155,7 +156,7 @@ export const Oracle = (props: OracleProp) => {
           <Spin />
         ) : (
           <div>
-            staff 已经回复以下神谕:
+            {inActiveOracleList.length > 0 ? "staff 已经回复以下神谕:" : ""}
             <Flex wrap gap="small">
               {Array.from(inActiveOracleList, (data, i) => (
                 <Button
@@ -167,7 +168,7 @@ export const Oracle = (props: OracleProp) => {
                 </Button>
               ))}
             </Flex>
-            请等待 staff 回复以下神谕：
+            {activeOracleList.length > 0 ? "请等待 staff 回复以下神谕：" : ""}
             <Flex wrap gap="small">
               {Array.from(activeOracleList, (data, i) => (
                 <Button
@@ -179,6 +180,9 @@ export const Oracle = (props: OracleProp) => {
                 </Button>
               ))}
             </Flex>
+            {activeOracleList.length + inActiveOracleList.length > 0
+              ? ""
+              : "未查询到记录"}
           </div>
         )}
 

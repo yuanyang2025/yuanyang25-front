@@ -11,12 +11,13 @@ import {
   Input,
   message,
 } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   GetOracleResp,
   StaffListOracleResp,
   StaffOracleAbstract,
   StaffReplyOracleReq,
+  WorkFromResp,
 } from "../data/interface/network";
 import TextArea from "antd/es/input/TextArea";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
@@ -113,6 +114,27 @@ export const StaffOraclePage: React.FC = () => {
     onChangeStart(+values.start_id);
   };
 
+  const onFindStart = async () => {
+    const query = await request<WorkFromResp>(
+          `/api/staff_work_from`,
+          "GET",
+        );
+
+    if (!isOk(query)) {
+      message.error("获取第一个没有回复的oracle失败:" + query.data);
+    } else if (query.data.Start){
+      message.info(`${query.data.Start}是第一个没有回复的oracle`);
+      setOracleStartId(+query.data.Start);
+      onChangeStart(+query.data.Start);
+    } else if (query.data.Nothing){
+      message.success(`所有oracle都已经被回复`);
+    }
+  };
+
+  useEffect(() => {
+     onFindStart();
+  },[]);
+
   const columns: TableColumnsType<StaffOracleAbstract> = [
     { title: "ID", dataIndex: "id" },
     {
@@ -197,7 +219,7 @@ export const StaffOraclePage: React.FC = () => {
           &nbsp;&nbsp;
           <span style={{ color: "#000" }}>
             {oracleList.length > 0
-              ? `当前查询范围： [${oracleStartId},${oracleStartId + PageSize})`
+              ? `当前查询位置： ${oracleStartId}`
               : `无查询`}
           </span>
           &nbsp;&nbsp;

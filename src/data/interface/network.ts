@@ -126,6 +126,11 @@ export interface CreateOracleReq {
   content: string;
 }
 
+export interface WorkFromResp {
+  Start?: number,
+  Nothing?: string
+}
+
 export type CreateOracleResp =
   | {
       Sucess: {
