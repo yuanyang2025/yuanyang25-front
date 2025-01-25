@@ -56,7 +56,7 @@ export const PuzzleList = (props: PuzzleListProp) => {
             <div
               style={{ alignSelf: "right", marginLeft: "10px", opacity: "0.5" }}
             >
-              {`${st.passed}/${st.unlocked + st.passed}`}
+              {`${st.passed}/${st.unlocked}`}
             </div>
           )}
         </div>
@@ -69,7 +69,7 @@ export const PuzzleList = (props: PuzzleListProp) => {
     const resp = await request<GetListResp>(`/api/puzzle_status`, "GET");
     if (!isOk(resp)) {
       console.error("status", resp.data);
-      message.error("错误！" + String(resp.data))
+      message.error("错误！" + String(resp.data));
     } else {
       setUpdated(resp.data.updated);
       setStatus(resp.data.data);

@@ -9,121 +9,158 @@ import {
   Form,
   FormProps,
   Input,
-  Tooltip,
   message,
 } from "antd";
 import React, { useState } from "react";
 import {
+  GetOracleResp,
   StaffListOracleResp,
   StaffOracleAbstract,
+  StaffReplyOracleReq,
 } from "../data/interface/network";
 import TextArea from "antd/es/input/TextArea";
-import { QuestionCircleOutlined } from "@ant-design/icons";
+import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
 import { isOk, request } from "../utils/network";
+import { PuzzleTitle } from "../data/constants";
+
 type FieldTypeReply = {
-  refund: number;
+  charge: number;
   content: string;
 };
+
 type FieldTypeInfo = {
   start_id: number;
-  limit: number;
 };
+
+const PageSize = 10;
+
 export const StaffOraclePage: React.FC = () => {
-  const [isModalReplyOpen, setIsModalReplyOpen] = useState(false);
   const [isModalDetailOpen, setIsModalDetailOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [oracleLimit, setOracleLimit] = useState(0);
   const [oracleStartId, setOracleStartId] = useState(0);
-  const [oracleList, setOracleList] = useState<any[]>([]);
+
+  const [oracleList, setOracleList] = useState<StaffOracleAbstract[]>([]);
+  const [currentOracle, setCurrentOracle] = useState<undefined | GetOracleResp>(
+    undefined,
+  );
   const [form] = Form.useForm();
-  const showModalReply = () => {
+
+  const showModalDetail = async (id: number) => {
+    const query = await request<GetOracleResp>(
+      `/api/get_oracle?oracle_id=${id}`,
+      "GET",
+    );
+    if (!isOk(query)) {
+      message.error(`获取神谕${id}详细信息失败！` + query.data);
+      setIsModalDetailOpen(false);
+      return;
+    }
+    setCurrentOracle(query.data);
     form.resetFields();
-    setIsModalReplyOpen(true);
-  };
-  const showModalDetail = () => {
     setIsModalDetailOpen(true);
   };
-  const handleOk = () => {
-    setIsModalReplyOpen(false);
+
+  const handleCloseModal = () => {
     setIsModalDetailOpen(false);
   };
 
-  const handleCancel = () => {
-    setIsModalReplyOpen(false);
-    setIsModalDetailOpen(false);
+  const onFinish: FormProps<FieldTypeReply>["onFinish"] = async (form_data) => {
+    if (currentOracle == undefined) {
+      setIsModalDetailOpen(false);
+      return;
+    }
+
+    const data: StaffReplyOracleReq = {
+      oracle_id: currentOracle.id,
+      refund_amount: currentOracle.cost - form_data.charge,
+      content: form_data.content,
+    };
+    const query = await request<string>(
+      `/api/staff_reply_oracle`,
+      "POST",
+      data,
+    );
+
+    if (isOk(query)) {
+      message.success("成功提交回复！");
+      setIsModalDetailOpen(false);
+    } else {
+      message.error("提交回复失败！" + query.data);
+    }
+
+    onChangeStart(oracleStartId);
   };
-  const onFinish: FormProps<FieldTypeReply>["onFinish"] = () => {
-    message.success("已提交回复！");
-  };
-  const onQuery: FormProps<FieldTypeInfo>["onFinish"] = async (values) => {
+
+  const onChangeStart = async (start_id: number) => {
     setLoading(true);
-    let start_id = values.start_id;
-    let limit = values.limit;
+    let limit = PageSize;
     const query = await request<StaffListOracleResp>(
       `/api/staff_list_oracle?start_oracle_id=${start_id}&limit=${limit}`,
       "GET",
     );
     if (!isOk(query)) {
-      message.error("请求失败！" + query.data);
+      message.error("查询神谕列表失败！" + query.data);
       setLoading(false);
     } else {
       setOracleStartId(start_id);
-      setOracleLimit(limit);
-      console.log(query.data);
       setOracleList(query.data.oracles);
       setLoading(false);
-      message.success("请求成功！");
+      message.success("查询神谕列表成功！");
     }
   };
+
+  const onQuery: FormProps<FieldTypeInfo>["onFinish"] = async (values) => {
+    onChangeStart(+values.start_id);
+  };
+
   const columns: TableColumnsType<StaffOracleAbstract> = [
     { title: "ID", dataIndex: "id" },
     {
-      title: "是否回复",
+      title: "等待回复",
       dataIndex: "active",
-      render: (text) => {
-        if (text.value == false) {
-          return "是";
-        } else {
-          return "否";
-        }
+      render: (active) => {
+        return active ? "是" : "否";
       },
     },
-    { title: "花费", dataIndex: "cost" },
-    { title: "题目", dataIndex: "puzzle" },
-    { title: "队伍", dataIndex: "team" },
+    { title: "押金", dataIndex: "cost" },
     { title: "退费", dataIndex: "refund" },
+    {
+      title: "收费",
+      dataIndex: "",
+      key: "charge",
+      render: (data: StaffOracleAbstract) => {
+        return data.active ? "" : data.cost - data.refund;
+      },
+    },
+    {
+      title: "题目",
+      dataIndex: "puzzle",
+      render: (id: number) => id + " " + PuzzleTitle.get(id),
+    },
+    { title: "队伍", dataIndex: "team" },
     {
       title: "操作",
       dataIndex: "",
-      key: "",
-      render: () => (
-        <div>
-          <Button onClick={showModalReply} type="primary">
-            点击回复
-          </Button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <Button onClick={showModalDetail} type="primary">
-            查看详情
-          </Button>
-        </div>
-      ),
+      key: "operation",
+      render: (data: StaffOracleAbstract) => {
+        return (
+          <div>
+            <Button
+              onClick={() => {
+                showModalDetail(data.id);
+              }}
+              type={data.active ? "primary" : "dashed"}
+            >
+              {data.active ? "回复" : "查看"}
+            </Button>
+          </div>
+        );
+      },
     },
   ];
 
-  /*const datasource = Array.from({ length: oracleLimit }).map<StaffOracleAbstract>(
-    (_, i) => ({
-      key: i,
-      id: i,
-      active: false,
-      cost: i * 100,
-      puzzle: 5,
-      team: i * 3 + 1,
-      refund: 0,
-    }),
-  );*/
   return (
     <div>
-      注：这个页面只是一个样子货，尚未接入API。（onFinish函数、查询详情）
       <Flex align="start" gap="middle" vertical>
         <Form
           layout="inline"
@@ -141,42 +178,51 @@ export const StaffOraclePage: React.FC = () => {
               },
             ]}
           >
-            <Input placeholder="起始ID" type="number" />
+            <Input placeholder="起始ID" type="number" value={oracleStartId} />
           </Form.Item>
-          <Form.Item
-            label="查询数量"
-            name="limit"
-            rules={[
-              {
-                required: true,
-                message: "查询数量不能为空!",
-              },
-            ]}
-          >
-            <Input placeholder="查询数量" type="number" />
-          </Form.Item>
+
           <Form.Item>
             <Button type="primary" htmlType="submit">
               查询
             </Button>
           </Form.Item>
         </Form>
+
+        <div style={{ fontSize: "20px", color: "#08c" }}>
+          <LeftCircleOutlined
+            onClick={() => {
+              onChangeStart(Math.max(oracleStartId - PageSize, 0));
+            }}
+          />
+          &nbsp;&nbsp;
+          <span style={{ color: "#000" }}>
+            {oracleList.length > 0
+              ? `当前查询范围： [${oracleStartId},${oracleStartId + PageSize})`
+              : `无查询`}
+          </span>
+          &nbsp;&nbsp;
+          <RightCircleOutlined
+            style={{ fontSize: "24px", color: "#08c" }}
+            onClick={() => {
+              onChangeStart(Math.max(oracleStartId + PageSize, 0));
+            }}
+          />
+        </div>
+
         <Table<StaffOracleAbstract>
           columns={columns}
           dataSource={oracleList}
           loading={loading}
-          pagination={{
-            showSizeChanger: true,
-            showQuickJumper: true,
-            total: oracleList.length,
-          }}
+          pagination={false}
           rowKey={(oracleList) => oracleList.id}
         />
+
         <Modal
-          title="回复神谕……"
-          open={isModalReplyOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
+          title={`神谕请求 ${currentOracle?.id} : 关于 ${currentOracle?.puzzle} ${currentOracle?.puzzle === undefined ? "" : PuzzleTitle.get(currentOracle.puzzle)}`}
+          open={isModalDetailOpen}
+          footer={null}
+          closable={false}
+          width={1000}
           destroyOnClose
         >
           <div>
@@ -187,17 +233,36 @@ export const StaffOraclePage: React.FC = () => {
               onFinish={onFinish}
               autoComplete="off"
             >
+              <Form.Item label="提问内容">
+                <TextArea
+                  disabled={true}
+                  style={{ height: 120, resize: "none" }}
+                  value={currentOracle?.query}
+                />
+              </Form.Item>
+
               <Form.Item<FieldTypeReply>
-                label="退费款项"
-                name="refund"
+                label="收费"
+                name="charge"
                 rules={[
                   {
                     required: true,
-                    message: "退费不能为空!",
+                    message: "收费不能为空!",
                   },
                 ]}
               >
-                <Input type="number" placeholder="请输入退费款项（可负）" />
+                <Input
+                  type="number"
+                  placeholder={
+                    currentOracle?.active
+                      ? `请输入收费。押金为${currentOracle?.cost}。`
+                      : (
+                          (currentOracle?.cost as number) -
+                          (currentOracle?.refund as number)
+                        ).toString()
+                  }
+                  disabled={currentOracle?.active !== true}
+                />
               </Form.Item>
               <Form.Item<FieldTypeReply>
                 label="回复内容"
@@ -212,32 +277,32 @@ export const StaffOraclePage: React.FC = () => {
                 <TextArea
                   showCount
                   maxLength={200}
-                  placeholder="请输入回复内容..."
+                  placeholder={
+                    currentOracle?.active
+                      ? "请输入回复内容..."
+                      : currentOracle?.response
+                  }
                   style={{ height: 120, resize: "none" }}
+                  disabled={currentOracle?.active !== true}
                 />
               </Form.Item>
               <Form.Item>
                 <Flex gap="medium">
-                  <Button type="primary" htmlType="submit">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    disabled={currentOracle?.active !== true}
+                  >
                     回复神谕
                   </Button>
                   &nbsp;&nbsp;
-                  <Tooltip title="此处有不同的按钮。下方的按钮为关闭窗口用，点击后不会保存已经输入的内容。">
-                    <QuestionCircleOutlined />
-                  </Tooltip>
+                  <Button type="default" onClick={handleCloseModal}>
+                    取消
+                  </Button>
                 </Flex>
               </Form.Item>
             </Form>
           </div>
-        </Modal>
-        <Modal
-          title="详情"
-          open={isModalDetailOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          destroyOnClose
-        >
-          <div>详情内容（TBD）</div>
         </Modal>
       </Flex>
     </div>

@@ -128,7 +128,7 @@ export interface CreateOracleReq {
 
 export type CreateOracleResp =
   | {
-      Success: {
+      Sucess: {
         oracle_id: number;
         cost: number;
         new_balance: number;

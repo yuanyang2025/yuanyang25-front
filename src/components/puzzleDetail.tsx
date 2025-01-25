@@ -29,6 +29,7 @@ import { UnlockFilled } from "@ant-design/icons";
 import confetti from "canvas-confetti";
 import { InfoContext } from "../layout";
 import React from "react";
+import { Oracle } from "./oracle";
 
 export interface PuzzleDetailProp {
   puzzleId: number;
@@ -156,7 +157,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     // setInput(undefined);
 
     if (answer === undefined) return;
-    const ciphertext = cipher(answer, "");
+    const ciphertext = cipher(answer.trim(), "");
 
     const resp = await request<PostSubmitResp>(`/api/submit_answer`, "POST", {
       puzzle_id: props.puzzleId,
@@ -482,6 +483,16 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                   <Spin className="content" />
                 ) : (
                   <PuzzleContent skip />
+                ),
+                disabled: !unlocked,
+              },
+              {
+                label: "神谕",
+                key: "oracle",
+                children: loading ? (
+                  <Spin className="content" />
+                ) : (
+                  <Oracle puzzleId={puzzle.puzzle_id} />
                 ),
                 disabled: !unlocked,
               },
