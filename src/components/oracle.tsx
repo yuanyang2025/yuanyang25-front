@@ -2,17 +2,14 @@ import {
   Button,
   Flex,
   Form,
-  FormProps,
   Input,
   message,
   Modal,
   notification,
-  Popconfirm,
-  Table,
-  TableColumnsType,
+  Spin,
 } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { isOk, request } from "../utils/network";
 import {
   CheckOracleResp,
@@ -20,94 +17,66 @@ import {
   GetOracleResp,
 } from "../data/interface/network";
 import { PuzzleTitle } from "../data/constants";
+import React from "react";
+import { InfoContext } from "../layout";
 
 export interface OracleProp {
   puzzleId: number;
 }
 
-type FieldTypeCreate = {
-  puzzle_id: OracleProp;
-  content: string;
-};
-
-type TableTypeActive = {
-  id: number;
-  active: boolean;
-};
-
 export const Oracle = (props: OracleProp) => {
-  // const isMobile = window.innerWidth < 768;
+  const context = React.useContext(InfoContext);
+  if (!context) return null;
+
   const puzzleId = props.puzzleId;
   const [form] = Form.useForm();
   const [isOracleCreateOpen, setIsOracleCreateOpen] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [confirm, setConfirm] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [isModalDetailOpen, setIsModalDetailOpen] = useState(false);
-  const [oracleList, setOracleList] = useState<TableTypeActive[]>([]);
+
+  const [activeOracleList, setActiveOracleList] = useState<number[]>([]);
+  const [inActiveOracleList, setInActiveOracleList] = useState<number[]>([]);
+
   const [currentOracle, setCurrentOracle] = useState<undefined | GetOracleResp>(
     undefined,
   );
-  const handleCreate = () => {
-    form.resetFields()
-    setIsOracleCreateOpen(true);
-  };
-  const handleCancel = () => {
-    form.resetFields()
-    setIsOracleCreateOpen(false);
-  };
-  const handleConfirmCancle = () => {
-    setOpen(false);
-    setConfirm(false);
-  };
-  const handleConfirm = () => {
-    setOpen(false);
-    setConfirm(true);
-    message.success("已确认！请再次点击“提交”。");
-  };
-  const handleCloseModal = () => {
-    setIsModalDetailOpen(false);
-  };
-  const onCreate: FormProps<FieldTypeCreate>["onFinish"] = async (values) => {
-    form.resetFields()
-    setConfirm(false);
-    if (confirm === true) {
-      let puzzle_id = puzzleId;
-      const resp = await request<CreateOracleResp>(
-        `/api/create_oracle`,
-        "POST",
-        {
-          puzzle_id: puzzle_id,
-          content: values.content,
-        },
-      );
-      if (!isOk(resp)) {
-        message.error("提交神谕失败！" + resp.data);
-        return;
-      } else if (resp.data == "TooManyActiveOracle") {
-        console.error(resp.data);
-        message.error("提交失败！您有太多未回复的神谕请求。请等待staff回复。");
-      } else {
-        console.log(resp.data);
-        notification.open({
-          message: "提交成功！",
-          description: `花费点数${Math.abs(resp.data.Sucess.cost)}，当前点数${resp.data.Sucess.new_balance}
-                    请等待staff回复您的提问！`,
-          type: "success",
-          showProgress: true,
-          pauseOnHover: true,
-        });
-      }
-      //console.log(values)
-      //console.log(puzzle_id)
-      setIsOracleCreateOpen(false);
-      onChange(puzzle_id);
-    } else {
-      setOpen(true);
-      //console.log(confirm)
-      // setIsOracleCreateOpen(false)
+
+  const [to_submit, setToSubmit] = useState<undefined | string>(undefined);
+
+  const create_oracle = async () => {
+    if (to_submit === undefined) {
+      return;
     }
+
+    let puzzle_id = puzzleId;
+    const resp = await request<CreateOracleResp>(`/api/create_oracle`, "POST", {
+      puzzle_id: puzzle_id,
+      content: to_submit,
+    });
+    if (!isOk(resp)) {
+      message.error("提交神谕失败！" + resp.data);
+      return;
+    } else if (resp.data == "TooManyActiveOracle") {
+      console.error(resp.data);
+      message.error("提交失败！您有太多未回复的神谕请求。请等待staff回复。");
+    } else {
+      console.log(resp.data);
+      notification.open({
+        message: "提交成功！",
+        description: `花费点数${Math.abs(resp.data.Sucess.cost)}，当前点数${resp.data.Sucess.new_balance}
+                    请等待staff回复您的提问！`,
+        type: "success",
+        showProgress: true,
+        pauseOnHover: true,
+      });
+      context?.getInfo();
+    }
+
+    setIsOracleCreateOpen(false);
+    onChange(puzzle_id);
   };
+
   const showModalDetail = async (id: number) => {
     const query = await request<GetOracleResp>(
       `/api/get_oracle?oracle_id=${id}`,
@@ -135,114 +104,89 @@ export const Oracle = (props: OracleProp) => {
     } else {
       let active = query.data.active;
       let inactive = query.data.inactive;
-      let new_array: any[] = [];
-      for (let i = 0; i < active.length; i++) {
-        new_array.push({ id: active[i], active: true });
-      }
-      for (let i = 0; i < inactive.length; i++) {
-        new_array.push({ id: inactive[i], active: false });
-      }
-      // setOracleStartId(start_id);
-      setOracleList(new_array);
-      console.log(oracleList);
+
+      setActiveOracleList(active);
+      setInActiveOracleList(inactive);
+
       setLoading(false);
       message.success("查询神谕列表成功！");
     }
   };
 
-  const columns: TableColumnsType<TableTypeActive> = [
-    { title: "ID", dataIndex: "id" },
-    {
-      title: "等待回复",
-      dataIndex: "active",
-      render: (active) => {
-        return active ? "是" : "否";
-      },
-    },
-    {
-      title: "操作",
-      dataIndex: "",
-      key: "operation",
-      render: (data: TableTypeActive) => {
-        return (
-          <div>
-            <Button
-              onClick={() => {
-                showModalDetail(data.id);
-              }}
-              type={data.active ? "primary" : "dashed"}
-            >
-              {data.active ? "查看" : "查看回复"}
-            </Button>
-          </div>
-        );
-      },
-    },
-  ];
+  useEffect(() => {
+    setLoading(true);
+    onChange(props.puzzleId);
+  }, [props.puzzleId]);
+
   return (
     <div>
       <Flex align="start" gap="middle" vertical>
-        <Modal open={isOracleCreateOpen} onCancel={handleCancel}>
-          <div>
-            <Form
-              name="createOracle"
-              layout="vertical"
-              onFinish={onCreate}
-              autoComplete="off"
-            >
-              <Form.Item
-                label="提问："
-                name="content"
-                rules={[
-                  {
-                    required: true,
-                    message: "提问不能为空!",
-                  },
-                ]}
-              >
-                <TextArea
-                  placeholder="输入提问内容"
-                  showCount
-                  maxLength={200}
-                />
-              </Form.Item>
-              <Form.Item>
-                <Popconfirm
-                  title="确认请求"
-                  description={`确认花费8888点提交请求吗？`}
-                  okText="确认"
-                  cancelText="再想想"
-                  open={open}
-                  onConfirm={handleConfirm}
-                  onCancel={handleConfirmCancle}
-                >
-                  <Button type="primary" htmlType="submit">
-                    提交
-                  </Button>
-                </Popconfirm>
-              </Form.Item>
-            </Form>
-          </div>
+        <Modal
+          open={isOracleCreateOpen}
+          onCancel={() => setIsOracleCreateOpen(false)}
+          onOk={create_oracle}
+          okText={"支付8888蛇币以提问"}
+          cancelText={"取消"}
+        >
+          <TextArea
+            styles={{ textarea: { height: 300 } }}
+            placeholder="输入提问内容"
+            showCount
+            maxLength={200}
+            onChange={(e) => setToSubmit(e.target.value)}
+          />
+
+          <p style={{ height: 50 }}>
+            为了公平性，您的需要在提问时先支付8888蛇币作为押金。staff
+            会评判提供信息的价值来定价，在回复时多退少补。
+          </p>
         </Modal>
+
         <Flex align="start" gap="middle">
-          <Button type="primary" onClick={handleCreate}>
+          <Button type="primary" onClick={() => setIsOracleCreateOpen(true)}>
             请求神谕
           </Button>
           <Button type="primary" onClick={() => onChange(puzzleId)}>
             查询神谕
           </Button>
         </Flex>
-        <Table
-          columns={columns}
-          dataSource={oracleList}
-          loading={loading}
-          rowKey={(oracleList) => oracleList.id}
-        />
+
+        {loading ? (
+          <Spin />
+        ) : (
+          <div>
+            staff 已经回复以下神谕:
+            <Flex wrap gap="small">
+              {Array.from(inActiveOracleList, (data, i) => (
+                <Button
+                  key={i}
+                  type="primary"
+                  onClick={() => showModalDetail(data)}
+                >
+                  {data}
+                </Button>
+              ))}
+            </Flex>
+            请等待 staff 回复以下神谕：
+            <Flex wrap gap="small">
+              {Array.from(activeOracleList, (data, i) => (
+                <Button
+                  key={i}
+                  type="dashed"
+                  onClick={() => showModalDetail(data)}
+                >
+                  {data}
+                </Button>
+              ))}
+            </Flex>
+          </div>
+        )}
+
         <Modal
           title={`神谕请求 ${currentOracle?.id} : 关于 ${currentOracle?.puzzle} ${currentOracle?.puzzle === undefined ? "" : PuzzleTitle.get(currentOracle.puzzle)}`}
           open={isModalDetailOpen}
-          onClose={handleCloseModal}
-          onCancel={handleCloseModal}
+          onClose={() => setIsModalDetailOpen(false)}
+          onCancel={() => setIsModalDetailOpen(false)}
           footer={null}
           width={1000}
           destroyOnClose
