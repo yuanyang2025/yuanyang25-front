@@ -119,3 +119,60 @@ export type ExitTeamResp =
     }
   | "NotAllowed"
   | "NotInTeam";
+
+// Oracle
+export interface CreateOracleReq {
+  puzzle_id: number;
+  content: string;
+}
+
+export interface WorkFromResp {
+  Start?: number;
+  Nothing?: string;
+}
+
+export type CreateOracleResp =
+  | {
+      Sucess: {
+        oracle_id: number;
+        cost: number;
+        new_balance: number;
+      };
+    }
+  | "TooManyActiveOracle";
+
+export interface CheckOracleResp {
+  active: number[];
+  inactive: number[];
+}
+
+export interface GetOracleResp {
+  id: number;
+  puzzle: number;
+  team: number;
+  active: boolean;
+  cost: number;
+  refund: number;
+  query: string;
+  response: string;
+}
+
+export interface StaffReplyOracleReq {
+  oracle_id: number;
+  refund_amount: number;
+  content: string;
+}
+
+export interface StaffOracleAbstract {
+  id: number;
+  active: boolean;
+  cost: number;
+  refund: number;
+  team: number;
+  puzzle: number;
+}
+
+export interface StaffListOracleResp {
+  oracles: StaffOracleAbstract[];
+  //oracles: string[]
+}

@@ -11,6 +11,7 @@ import {
   Skeleton,
   Spin,
   Tabs,
+  message,
   notification,
 } from "antd";
 import { Hint, KeyData } from "../data/interface/puzzle";
@@ -28,10 +29,11 @@ import { UnlockFilled } from "@ant-design/icons";
 import confetti from "canvas-confetti";
 import { InfoContext } from "../layout";
 import React from "react";
+import { Oracle } from "./oracle";
 
 export interface PuzzleDetailProp {
   puzzleId: number;
-  keys: KeyData[];
+  keys: Map<number, KeyData>;
   setKeys: (
     dec_id: number,
     new_key: string | undefined,
@@ -45,27 +47,38 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
   const [select, setSelect] = useState<string>("content");
   const puzzle = PuzzleData.find((data) => data.puzzle_id === props.puzzleId);
   const keys = useRef(props.keys);
+  // 修改 key
   const setKey = (dec_id: number, new_key: string) => {
-    props.setKeys(dec_id, new_key, undefined);
-    keys.current = keys.current.map((data) => {
-      return data.dec_id === dec_id
-        ? { key: new_key, dec_id: dec_id, price: data.price }
-        : data;
+    // console.log("set key", dec_id, new_key);
+    props.setKeys(dec_id, new_key, undefined); // 更新父组件的 keys
+    keys.current.set(dec_id, {
+      key: new_key,
+      dec_id,
+      price: keys.current.get(dec_id)?.price,
     });
+    // console.log("key",keys.current);
   };
+
+  // 修改 price
   const setPrice = (dec_id: number, new_price: number) => {
-    props.setKeys(dec_id, undefined, new_price);
-    keys.current = keys.current.map((data) => {
-      return data.dec_id === dec_id
-        ? { key: data.key, dec_id: dec_id, price: new_price }
-        : data;
+    // console.log("set price", dec_id, new_price);
+    props.setKeys(dec_id, undefined, new_price); // 更新父组件的 keys
+    keys.current.set(dec_id, {
+      key: keys.current.get(dec_id)?.key,
+      dec_id,
+      price: new_price,
     });
+    // console.log("price", keys.current);
   };
+
+  // 获取 key
   const getKey = (dec_id: number) => {
-    return keys.current.find((data) => data.dec_id === dec_id)?.key;
+    return keys.current.get(dec_id)?.key;
   };
+
+  // 获取 price
   const getPrice = (dec_id: number) => {
-    return keys.current.find((data) => data.dec_id === dec_id)?.price;
+    return keys.current.get(dec_id)?.price;
   };
 
   const [api, contextHolder] = notification.useNotification();
@@ -110,18 +123,11 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     );
     if (!isOk(resp)) {
       console.error("unlock", resp.data);
-      alert(resp.data);
+      message.error("错误！" + String(resp.data));
     } else {
       if (resp.data.AlreadyUnlocked) {
         const old_key = resp.data.AlreadyUnlocked;
-        // 测试用
-        const cur_key = keys.current.find(
-          (data) => data.dec_id === dec_id,
-        )?.key;
-        if (old_key !== cur_key) {
-          console.warn("unlock", old_key, cur_key);
-          setKey(dec_id, old_key);
-        }
+        setKey(dec_id, old_key);
         setUnlocked(true);
       } else if (resp.data.Success) {
         const new_key = resp.data.Success.key;
@@ -155,7 +161,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     // setInput(undefined);
 
     if (answer === undefined) return;
-    const ciphertext = cipher(answer, "");
+    const ciphertext = cipher(answer.trim(), "");
 
     const resp = await request<PostSubmitResp>(`/api/submit_answer`, "POST", {
       puzzle_id: props.puzzleId,
@@ -163,7 +169,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     });
     if (!isOk(resp)) {
       console.error("submitans", resp.data);
-      alert(resp.data);
+      message.error("错误！" + String(resp.data));
     } else {
       if (resp.data.WrongAnswer) {
         const time = new Date(resp.data.WrongAnswer.try_again_after * 1000);
@@ -242,7 +248,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     );
     if (!isOk(resp)) {
       console.error("getdeckey", resp.data);
-      alert(resp.data);
+      message.error("错误！" + String(resp.data));
     } else {
       if (resp.data.Price) {
         setPrice(dec_id, resp.data.Price);
@@ -481,6 +487,16 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                   <Spin className="content" />
                 ) : (
                   <PuzzleContent skip />
+                ),
+                disabled: !unlocked,
+              },
+              {
+                label: "神谕",
+                key: "oracle",
+                children: loading ? (
+                  <Spin className="content" />
+                ) : (
+                  <Oracle puzzleId={puzzle.puzzle_id} />
                 ),
                 disabled: !unlocked,
               },

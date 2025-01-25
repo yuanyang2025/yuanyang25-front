@@ -9,6 +9,7 @@ import {
   MenuOutlined,
   TeamOutlined,
   InfoCircleOutlined,
+  CustomerServiceOutlined,
   // SearchOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
@@ -50,11 +51,11 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
       name: "组队",
       icon: <TeamOutlined />,
     },
-    /*{
-      key: "search",
-      name: "搜索",
-      icon: <SearchOutlined />,
-    },*/
+    {
+      key: "staff",
+      name: "回复oracle",
+      icon: <CustomerServiceOutlined />,
+    },
   ];
   const [info, setInfo] = useState<GetInfoResp | undefined>();
   const getInfo = async () => {
@@ -94,10 +95,19 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
           }}
         >
           <Menu
+            style={{ width: "80%" }}
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={[currentPath]}
             items={menu.map((item) => {
+              if (
+                !(info?.privilege && info.privilege >= 2) &&
+                item.key == "staff"
+              ) {
+                console.log("not staff");
+                return null;
+              }
+
               item.onClick = () => {
                 navigate(`/${item.key}`);
               };
