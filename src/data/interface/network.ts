@@ -127,8 +127,8 @@ export interface CreateOracleReq {
 }
 
 export interface WorkFromResp {
-  Start?: number,
-  Nothing?: string
+  Start?: number;
+  Nothing?: string;
 }
 
 export type CreateOracleResp =

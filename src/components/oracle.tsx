@@ -110,7 +110,7 @@ export const Oracle = (props: OracleProp) => {
       setInActiveOracleList(inactive);
 
       setLoading(false);
-      message.success("查询神谕列表成功！");
+      // message.success("查询神谕列表成功！");
     }
   };
 

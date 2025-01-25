@@ -115,25 +115,22 @@ export const StaffOraclePage: React.FC = () => {
   };
 
   const onFindStart = async () => {
-    const query = await request<WorkFromResp>(
-          `/api/staff_work_from`,
-          "GET",
-        );
+    const query = await request<WorkFromResp>(`/api/staff_work_from`, "GET");
 
     if (!isOk(query)) {
       message.error("获取第一个没有回复的oracle失败:" + query.data);
-    } else if (query.data.Start){
+    } else if (query.data.Start) {
       message.info(`${query.data.Start}是第一个没有回复的oracle`);
       setOracleStartId(+query.data.Start);
       onChangeStart(+query.data.Start);
-    } else if (query.data.Nothing){
+    } else if (query.data.Nothing) {
       message.success(`所有oracle都已经被回复`);
     }
   };
 
   useEffect(() => {
-     onFindStart();
-  },[]);
+    onFindStart();
+  }, []);
 
   const columns: TableColumnsType<StaffOracleAbstract> = [
     { title: "ID", dataIndex: "id" },
