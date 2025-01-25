@@ -29,6 +29,7 @@ import { UnlockFilled } from "@ant-design/icons";
 import confetti from "canvas-confetti";
 import { InfoContext } from "../layout";
 import React from "react";
+import { Oracle } from "./oracle";
 
 export interface PuzzleDetailProp {
   puzzleId: number;
@@ -482,6 +483,16 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                   <Spin className="content" />
                 ) : (
                   <PuzzleContent skip />
+                ),
+                disabled: !unlocked,
+              },
+              {
+                label: "提问",
+                key: "oracle",
+                children: loading ? (
+                  <Spin className="content" />
+                ) : (
+                  <Oracle puzzleId={puzzle.puzzle_id} />
                 ),
                 disabled: !unlocked,
               },
