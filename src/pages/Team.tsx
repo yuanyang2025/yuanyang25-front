@@ -10,6 +10,7 @@ import {
 import { isOk, request } from "../utils/network";
 import { InfoContext } from "../layout";
 import { TeamOutlined, UsergroupAddOutlined } from "@ant-design/icons";
+import { redirectToNewPage } from "../components/puzzleDetail";
 
 interface JoinTeamFieldType {
   teamId: string;
@@ -68,7 +69,8 @@ export const TeamManagementPage: React.FC = () => {
           "加入队伍失败：邀请码错误（请检查您所加队伍的邀请码是否正确和是否在有效期内）。",
         );
       } else if ("Success" in resp.data) {
-        message.success("加入队伍成功！");
+        message.success("加入队伍成功！3秒后将跳转至题目页。");
+        redirectToNewPage("/dashboard", 3000);
       } else {
         message.error("加入队伍失败：" + resp.data);
       }

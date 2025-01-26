@@ -41,6 +41,12 @@ export interface PuzzleDetailProp {
   ) => void;
 }
 
+export const redirectToNewPage = (url: string, delay: number) => {
+  setTimeout(() => {
+    window.location.href = url;
+  }, delay);
+}
+
 export const PuzzleDetail = (props: PuzzleDetailProp) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [input, setInput] = useState<string>();
@@ -86,10 +92,14 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     msg: string,
     detail: string,
     type: "info" | "success" | "warning" | "error",
+    pauseOnHover: boolean = true,
+    showProgress: boolean = true,
   ) => {
     api[type]({
       message: msg,
       description: detail,
+      showProgress,
+      pauseOnHover
     });
   };
   const onConfetti = () => {
@@ -248,7 +258,17 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     );
     if (!isOk(resp)) {
       console.error("getdeckey", resp.data);
-      message.error("错误！" + String(resp.data));
+      if (String(resp.data) == "未登录") {
+        message.error("错误！" + String(resp.data));
+        redirectToNewPage("/userLogin", 3000)
+      }
+      else if (String(resp.data) == "不在队伍中") {
+        message.error("错误！" + String(resp.data));
+        redirectToNewPage("/team", 3000)
+      }
+      else {
+        message.error("错误！" + String(resp.data));
+      }
     } else {
       if (resp.data.Price) {
         setPrice(dec_id, resp.data.Price);
@@ -508,7 +528,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             display: !unlocked || loading ? "none" : undefined,
           }}
           placeholder={
-            pending.current ? "错误答案惩罚，请稍后再试" : "请在此处输入答案"
+            pending.current ? "错误答案惩罚，请稍后再试" : "请在此处输入答案（按下回车键提交答案）"
           }
           value={input}
           onChange={(e) => setInput(e.target.value)}
