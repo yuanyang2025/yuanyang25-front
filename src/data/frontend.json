@@ -1,42 +1,246 @@
 [
   {
+    "puzzle_id": 1,
+    "title": "听力测试",
+    "meta": false,
+    "content": {
+      "decipher_id": 101,
+      "cipher": [
+        "LvpKOYv+oQqlbTyQ8Y2nhBJYWBPFJvP5Uu+26tSxmdOMbEyKj+EAw7a/EiWtpikjKs8GL5fZ2szMXMGGvYMpFoC2KP1Dt6yfyeT4wu6MooA1ZdfrM4ZRBENaLblrBY3abPB/FlrfqayNQMe00j4AQ14uRbxi6//u73iTijT1yp/8Ddd/XBBBOMSfdk0PQVULSNsKolMg3S4xiggew+tIDre04PV55p1rDEkD/T8QwCM=",
+        "fEvbGYeB7hEBYyWVvU8YGICSvd0b5z4cA4SOM0AgjuWaZZY+EkexqKzhZyo5NTC6bl3Eex4leJ9bSRdSDxOAEQ=="
+      ]
+    },
+    "skip": {
+      "decipher_id": 102,
+      "cipher": [
+        "q8eUcjZRnPuzmKh9cg5hH5iCKtXb8Ifn0yf1+ABIg/g="
+      ]
+    },
+    "hints": [
+      {
+        "title": "我毫无头绪",
+        "cipher": {
+          "decipher_id": 103,
+          "cipher": [
+            "zNsFWY0QPlHmf6D5OgqKGA=="
+          ]
+        }
+      },
+      {
+        "title": "能告诉我听力文本吗？",
+        "cipher": {
+          "decipher_id": 104,
+          "cipher": [
+            "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"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "puzzle_id": 2,
+    "title": "鹅鹅鹅",
+    "meta": false,
+    "content": {
+      "decipher_id": 201,
+      "cipher": [
+        "DSMV2DvMHzq6+RPuWwp8qDzNBSq2qkPwPtBi8i/4+jHeOJ3iLQuLN8RivaNrAl8Ptu3IHAq5whq9kpUvawO+nseQ1pw0IaAtCrSboVusSvSzCyyPm06ag9lCelweffGthKb9lrzg4/HpuA2u0U9aWG2KfDpDETB5lnDhTfhcxQ5odycr1hhSgGkoxg6auYJLo5GAJq6WgAk4UeowNmARDzjQdjylBKFLLxgAm+rYlEvS1OmrWdRRWAgXyWBj2/+DN8jwIMoXpeA4wA3Rjf9IWkJBbYbn/HUvGM3z8AI/NWYqjLp/AZ8jACj7a5DZIQpMS8RO91/+c6X0rPjNOEjU4vl99VUk6hrwOl97oJypXsPovkWlOw6FYLjyoUyKfwl9k97Ox+WFZ0CzYtnIIsXv8at+dHj5g5MmKC//Pc3FaJumAa3WBBR9NMco2B2nN0z1uV2YngNJ6U3SI0Hxd91IRPsUxIT2wgG9NtNI6ikm5uRiofrzaZxAU5aB15arR6yvJFcNHL+BbdDXSZx78e8Wza7Y2hiIATuFSt5WBj6pMRF/xy7U7VopCPdSnj8Eh2D7HXrW1eLcqJ4sAs5pwP5N0MiBO1uDu3NnA6ayLos9sY4XVErAESuNwXmiE0s5arm/kkWZKcSulJcrk4RSN+l3Swb8MoMcqHCKBMFSa7oO+l56iTjzNFJoxHf77bk4qb+htE+f3rVzhqhi4AuJnJMyf/DrQAMMTYc9eSIFkG+32ppETvj2NIacX3JfSOARlS13QLBOf+ROJXT+Lyjs3Ql8myPWxOqfgltqwvhcGHvKxQVA5NTkM4Lqazv627I5kcnJPbbQkt7bWs6o7/Y3QLkgjn55hz5A0BqJw11peCvlLTjhs93vCzuapg87M4A4tngtXSu6S1w+NOQYq6PvNsDEGPqM+2RntCUuBcziu7+phlSFVzFrttzAW4FUkW/YCbX4UmRefRgeVFo3bGmUgmWW2sgzK9vaZmOU7wxixEjDNvkiJufpFXeoSJxuxVQpJklqeBDkyJmb7srkgUdH65rsuFHq1rgpxw6JW0Y4C07EIaIBac51UjZ2xO6z228tshmHzEE5OcvmWsCC9CZzr4HPXpFHdsk5fEcXpfeQzpZEliJsgnFd9k3hPEM0jTCzKwdquLP/Qw0imo8hh5y+jZJc5Vawob1IvDA4FF+c5WtYdVHTwJ1CLTFCp5uFpxKbrKtQ46thq9e3D2xATaS3dUhapBhadoe0i72FeVzwSFXyABMY+kbgWexmizRm3hM5hf8m0O/1kTlrQSAGikMsHi+S4xmOPnCwap7IzH7EKtoUQ+zzUGBBsVIiTWPwbCRDD09O64Dj3k2nJ8GFJOAP4b4Ub3kKVS2qFQo2abDVneMKmt5xlO04sg814xsXCRL3Ajb/8ZGjMvlbRj7ITeZ6pG1riUwkOo+f7cD3hF7Ar9IDfI/p7RKgDjxoqgnLdKWdZTVon3dTSPTtqgRU9H/lJLWms0dhWlBbjQPr8QoPFEpqXkjPvU+ytCnRjFdEr7oo4P4AIEkxcwcB25wRRFBbzMXzotn6rqP95QHqAm0bubIo5U0M2MTSzFvy23QDQHxGX1/VEfLiTnuMNvazNhTBd5TmXYJWeOKA3ujrLB5SRrfcfh0LoQkgnIQ/YLb0Ty0ZIAWT3Bq5VW0CfPPoJ9L1Wu64hCNOlvzAy00dvpqm6uEKzqKR29yc80P8zV+46V6al/F/vM/z+O9C2W7arKl/vRjSvzX5+gN60N9qGYPRLXNw2Vk9sOXbs3OqeAB+VNXGMoJFe0uzxgNj4uWPunHu48q/GjOsz0pPAovMPueESukeTmHNQtuJomblqRXGFqmm1kaU+i3aYHGVp7AhTqLXc/uMMM+UuUk+KgMsVViClYugbBsv6lRBXOcZs8o7prO7o7agI+AB7Qj6ZlIFvIUbvFPq59snajoYgY+hYhZLmOd/yeLBYecj5i3rLl2Gn/ISpTbECNXLmi9jbqg/y0GHkGFqniJDjqPYXn0ob7cSk8wAXYsNDM0CaMH7J8nyQ4JUoXmiW0fIYS8AhNFZuQS5GCN0DItN0SEigXA7I7MyGKeQ1OCe8upLFbXH2hTxvDWEeT1BrQPnQFjALMnsvAn3dLXRV3gcjZ7frxIbiVW43jEgR4iR8UfOk/EAPhVyvMETqKhyjns8BHi1XNJpP8WO62EZSI81ZTHlpiyKMgjjNbEdkU6cFf23gjJqS8MObcr5tAwKl8/55aHyW1fgz2LCvlE0Z2ol29volRzvDb2XfjiRmNnu2qbRe3q1950a67u1XFTKo5QNcapvXvnxyICrWgnMdCFK2Udk7Fuw0uFpFq51IDpf6rMrCB+HuX9/OvXRkqA395uFh8GSoqA2XgSPnyN9CV0P14SQomylo/mvDvephRr3FDO2wegY63leA/wa7E/G+LMYq2QZWZWWKu1Qvzh3paNHVZg4oNtpzRZ4mikLTnaK28fK60HDF6OynH8Z/i59OBBtKESaDgxZ7/dT4L/0AAGpTvnIeXgIbga0/GpEjBY+lHicD2SI3p6WPt7l1kYfBHQGovoDA0DECznpxoNbQJiVItHf/o8xcDjAxaJDyyhJClIadaYT6riL1pWzYwL72ycTXmQDi86n82EPPuqmJTYBZjcXePwkcwHfw15DWKMlL+TSZq6Xi8gc6AMNG4pvvBBRxkUJL+NerFDZK7lLJYzOmk0Ppr9d95laUwoVD1KLGjxD9QSXRhs7bW9xdBa56UlZl3upJK8Zfn9LEtAH8YeusfJmZcYqp5G8pAa3dyndVcxoL1y/cMUSerMVL+swWaQ0RgEDWsdHHTP0iKH6Utb+cClMSWEA1v3o4WcDLw2wLX4yMYoeGFFpGACYXQEw638nNG9vLeRFKQMRelWZgL0XZgBVseYdmW/1rhay8oWIs1i4tKEmo7tOzIs5U3A7otH0jody7AhhNfIhEpm2LxVjd7rEEdJmyin9E8AIQ3IJvZdD0iX9j08Rz6KneEu1BqkzVHwU+fophb+onA1mRxqJeoMdDWMjXXtHWc2gRypzzeIUtHJQgNxdbPGW933XRMgKV5LRWQs0PKkR+dK+xuE3rEtXmQ4CVO+BJOVwhrrARD4kcJ85ANcaURFdkqAv5cikKwXMo9kKSPu4AgrUV2CPzMKpNEZZC8mdXl0tLxF9jS090w8YChzMXGxADKQm/SQbb8sY4uRPAJnRFN06zG3ob7og9MKWNJM60Y14MNOCxH++9fD+7Ut4NKHCUrEQvM1p/O67fms37zC5jP04g31vasFHGMyTDz4teTQXGluo/0r/mmPRF72PDagPeNFwxLjahKPvtUJ6u52pSrhjOViLpyEQ7KOkbZBqNLkQHvLOmYpxTHImPJ2FewQHC3xpxbRDJhcDOcTsq48P2X7Y/KCfFkGOkWEmv1yr66FD2i8Gfes31AutDHe95QqR7U32H2DqP1S5gxS+dZlbwlkRIo38zacy4qzekGYA8lmOUauHlSME98sx++5ZHKw0zAN1fsIh7bnh7qa1sNaLxP4vA7PbV2FBtnCBP1D8XTPuzOp0/wu0xsjSoNA4rJlWIc3IbtTDdZtauRLP1Me2AtL0Sc5q3QWQWlLre7lYT1Ij6f0=",
+        "0rkwa0eWp67Xf3RWmLBmQsVmzjKPlCIIbvwJ5GZ1u1UPX1++Cbpsu2otZAtG1KG77TNbm7aa14Z745iIBVGUkQ=="
+      ]
+    },
+    "skip": {
+      "decipher_id": 202,
+      "cipher": [
+        "/0m8WE1OJDhRIJGUZntIoVAyeSHU3BuLPzPEs3vOOjs="
+      ]
+    },
+    "hints": [
+      {
+        "title": "我该怎么入手？",
+        "cipher": {
+          "decipher_id": 203,
+          "cipher": [
+            "6Dw8nLqvb2fT781606ZtWIOei1KD3h0ISskr6F2F7Wtd59EvmUpQlJyAYn4+QglbJlt9Lht6/5A/YHangzYS9Y+tEYUsLPliFtxHBjxKsSyAjEBuzAPY/t6K3kjD390Z1YUkNiRQwFEAr2CuU2B0bxh37UgjIvNpe982YClvtwoMqlBsaaUQAGpj3KPbyIl9"
+          ]
+        }
+      },
+      {
+        "title": "可以给出一条揭示本题主题的线索吗？",
+        "cipher": {
+          "decipher_id": 204,
+          "cipher": [
+            "yZfcV1VzX5uGMk8c3KRXYD8vC5rrSVApeZ6UpfMnZ6ZavG3ZCnWuKjFke1AibMmo"
+          ]
+        }
+      },
+      {
+        "title": "该如何提取？",
+        "cipher": {
+          "decipher_id": 205,
+          "cipher": [
+            "QCOjZuH5Bse/cUm1iEC5IxZQO7vOtzLmkHJELH9w9xq8e51S9l+InMz/hxkrtMzgymFEifNVD/lpYWEIxgBS3sbmZYOARlrbqXj+PjfCrE0="
+          ]
+        }
+      }
+    ]
+  },
+  {
     "puzzle_id": 3,
+    "title": "不好笑",
+    "meta": false,
+    "content": {
+      "decipher_id": 301,
+      "cipher": [
+        "N3b3VlbqaM/h20/4VNCIQLRG0ERMS+BolvgmEFHr0IasH3Nn2LJEE8vCoN6F0Dp8zPu5lhCdRalABTbfdLVYQt6QnWyWt551MJ6wEONOw8DMMYTQ0F8UzeUNVr7JSDR6hnThO2b0DYsXk10F/iPLa1u8McEFyuhw7P2OQUehSUzMMgYAm9olcr48M3i6ZmDwrnyKjERhZbz0VAoiiWq4aqHl+E+ijcNCer2ASkSFytc/kDZTCRJO7M2X0Q39HmMQkWORWQVvZVO5Cvv3mafF4lhZjzEs7oqXZBEn7Lcy9e+hhSAtZpQqPILvZJ3ZoKDJVIdOCm6JjEKAhGtyWV8C9LMTgrJ4l5nzFAMY8Di13M/IoXXUpxiaGs6eikuvvtg0uAr0CTzh9w1vdpR7CKfUdGaFw4kHF9cKrxmQO88ILmcDk+jazB23Jho6GkWTfBZknb2QU+1HOfAH5Zo6nWhjiUxkDrKe/t9DQtGythXOSSG/3KVFz+/6r3nPCxc+UCW4tPcdv4PwG1gY8CZ68i+qyW2aUU/Zv4RzIvOdMH5V7xYlc7bES72Re8IHus3wdCj3KKpnduAkVbuzaT4yXj33Z2DndO3HOJ0kXwejgy71z73wWzovDSEivUMzgHabP6pGbNsbRREA4eKzZgw6FnC0jQwYuAzc8JnxIDMfV3V/XYupFaepyZWjt7YXv0SPpnIeEWEDwR9QmqGfvaMgHkj0J9Eep/PFP1c9yrUmDphuLJYVpOrPfQ6JBoGslQ5or9Cx/FolOKGjVSXC+2eDbP+z0cKn8wh6qC854VL4fxMWu/CSmvc4PxVnRexpAjqDycTK3/rSXviyV4086Whof4TpmbVIirBAloo/uDYEfyufUHlVl8V+Qe0MVe8wmkyAXgqCI4epdV3n8ZtBe4c/taJUfNV4lICKdMN9NaOZRfGa9+B6Y6dIzapJuWQvboJUV1dCoeaBvC+ep8la72CjBQvve2qMjltaO0wVACYk3IZhFfA8leZtleCn141Ck9Zb7XKrPXACmN7fgPpxRAGDMh4RNSOAtNPovtq+dcClKQk6PzBa7juWzmZfgr/7Oqp0mFt7pRVNXxApB6SDmf13yzorgLrhqy8YYX9uh/vUu+Z4ces/Ha3ezBFttCID5yYBpElCoKcV2wMf4dVHNX9wowcI6RSzty3iWdgClKrD9kVaPOGo+7dYO/rQeVIOfLSXB69mkCz3irqmdYbJ3K7z9smH1zHwsTk2EI20fw2WzHQbeS0NABvkI2AjL1ryg5NZJ/NenWe+1tq4MknBEMAs8dKarrnjZHFFYeoO+0VpNdhERKvgrndIqqMHldizRiw8+vwNwWnAmujbkXLUrwwiYR3bFh62V8/7F3U+t1ci3E/VBHMxT5wSA621b7wSonfxtJpXMXUIm3HaXhgoVmG1rv00wMEM2J41Rc4c7IXl6XcBumr7yE+GN3rWCxF9aolnzCpYXgfZVkug0OshYt1hvd0xrqKWasZh6v6nuBA926F0d48029kNO3pjhgv8XXLEE9qN",
+        "LoYFZ7IewCvbKxCr4itIpchrUGj37zgvCR37BY/5oCE=",
+        "u+6gr/MDqrbBVBFRU5XMinQOrJX9n6mrdDP7JGKhvFWhzVKf7j9x5uUfPbIVR587uuwcNuUlIJfX+ktbbRpgEg=="
+      ]
+    },
+    "skip": {
+      "decipher_id": 302,
+      "cipher": [
+        "71EFJsFf+tymJl4Y9T4nsQ=="
+      ]
+    },
+    "hints": []
+  },
+  {
+    "puzzle_id": 4,
+    "title": "衔尾卡牌",
+    "meta": false,
+    "content": {
+      "decipher_id": 401,
+      "cipher": [
+        "7cBHwPKEvFht0aCuTF/B/CZ7kf0QQmZDQ6vdJTQ6h6kXT1sB//YYw7JF7LPIfJ0+0rgGw68y1sopqcmQSDjyE/GNVF2Nv+gtmk9fZXlsYfb4I72oAvnxvnisJ/Djih3lQqukaDVndHLRV9aYq/KkNiyrNH2G/kxl1ndGPLpZ5snhHDl5pnM2djL8Fima8yN+48mNig9qoG1aMvnxVgy+D3Xib/RnW9YJoWo5r4os4KhkWSk5EldLX59uf+PHY+uiYCEZL2e5/enNFOENCsOdIlyezGklinI/cfxYv+KrE84=",
+        "yrSHglPH8+aY8dHM0nsxzO8UdpE2+bA6NQgMEo17DY0JuAfmlcq4Tc/3SJYqtCh669GJaCAczdRiPV87MaGF5g=="
+      ]
+    },
+    "skip": {
+      "decipher_id": 402,
+      "cipher": [
+        "0ZJFxq2Eq9Pcp46u56qtJA=="
+      ]
+    },
+    "hints": []
+  },
+  {
+    "puzzle_id": 5,
+    "title": "亦可赛艇",
+    "meta": false,
+    "content": {
+      "decipher_id": 501,
+      "cipher": [
+        "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"
+      ]
+    },
+    "skip": {
+      "decipher_id": 502,
+      "cipher": [
+        "O0CdCjVsPmIa+lbVWBedRw=="
+      ]
+    },
+    "hints": [
+      {
+        "title": "我毫无头绪",
+        "cipher": {
+          "decipher_id": 503,
+          "cipher": [
+            "Xgy6BY1d18X+yYBESxFno7MgxHaR5xqqhGO7IhGLMiA7E+mp0QqrfxIAjgMXE7SuTo5yAdp/YBIOlr4BzxaM44Y0KmvjRYkXXCbdRYsFF7Gjk6u5gCK525rBsM8yj5JP"
+          ]
+        }
+      },
+      {
+        "title": "我发现了小说特殊的地方，但是还是不清楚该干什么",
+        "cipher": {
+          "decipher_id": 504,
+          "cipher": [
+            "AE1nJPzY0Os3EZz8azGcCnH4x6K0utPImB0FLimDJZ/DX8VfBADmexwYqMRfNw0xJ1hFc2hpLvLi0GUdathZX15ogtsdhFebUJdP+FwAUPaGovlPth/Zmu3LFrJfGfb1"
+          ]
+        }
+      },
+      {
+        "title": "我有了一些进展，但是不清楚后面该干什么",
+        "cipher": {
+          "decipher_id": 505,
+          "cipher": [
+            "gQbrerCJuo+/+SfYhSuX9MPPmvw0siSmCKQvTA2IU28p1oRBRxqYKLFMzjMx4W1GJAV8Mv6uVt1YmSTBGoMANOEwc/zgvTCakjK5Hf9uQlTxARSLgmbtKoEvyuHZdnmq7plU9OIf1PeSr8KqLpHn4A=="
+          ]
+        }
+      },
+      {
+        "title": "该如何提取",
+        "cipher": {
+          "decipher_id": 506,
+          "cipher": [
+            "fpJIFxLpyOQV+8UCGdimvneMA2x66JmDwh06wneS7sixHqG4QE3fpQTIo7B8JuhDXEj3VQfNAVFVX2uri5rsk3fkz27S8miqf995RxATjRMrxcLQ4t0WEPUMcuakrcW78uBMx8lBIFhSz4BqD2YhlQ=="
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "puzzle_id": 6,
+    "title": "新年新人设",
+    "meta": false,
+    "content": {
+      "decipher_id": 601,
+      "cipher": [
+        "4eO51l39FPxxEpIDkIVsLnGyFol56ZGjVO6qhfebO1iVoTMv22+QsKbGUmq3lo1fkCX73MG5qEMZGBKEmGq3LWYaaGkKqrWDNy1Ng3wNpmRyJg0FDRe5lNdkQQKClCT/5YupIJYl6CiH1ZFWgApQVF4c4RgVTZyw/oXct4OSLxDN5M/m/YzSCrZv6gr8lKdqgmx5yKSPSW6pM945C5l/gLWlPrvlvztl9d7x5mmVV27Q/0L2IkyEh9JyTsS6UzXue40aFD1Qx6LaBUqhPHfLmr2+TxBvJe4OD8bu31qhW+71aLvn9wVs1cfghk+lY1aK",
+        "4g1Z50DMSnYkaiwwJIqhi2LY9bj6R46cZovDWVNb+BYERTjOarr6N0dXwfXe/i5d8vbyjnQOZWnFmJl0AIMCINEj4ngQvYNS7qkxOYMe8AbpRTLiu73vYea2/BxqNPfqoRDu02OaOu3F0q5HIsxEueBiHSjA12p2CMMEAQTJJhxs0ErB/J8jUdBgrqx5OJFob3vgyEqG2UOCR1H/UMA3pUwDYfjI/hYeBRyJbyR3ziM76jKBXyaNYnwKWE3yizMhYXUNNoBS0uAI43TBr5+fPxAcFKY9pATAJiDI6docubEnn7wz6ZqnrNS/bPFXkxFgnXxPj/4VfzSgIThGjUAQmMQSK95hJvtq8dKWPmdcvyYP7w9funDYvD2ojMZ/hdXpSxqn2BmDaIljvRCS7JbbpkAzQe/icviUQ9Bv18Rq5wyWqIRAo/JqaeKloJS6HuHAyRORsqo7qLdQL6KfxyJYIolywIBUQOkhESF86zV7RHM=",
+        "QATc/iKb08iJZxw2UQUbw5j3+ffhxib2LHMtPHLkhRr/y+QtbKJCurdq/awbpTx3ySPCVPxH0O/F9Y74Znhu2A=="
+      ]
+    },
+    "skip": {
+      "decipher_id": 602,
+      "cipher": [
+        "Xn36uw3IV+ayQzE2UW2g5A=="
+      ]
+    },
+    "hints": []
+  },
+  {
+    "puzzle_id": 7,
     "title": "网络天文馆",
     "meta": false,
-    "skip": {
-      "decipher_id": 4,
-      "cipher": ["Uh0hD+YGJe50V3F/lVqsLw=="]
-    },
     "content": {
-      "decipher_id": 5,
+      "decipher_id": 701,
       "cipher": [
-        "F0s28gSW/yxVnQ7jnpze0O6Mf89Aw5Ijx7ZBWcrN6O8JCPbZVxC1qUtXDPlB3CM5agbeg4Kvnch9xQaK5nTJcvDbDTODT9AIZvwAQazN95x0UByjJHA842vNNe1wP4Og4f56CtKpd8t6clDiPkgPj4oyxiMHEoI2/qV+OEQHVV9HSCbiPzK824HOVgGOcw3/VQQk6fM4KhVdgl0Zw0L4c1dAjfxdp08scWc2/6/JzRjJeAzEUegKyZy8Sn8wNZT4mdZipAo9WyXl6fY1PBZgG9UVejZiKtPZt6IRi7ddSK9DRyjBaKQ6WsVELeyCUNI4aYX6V7/FC49yerc4GEsyM7k/HzKW1CWqGrOiAfl+KJxdpOrg6gxNcgGb2W1rZo13W5vLuOVIVw2M/pRCobtCOjm90y+76pWM8Yj/XGOIO//b93tfA+nNcAWGXmmIiuZmcakZgOqiTLZec/BwjDr0Izm48a8cv7tMu45pORiHliNctzm5iBf5yhy48rG6UEbr",
-        "HIWnlhgnBW7cgZ/Ac9OQ4ehVeb78W6JIZxEMoBXJ4dY="
+        "lDUFBwLJOtf76US/cNIDzRno38hZY/mN6IQPCOA91JvltbCa20nQOAEsd8e1UyhQeJqMQJjLDMWKWDC5aSK1q329lrUT0N9d2jZdRfGDSt6qrWmsnAkJf1SSDDHt+XvzMlc0gAwoqPx5tV8qc5RO7GbxYZzbVhHqmcAga7CVdjQluxXV/NuwzkxwmFEoH7wGeEnWFoUcOUkp66sBpIv5ZVcRaAhU0OWPD1oQI5KcU8zmBt3j42D2s2V9qTbNskfa5r2hl+qaGrhMhbDNhlv1Owa9NPtEfX6YXisj7lURoz2EX1b1cVz7jlMfv210ACtDmLz6w6q6P+tDntEYRhUmKbPM3Tr6JaeneTzDnez4gl9E8DiQ7ooHfNBWK/A4kL+W/CQQBscschnBruWW/7vFpcCMiKvyeqv4nR/+L0zlPpoz4p+LEwQny6W+Jag4mxPdJatTh6G6EIMcOFXe0tmAvaRBbghA3dr+1R46TerE/fk=",
+        "TwjaFlfXQBo8fauQe461qYVldJc16OyPUwf47cbN/Xvuw/AOBaPuann57HMdolfAAF94o7G01ZJJAJ5W6js0cg=="
+      ]
+    },
+    "skip": {
+      "decipher_id": 702,
+      "cipher": [
+        "u1lpCnr3I2MYTZ4mxiF/9A=="
       ]
     },
     "hints": [
       {
         "title": "星号代表什么",
         "cipher": {
-          "decipher_id": 1,
+          "decipher_id": 703,
           "cipher": [
-            "9jZknV/PVUoDlBRu2W02v1PaYNjMpgOTmuNWegqMqKwS/f5X6mb/AR6JgEgSnVtE4cxKZ5h2+7bujOfc/uY3eSMvtv5nj3opNFYQoT40/ivfOfH6zxHEl6V7Fzvc5Ka+K79QQd2xgamqL2xXSwJaWa8Sb8rhuldTPYR6ZYfd+izUZNrp2Ynqx5TVNB3M49o9One3Uar698hAK5k2L4VdG59yrKmd0fpqQ4wkXXp1oZqefkwiiG40JzSyxndQpanmS/R0U+vznbUNQxDpxoOdSkPOxe+iwE2CoEVtMFZmvc/NSuu/O+dBiNVgW+WtTvz9LLXiXjKqGAc4rQ9V9DHAxbxXliwWqQjIPQgse2mLAe3PUbh98jGS0AQu6A1PRnt0wlpUHfinlVnEri4Ar1E1Fd9F3xiemMZ8JFvqt0tRPae0B7AL2o63ogsidX3ceeGkjeG0lseKjWF8schpRwP7c1JVSUoGL2hFcYipda0bb6liJ18tWAMV9oy96+NSukwlKo3+N3Cn7R5UtUYKWyFPTIggqXFkdGOmyqFMNJGAuODd8rPqQGRc0Bxbt1VYUuDTG9tUUwppjfST+5Vrd4urG+cvzt1JBtZwSvhmVCPBgZBkrIauSnyL2vn2uHkAfvqMGqLuTFJzNIO/utx1vg8dcvQ3rw8tcx9XOFmipAynxq6sqE7+7ZZRdHxbC5q2PuPjTZafmI6dgpsOG53C1V5EQic/WPpk1CXPja+v1Ab11rJolKF+tL+pUMA5fXjG5zwUiQvIqnRy9UcQyOd5Ii+xi6JHNpQTSnx5F7rYPaXCmC2ETQjdgoUZNUlEDOMC97Cp568JyOt4CAkRf8OCe/XBakYz5BBcrsv/a7hR6dcRwdFaBmuweU+z1acubG/ybKWp"
+            "NYm39Leswer3A6nC+k/VSceE+qA4K4bFFhnq/3GRZI3/MoGzjEd/mwNggAjL/lEyJVl6ziNhQm1B2lN0ItDkWppjoBdCi3qFPoCJbFEbw858fqZMCO+JUIs2ShKB+vhJL49ZWdcidnqsSFcYn5Wq4kbu30BA40Oj4rIuiiulfCNe8AmcpzYq3ORFeU12TeXfzUPEjylrmyTwfKZhjWjZdom4akvTuAQCoNmaCwSTrq9lRkwaJ+bvzPXdTzlTKL+Et9cMXMRmgi5vNNPUXVCZ6OnsY53u1IE/iYHj4fHfkosCOnIKpxmFFvH7/I7UZuYdc1f5qVqbd63qHqoaL5XmtxwgwMUiqVCXdS5/j7hKpKEMoLmVIW1KOUoV2WlycLPAPSU6mBTrnpLsw0KEl8pRudnKzZRTl5U9+QH84SbGQCK/QKXfyRbztA3xSPbOuBY3WEXwrtu2ip8Uny5LoVwhTuC9CISWvb6MxTCLm/zB8OtkIZ9kJbXchsu9sqtZSji/Wca4MBsM/lkO4pEMDUQTP0au94aMlRRY0bWZaU8dN8sGWNHgoLq5i5KAqq1X0cW1teMvhp0rc0SLA8rCo6yPTUEZM6v9ulrtYD9aZu2MJ7T2IpXPyDktmoBidVYQyFfLX/sWpklDqXIsf+1eDVM0AsH8rEs6uI38iAWKQDishrN5CYBpYCN6AQ0KPnM8bSJj9XqNOeLik/gCXiFjjwB4Pkaan02VuT7cWqm/ni5fkOPt8kzsF2tSAsh5WRjTHRzNvinq1388ROHSIJ9My6mQa/Pbqw0DwL2nIy3NWXQ8+IJo7cuSv7//SzITdcV+ZZT7hAUdWDXuc7zi33qhI0c+iXl07f9S841K4MDBj6R8RjPTupdVTOZENMRSt0FUAmOO"
           ]
         }
       },
       {
         "title": "需要听原样哪期",
         "cipher": {
-          "decipher_id": 2,
-          "cipher": ["cKKKZVPbxc/v8j5WBPBrXg=="]
+          "decipher_id": 704,
+          "cipher": [
+            "zTuF7r2RfdNf1kZ4h1HAWQ=="
+          ]
         }
       },
       {
         "title": "我得到了若干看不懂的数字",
         "cipher": {
-          "decipher_id": 3,
+          "decipher_id": 705,
           "cipher": [
-            "RemxPNIZRRKySZVNUwKRDn9i+9IJwIO9suUolSCRZWPDgxbdtY+yC+x28Eb4QES1gvveUZPv5IJOB1Lg1St1XfAg9ZvSJPST7ijPzNFrD7l//VLvcWnCHPrF05+rWXxnuF1XY8lMtwf16b9FyODpE1q0qxfkynkBa/6ky0ivMwNdtkrhq19LJQ3MYYRHhIUNF9lDo08BshotfBBvPZ8W2w=="
+            "V+tsER0DtPamf3V9RcbJ8iuEXQriBl/y0reuqnD3jgVwW3+VaWIqwTiq5enrp6edqWrYKLmX/bwycf8hF/y6HEzRRuCtfcsxkEVIP5PZbQkcYAuSj4TqLzdwkcBL+p0ivQ1APshcMfQ+8AAdjZ3l3IQjaQPyCz+MFqS1tQLbtWY="
           ]
         }
       }
@@ -46,76 +250,347 @@
     "puzzle_id": 8,
     "title": "观流星雨",
     "meta": false,
-    "skip": {
-      "decipher_id": 7,
-      "cipher": ["9mtNUhrlkwbOMIj470HZ8ow+3j0LJkNuxzLNO4s6zDU="]
-    },
     "content": {
-      "decipher_id": 8,
+      "decipher_id": 801,
       "cipher": [
-        "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"
+        "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"
+      ]
+    },
+    "skip": {
+      "decipher_id": 802,
+      "cipher": [
+        "MxCPZvkrPwonFq4EFOPuu+AI3O9AjXO+7njlsIsw79E="
       ]
     },
     "hints": [
       {
-        "title": "提示例子",
+        "title": "我毫无头绪",
         "cipher": {
-          "decipher_id": 6,
-          "cipher": ["twhgeN6LvoPBZq6cJhefcw=="]
+          "decipher_id": 803,
+          "cipher": [
+            "A3Jb7z5FMVxVskHKtLNiFpyH34lRAWmQh+IGxauVTskBEoNrzsSJI93sKweoQEFU8N0hXczs6N8BkAKlhw8jkveeJlWGnMicjvCiPYVFcDA/eeGJnEYHqMJEw3ATCt0B"
+          ]
+        }
+      },
+      {
+        "title": "我想知道1F谜题的思路",
+        "cipher": {
+          "decipher_id": 804,
+          "cipher": [
+            "wn2s7n8ScDDzhDg7VwKU48cb92XfuBpbyscGhhBrzRlO6N+05rTDFYl1de8t8VhZrbTVaz2MR6rD+0ERDZua8PReV/P8g4K3CSt0m0RsCbabiaDhumMqNigBjIK82U0Dqc/R3QJxVXfzxFo3SZ5RwQ=="
+          ]
+        }
+      },
+      {
+        "title": "我想知道2F谜题的思路",
+        "cipher": {
+          "decipher_id": 805,
+          "cipher": [
+            "/Frv2u8GnQYracb5MjhieCqgnpW8OcX4NdHF7j8PARBMOX02wwJNxE5dt9AyuGeatp2paKkwyRC7qZDyR6DJBvu7UJ3QxXTtxlEbIZDoWJqTNhH3boyUFljiGkzGoVrm"
+          ]
+        }
+      },
+      {
+        "title": "我想知道3F谜题的思路",
+        "cipher": {
+          "decipher_id": 806,
+          "cipher": [
+            "p3uTd6aGVb8yFdu+1ZACRSGQQqkDHHhrq5H+ezkj1qEj+Nbon6B3qrAj7C3to7hy4QB4ts4a+L9KB8OE5gLTgezRHIc19vXbZWPTQu+QkT6OKKT8pg3Tq5EfZfmu02YI"
+          ]
+        }
+      },
+      {
+        "title": "我想知道4F谜题的思路",
+        "cipher": {
+          "decipher_id": 807,
+          "cipher": [
+            "fR75Qg9lm9X5h/tvgOgEgOsBvj+T5Az/iZsCXwIWCHoPvyQ0SnHOxrpMRZ0uDx6v3DE+SRaPSvMR1pIVqKHUR4xUT15MAjfhGCVwuxyZYWnNqpUetWBpUY+xOCrlN/0cn6Tw8pWPtbKIdry/zUzKZgkYBUFqeWiadrVAo88YQPE="
+          ]
+        }
+      },
+      {
+        "title": "我想知道5F谜题的思路",
+        "cipher": {
+          "decipher_id": 808,
+          "cipher": [
+            "4avJF6B8gSmkPWDYA3XB1K0q+l4wFrtm1SLHtK8HT0Y9mOzyYnNPL5ofeR8vHKD9"
+          ]
+        }
+      },
+      {
+        "title": "我想知道6F谜题的思路",
+        "cipher": {
+          "decipher_id": 809,
+          "cipher": [
+            "XSMSypq7lpW1/G3jUQq9ieIo6iJnv6z834qJGxP4N2XkIolPiTpcJMzZx3tSqoFq"
+          ]
+        }
+      },
+      {
+        "title": "我想知道7F谜题的思路",
+        "cipher": {
+          "decipher_id": 810,
+          "cipher": [
+            "LLYYeov3M/Jebu6GSs3wZpeUIKcMDAC+iSRyxf1ailoVit90tGr105S6JNOAk83s"
+          ]
+        }
+      },
+      {
+        "title": "我想知道8F谜题的思路",
+        "cipher": {
+          "decipher_id": 811,
+          "cipher": [
+            "g9mp8fV/vX55dDkGn+MLlWheX7gsoh5tl8Ob8aNgTwILInbVh69M1pzoRFPJmY8Lu71SNS0QU6ABaVE4GTp6maurTbjdhcNmXnMVtirDZ6E="
+          ]
+        }
+      },
+      {
+        "title": "我想知道9F谜题的思路",
+        "cipher": {
+          "decipher_id": 812,
+          "cipher": [
+            "68hxpUuJBYDYZKWemoHcJwu9uHbkIk+unGxDTUhbirs="
+          ]
+        }
+      },
+      {
+        "title": "我想知道10F谜题的思路",
+        "cipher": {
+          "decipher_id": 813,
+          "cipher": [
+            "y5s7b7MY41LMWnHWcpL/OCumjXGwcQxrcm6Dqo1P98k0oyFVyZ+VHjeDfb8DeJ8F"
+          ]
+        }
+      },
+      {
+        "title": "我想知道11F谜题的思路",
+        "cipher": {
+          "decipher_id": 814,
+          "cipher": [
+            "VbzqIMkUWzpqZx3968YW6ka5Sk6+0kxKcy/0TBzJcdibBljdIdQUkutJeziyQ0lsK9HUk1TOsmDsRHB0yrpNbBuh/viDvWqarlOoPqCGQ0oY+whN9eI0ThGNmExnPNli"
+          ]
+        }
+      },
+      {
+        "title": "我想知道12F谜题的思路",
+        "cipher": {
+          "decipher_id": 815,
+          "cipher": [
+            "Y4Tbu3I7bqbYuW53fH8Zur59kQxpdA90FNfDTWMj3Oft8zyvvaPY2Sl+/Meb46jXCRJScQYlmc1BECEdzBhvKQ=="
+          ]
+        }
+      },
+      {
+        "title": "我想知道13F谜题的思路",
+        "cipher": {
+          "decipher_id": 816,
+          "cipher": [
+            "4Pxix0Lo1fsMsp1eRCRz4Yklf4ba0iQ9gO1J22E0cIJQAqZNnvT1qL7Afka1rzUMWIaRXASbZR/xxm9DL0sqyw4UcA4TUceD2M7/1NupZ6lmS5f/AZfgcjOKQclp3w+Q"
+          ]
+        }
+      },
+      {
+        "title": "我想知道14F谜题的思路",
+        "cipher": {
+          "decipher_id": 817,
+          "cipher": [
+            "iuocDRpT68v8qm3TCBjqb+/2JmrY3kjTnl75hcdQk7KhSHDURTAZXU8YjGBr+VTomyJTx1X3hMAgMl07qnasFRSc24YYaS5NoH9mcEZZgfnrRSg4EEC4U0TDjp2f5ZigkQFixt0E9NxYnuxRm7aNaXgOXh42QeGayXkEEaizpYI="
+          ]
+        }
+      },
+      {
+        "title": "我想知道15F谜题的思路",
+        "cipher": {
+          "decipher_id": 818,
+          "cipher": [
+            "sRn4k+21UVTIFZehiau2a8jN3SqErC+CyfDhEnSalGfwWCq/ppTeWM+bFxcVqrTwzfXEK93H853BzsFNoO4qlNoStl8zO2YKFWxAwqCO/7fBZ5b9N1QCZfJJc/0GX8PwLow2ExIkHIAY+Nruu2gOPp6APna2C6Y/2Ir1M8uwiIk="
+          ]
+        }
+      },
+      {
+        "title": "我想知道16F谜题的思路",
+        "cipher": {
+          "decipher_id": 819,
+          "cipher": [
+            "gKrRT0CNOIowkazbUj9v3bMCfKQTiM9GDogNYfcXNFTXNlMki6NsOyqswb7vLkCvDjw5spjlrenXRp71czUktlhh6JL3GJJzNM6VgwC4QCY="
+          ]
+        }
+      },
+      {
+        "title": "我想知道17F谜题的思路",
+        "cipher": {
+          "decipher_id": 820,
+          "cipher": [
+            "JsBk9Ydxp+d2JF5zplhaz2DoV8EwfC2POcC+gynHH3TwZiBpY1USE/po8Kmoru10oEoAiVA5c4Nsm4sG3QVNat735jNy1UyaCB0/ONH39p4="
+          ]
+        }
+      },
+      {
+        "title": "我解出了每个小题的答案，但不知道该如何运用",
+        "cipher": {
+          "decipher_id": 821,
+          "cipher": [
+            "5iBncCkyhJnRF5lOHEGZC5kz0FV0D3XzFkxV4pu/DY0yDmSmLiNwdP3VrrMbPR4gnfsfddQsSJBJhWcYUjVNwhec9rm0MvB1ZZNlFGdXA7A="
+          ]
+        }
+      },
+      {
+        "title": "我不明白对塔楼每一层该如何操作",
+        "cipher": {
+          "decipher_id": 822,
+          "cipher": [
+            "lNiyoA7OaKJee7bahkrMQVxCObF8MSRr9ZQ6nFF44Q92KH8LYHtkOq3qem73AGcJBSp2egoZYH2pzpYpYlfbBMs00q1BLhRpOlNhWxXC3PQwJinIAI6+tM7XWsNBWZC0"
+          ]
+        }
+      },
+      {
+        "title": "最外侧的一些特殊标识是什么意思",
+        "cipher": {
+          "decipher_id": 823,
+          "cipher": [
+            "C7BBRxhMYZsZAdq9ZbEpZgu7DK1lzMC2siN59YsFoBqbDq9b2po0Sqht6oKTZv+YkISzkPsTnPruMGdQ2Xle7UOj+k+xGo9+Fz/4KSatBitO5YExu+B9Qn59igr9KxRnpO2xoK0ArnR9lalW0RfMg+gt+1Dujx4RTGGJo5DXA5vzcLjJn/5ut/XdFaIhCj4oQr09PQRDZ0OTomPpHzthLQ=="
+          ]
+        }
+      },
+      {
+        "title": "能不能告诉我本题的主题是什么",
+        "cipher": {
+          "decipher_id": 824,
+          "cipher": [
+            "k7UAVr6JjZvp/ye1LifOyq1QQBZEI/B1bLSiZ73EbNs="
+          ]
+        }
+      },
+      {
+        "title": "该如何提取",
+        "cipher": {
+          "decipher_id": 825,
+          "cipher": [
+            "xsEWPr6PamDDMZ+dXEEPBy1d8N9m24vmC8xpnnmjxwx1Pt3yK41r6BMBvHmhIirti2GOqwK48icz+1SF1o1kAUgUskJaVL1lKwzg63sudLt1BNEyLs4THYy4AYivhNR7"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "puzzle_id": 9,
+    "title": "小树林",
+    "meta": false,
+    "content": {
+      "decipher_id": 901,
+      "cipher": [
+        "tUMUGsVMli1Q4Uo1Mx8R+7iOqOMfCRDPnVDWXq0ZX1Ftbbbk3ZB5dR8Kc8SG8dtfFU+DyAi22E7qTpRgVItI218xWn+7R2EXVR3y31VpjAuoSHwojpfsg9upZhUowgjGg61SuY3hV6kpzCUUR3G85RivpxdLJVh/fodQukwuob5efzvdHd5/b+NOYS/LKjGc4wnW8GytzTK6PmbaKShU5O0ymVKVubC8sYG/VWkoAbrUQLNrnZGrdi3c/0kgeHbCuoArx6VBFo6LmHgRYfgN6o+NyxsnI//u+8f3US7x8dhOBNp9w597Qhf8zpjkVaBepkXqjb8YPEvmqyQKxhSRBkvsS7498RTnpw6anDhFBwUAQRcKrOdMPJ7dD/u0VUA2tvd1c3zSVth5S8YrMnUV3bzsDWcn12YT7XbxDM/jmW7EySVcEzTwS1ZOZGy0et88bZvGD1wFAYq/2bIfILnpxjhc6OPsgrt6VvWJ3Q+2K5X0AUBUy+OAucMxHW+e9tH3G45X4UGehv9Jer3Jqn+E3YVhYWQf5QyMnAkpDx/tv53eu1BpmwOzm53k2zT2Z2co1GVP5XgWFbMDEA4cHbf9fuJtS2bv9YpSwkomRh+fGyinz7d1RJ26XivProZePVgzQzxG0YLzn7ghc/6SLl6IFC5n7cqbUQjvugcFMAviceQ+eqMWY3zgD9C+zDUfG4BZT/cSRCElDssQc3zYfk2nSVfQ47v1ms4Tji9WyJmiW1n5qIaBT2mWcstfijX/JD5pWdavYDc6AlfXDfFbfoZIZbvEFTWmv3azMPMrGuEuWQU2OeUNoWIpKC5p9lqELy4tQrz900DsFPhog/dj73YBJuI3v4rCQxnr8/GqyKbZ93VwDfNRl143Iys1K1cY3IcUuV8Z4Uyb6ViXhRDlJwc5NjKllEL4WF5h08zbN3h0t0w=",
+        "ZedChcQ0P9C3Sxxx/jwj58g+0p3EfzbISCaSIFSLjZHlDyhtOy/VtzTAx2Ll0qb93X/YcxqHtNRP+dmD6VoOIg=="
+      ]
+    },
+    "skip": {
+      "decipher_id": 902,
+      "cipher": [
+        "4gVolqr28vWu3N5XrGtFtg=="
+      ]
+    },
+    "hints": [
+      {
+        "title": "歌词有什么意义？",
+        "cipher": {
+          "decipher_id": 903,
+          "cipher": [
+            "e2nd2QdwceEcBZZt2eGT3GJ4+vFTrIOc5RSG9iMiO2KKblMe8DIF2pCeZ+yHaLdXgmM3QJLNM9blG7L7Y4fwEA=="
+          ]
+        }
+      },
+      {
+        "title": "FT有什么意义？",
+        "cipher": {
+          "decipher_id": 904,
+          "cipher": [
+            "D9FnRdjVLvU/eDID67LwlMb3aAw5OFEL0qTCb2pLzV1DTrXlB8lC3j+didNgB95ydRSZoU/XCfMDh8n2BVhuQg=="
+          ]
+        }
+      },
+      {
+        "title": "FT我理解了，然后呢？",
+        "cipher": {
+          "decipher_id": 905,
+          "cipher": [
+            "83pz/BHNeAV64RTETJr3wdihydJLN2UeteggfgB50dLMSoGk1LJ4GGbf0QJHqCn5S9kafgT284B0bwgTpktgPyDg7KosYJ29idVZJfd3iyFbg0RXYr9Txqjz0ZgWW50H4damQcfgevLhQi/xzvf4XQ=="
+          ]
+        }
+      },
+      {
+        "title": "该如何提取？",
+        "cipher": {
+          "decipher_id": 906,
+          "cipher": [
+            "MGrNyQqBsVTtltmxCcpCu8LLMnUEivXUP8hJ4HQbnp29GieFRCvyBRaR5tCEe3hz0gJpg7rr3d+thffuTeyVSQ=="
+          ]
+        }
+      },
+      {
+        "title": "我得到中间答案了，然后呢？",
+        "cipher": {
+          "decipher_id": 907,
+          "cipher": [
+            "PWU6K17JxdCvx00rtAoYYIOBoaUfsnJN7gAoCbt33j47FntmZ2TJtl1fXcpTABzOdk0+FhY2AINcc9jRpi3K/g=="
+          ]
         }
       }
     ]
   },
   {
     "puzzle_id": 10,
-    "title": "不好笑",
+    "title": "送给叨友",
     "meta": false,
-    "skip": {
-      "decipher_id": 10,
-      "cipher": ["Jmo6x68YUcf6bzCAzYxX1g=="]
-    },
     "content": {
-      "decipher_id": 11,
+      "decipher_id": 1001,
       "cipher": [
-        "5P0+wipcifjs0VVad53byymCpevuks/+qQ8nTE7I83U=",
-        "Z4jVR+QtxKWfGSMHepWeu23BEOb+L0y4zAjjmlp7HqpzSudhPgfZt/Rau0rrfZ5G",
-        "htlAFcgNOJioryna8LZDteANWy079cdIgT1I4Iszlm8="
+        "Zq55052CGprpTAvs5uW5/HzVcAFiCU18gg25DHdjb58KRMFPfO1nCkWLNrk/NPsJVHgwFu0yNGeGWYtrLgfPfA6gPcNPmFdursQ54mcNN1Low8f2hCzOHtuRqOGDDaukaZiIX6bu/uuTKrSHJLl1LeckrLAG/sgU632aZutef9mDBAj13gCfYmtI1ZSuUmPp9d0LEUgnwJar2CyZ2L9+NParS1XH5CAFB/OKMQzNojjIiv5fSc1XN1xsB7iDV3h80Ui3HNZtQ9nwPF8V2I8Ryw==",
+        "5C0Wk291JgsKN1nPfZmP3a5ZXhis4fRZ/AEHxjzOVWK4ML3WAlPBBX/tebmr8WRgkTRHngCZbVOQw5PdYV1MiO+s/JVZtLDQTxFB+rBFhnZD/q0SalfNBhreGAr9vf67p1zlRXwkC2ynDbeZ4YQh5SKAIN7N24mfvHOQf+suNbQ=",
+        "TSFxbG+HC4If7RcQIOPOD/ODsC7ENDHX4zLhqZI8WRk9e+H4RSaQ5HQekMBryHAe2kv3wbRfbFciU4zZFMYS+YSAOO935OypY1jYNP7i4LBoIsD/HnaxK/7Tfocmr9FqRPA7aeeOfQQLuKejIUR0JCdfz4rWFpl12x5/+dgmExM=",
+        "J9MlbxtKqz/ZC6g0aUgAa33ekTUGvIUV8YmBgO6ltcxXtOGSWhFcGp6JpvYWLEGrA9H0M34tyLtLoBxGS01x59mqAq/TLdGaij++bUPD0G7IpAB83BpbOtxoUws4lc3SwD5e7Gq0qQln3xYEJnuxJ2hqvs20+0+ugn2q2oMyDzM=",
+        "pZiPmi2i24YN6+hfKA25I75oM8P/WSG/6tzGaKVfiR3XJZrvSj5DbtR2Zil07UWH9yyTCjEKo6Eh6i1Lec/HFnlDfNtlvmJ1B6kJ94IlVeqHv15pySza6exCUbdcLZzsXjKF+VZRuNfOPW6wQVfHiVZBAdpzxGpKXhL7rW9elVl/OODFYl3Obyv5+XS2tC7BnTEP5iM8PypZbd0kGoASA8fIoKue1nC7kWXODWLJOBuL29uRplyjWJu5g9CQDwpZ/JwXbm0V2D3HheBjqyCVPXmCOV4pmx2t+qgZpvOMHac=",
+        "SgzqgDGyj24MnfKwoWylUvXhx6NQQq2YsjLxXAnokCYt1/ogod2/DB2tk7M5mI7+YoM9I/ouZHcUiLty/ErCwYw7eKus+lxuJ47K4IWwOHf/ErrzkOToMP+Y3l8z+G+j+uh+yC97FFyygf2DZvO3cbebRFCh2ESYNcMU+10TYAScLUpZNFksHLw9YnpsEIipMj/K2QQuAR9Y1wp46N1VjZ+MvG8ZW+U6zNA/KRi1rkOMK3aNjfm180hqqJUc2ql+pZ+6T9bxzsspqO6Qv3v2vwjo4aNfpRB92nDXpFTVYXSTZbiAdgTa1MMJSfTk2/a21LPReP2tPu+Qjg1KxW5TcQ==",
+        "OzmA57vpdlA4PNsxdBt98vjgFN0kpLUVCHyFp6cgBuecnXmgudkqmDrCDZCf2xKkfgoSQCn6ciPf30FXH+JJAV7oD3/k6nSbC6hbojzErCQ15mn4qgAlzonXuVU/jyhrbrkGWh6Qd8EMjUBiSWYwdtbtfmd6t28HcQF9TyycxGfWYvF1/KkIdRBHJQ0zlvm0UeALBgbQaGh5ODrvgLNQHbK3fLn86VqjQV7VsdAPsstR3YzzE8+HExgK7ZpqM8NfT8VgYEQJM/BSKiqaPtHsfsTHyrWxNgL5vh/wR+cCiZuGESFI4KVUCszLR86NLcHnP8LfPUBTrBY00QNUpuv9cbutymEDpj067AMUUZp1je6A/o94KCE3/ut37qmj5s1nDaIOG44KdETi31blafjNddTzzALpdnrwpyU+nN1OLsdBWIuKkIFn5ayFmFU9Hvtvt3wa4bhMwaES9yY8PLpni+W7bCMaE0OJhs/ABqYUXhKVXToOaRuLm3ZzpNxWpd+5lyIbq649leYuGLGa2XEaXn/rd+mfSUC7CLiL8w09CpV0ARGJFRwLaXY6ZUVZpbHRfH4eSafuf2FXRS0HYkawPWK9tnOXQcbf8MxcnQhJdFFwbiiazJSgTYOX3zl5HrPT5RgBACBiWSt1BQBTJ80mgOPIpXoYlQw2cPpy5q5CQ57WlGwRfwc9+dDvgeeutffEA1fX5ZXYDz72mMOvatvHqzoPRPioR3eIbg7RsfnQXzkInqsFQZIyaVUPfruxyg3vZcyeRgi/NSu27ouO6QXqgGiZesjLl4lZQyH9rEJDiIbWgSpzcvnA+imxrnQ13zc0uGy8N7yE5oBfiP+W4PH9F82CLFgUuCxfW9HuxIzjNUChydSpJJH9CvXoKWI+H5i2hridZCl2CZQFEcMXgBjzi3ZoavYYQBNM+fhW2UKr0rD8p+//IiVkJvYjAvXFPSuwA7fkj+n0Fjv8zQ6BiDbKkG1QB+dbg6U4XVM/2shjSv/KAl8MdQIi6k7uKfCY/32ASi/YwsghziN4fhGowV8RaSGpES+FRj/bpOwG9FO8ejg=",
+        "wfQYiNdnAEj5BJq+t+L3fw++TMhUlrRzVKDl9rnk5s/xjfFLpnTP9zp4/3alt0LqJfCDduXINqS7PsAzCnUxUeAdloC1xisbYEAOHxWv+vbRLTn6f8Vt6f5u0SHiK9+/tL2n1qBNB0sl+ug7PtPJp6EujHgZ7Niv59Hdmd2ujjvqSahXzggqJK5erad6CxoVCyqLNAL62D7ssgwuHOAiiQycRdecraSo4jLlRTdEPv9O28xKiEliU4rIU9QqEbg97QVE6nZhvXNGaY5q7JTshxWlmxRyju2ySrmGmBoP03jM2ndk2mg2oIpCPohN6E2I+Hd6GemT58ucIh6auUjLYdtGhde+ekvX/OLThdI4iK2QXC3yxnCv7Nn8SiUQChLXGI/08Pqfzcz19PiLd0IjHUHbj3opsxxfaqORTcHQGSr44p4FfcTvRbrVRwhHuwGBL8uNR6FV/a3MG/ZVZ9Vhz2WUw3jurzcTNeTAdLQR8xx3t9S7ezFwvow9Jg1aff+5AuNjp8HRlZ+EWEEp71907GUOLdJpW3qwpWVfKDxyt/UaQXrxAQkQmnqbZCuaoOcSZdkMIyT7RR7wSA74SjSjKofd14j68RFKfPsrR9EEa5adxHQ0diX5r+DylZiK23K8G0JcCZ7D0repxEErRMkM/9p1bB1+zSwDbJCf1zIcuSB2WdRzrJm6CXYzLVG+k7Nxo8zVS/b1WJhEynlqEosKsJ3PNgjuMl+ct+uV8TjI5oKNC01qsD7/XMydbScCO4I+T86t8T8QJt++ag0GqQF63CKtcUe9lHmac1Xto+/Q0BMJ7X7C3QFQd2GBtp7ixl/o67GyFwUjPnDoEIFRQza5ccQ0GmBtVg3N5E18anRPBLD5r22uMO6QDegrrQhYqhZhdftvUQBC5gn3e+BoNhLfJng/oZlqKVFQfKZTQMqHMKah9JV0iZGNDlHgah50ASwcUBJgOP2IE+TFMDOY3NDoLg==",
+        "QhVPB6KJAp4eVg7tFXze4SYjA1laFBaO8fS5QUhpf35MpbvKiw/g1VPyQztqkaseouVsrUSxv80vvoDGjbh9TEeHpilSUlynp23atIyRzLW7dA6P5p0DHj1HgpWQeIKiBVRv14E4386cWev7APcFkUufX82pe8Flo6WJ2BJTFObLf5r/l+O6eYnTdsclhT3KINSPsux5XLB/Z6tYH7I6eGIAZRCax+8O/fNh/LRARWk7CjpKdvE74QFXQrrE3QdBWIbvj4klmfqGWmyZfBhWJaqWQ1716Wqkk4sn+J/blnX4r685MKstQiuK7b6VOIx8IovFRMbpAfB71lOqoYAMrW1QDvQWtb+JyDQ91vZMrwrGJl417O1DDf/sim/RG0sIAAfidwrux5d7zRt9Jv/ToAMPVP/e1nqpO2eQAifqIx2RX8rBrSYbblCpg5wH6CvSnYevKTiC0Mu02M7UOO/wzW09b+oMJO6+CgqSIDFWWvxSOdTGhEAu2n0nYu38bhzhvKaXwnN5yJtZmm7Ly0qTjwK6eNQjdAoLUctnyuBQMabDBEsDPjOs9D8eJUkuK/7bsQUN87QvvK4E0ZeOyt4IlToTC+sleCuu2BFccYT/IGI=",
+        "+jky17wAFaqK3A62u9m5EtKLrEr2DKYLnT40bwXhtMSiUFgqGKjwHAYWP6Ugzu80PXcQOntwk6Hon55VRuQeTJvd2/dHFI6FOBrZxy40IUfmWTq3h6Q+N4tyEZPc1W90iY7Zgm4+nYG+mpVAqXZYPubnMkbjP+LMSx4Gitnar3HnAVMCHj0yE9KzKZSrIfX7IxWXaY6encSQV1eS0p7QpM8JiSKmp/9uocuMes+tmJlZbrk+b5Sloib/WlN7ERazrT2cDWiXz6Bm/WB1EFLiU3eQ4ZNLhHfL05/JQQlHk+3oOy+TKMHmu3UcsTtLcdcsWhmvcYXhDZCIardfnvLHM5EVr25OT3kI+cslpCQ0ltpvXZUSb4M+sIN1fu1tcZcsUJxjSFElV2tkQhO8mq80ewh9qmDSC9TlAm4ZM8CIceF6g0zpkchSRS1AYftA9ATfvWs6/j4owB22Hq4MIZbtYRG7POokSGMfBw0UPZTMy05sS+XW8YAB65L8KbG8NVDN0N0Rct+dcXUqwayJmm0lDJCpuRnN5Ir+sacKZA9A2l4K327W7adfq6sirgENSFJwmprcl8CKN2hTE4QW2VmSEq+6CUrSL7D7rqWqmRXs8R9bXHtuWoSUO5bs3C/Um2LH",
+        "wWsa1hPUg3fAWV/LWPn5QibnECkjQo26WhTHBdIaiC5ZWQ571FsbQm2IRirX1+gpd8eZ9xebFcU/NN4oKcP0GfPHxJ+X+zKrPJqNa9GiwwuYXytCdC5Tmbv9t9hoqOGMYvNqPXgTojbhZAU4k/yxkFYCWph0G3n8r+dcvy3qGxKgBvWPHTeAzQ2v6U8dnhd4vHt7Spc1EmgSETrClh+DMhVkZ0SM4zt/O0heB4fgWvRrP54DJhuc51hiWfJBUNRIZfIuEbaVRZrw/I1v3tF18wrOAe08TTZ1PJNanxVA/B60lQAeQOcjIE4N/HD4xFhSff3H/mzF15+HSEa4mhkQLU91AeZlsii6iaDtTlkkEVAiuzAZicuXcma4VvjrVZXSUCwdpNFxAUV5Sc8je4HBKvh/OpMuh7cjTCyGywHXA4PdeUzjfkYcB4Z33nhu/o4W0tEjsKgy1A4uCEV2KqD/ZiX22oSu0SxLpzQE/OSKVaICqNu94Uo+xotVInL9bXs6r4KgYlfePISwsoYyrw+kqQ==",
+        "cx8zuNwMBzmWycz1IzvU+tEKBV6gdrreniOSx82QXifIkbhu85iA1+zhcF63Dj106qngOm0Zklzv96U54xvHNERA0HYd3c8NilYuSznUqDHJ/XmduBzF38uaBjEiSWWOIfyhNqmi8nawNKZflGPNIWZAjIE99fVn4mGMrxdAlZGGeAup/RsvuEi2sOVUnTvJn5tHU66SCrCJTyD9AsdRS77iAUOv4Ovop+WhOZ40TIzxA1uLvBcyEU084vj0WHZU0pvzQQx1EhqPA+OutjOM3GG3856KmNXl/6HN2ANbChNPpWtkSqA0utPv2FrsbFRhBN6tXzHmq7rzjQ45+A8fr84OfKMwuTkeqOMR8EXrHMg=",
+        "AVEZmXfl3ofINXm6NFwIj+UqQ/YMYolHRTLGffQqSot3KqSg6f5zN7VnG4/X1KdEq7InsQrAD8HTqSFFPFJsRb1oSHoY7cyaDbFyVrHnEPvqPkNPrsMkhx1Wegrq4sbYY4C/t7gp6sa7LjElg9o7y0q+M0lktQKvOLZhV0vu3/oRDxBwdF61U09KwvpQsPVvVk0Zj5fzL3SYCJLKwJvm9+rktvWtjkDbEsj31FSpwWE0Ac4xPdgKvLgO6oJDLaDu+NLX1JRX/XQp2gQiBxkRpUKwpVt8hY3LStf6/yw/4vxkurK7rf2Y7QCxNnVWhSrE",
+        "VwqE5wV6S0vd4dGcJZ00OoYzYnHye78b1AkG3E8ct2flbaFrwfLthXI697KzgnV4y6boM344adtkVzx7TZ3CIrwhpaUXuN7cKDX8USZoEveKVZ/qOWXQVrvPeF6ds7hjQQge0JoTofPP6JtXMoKRPjzg/yhMBtg24E+yz/O+jiVVPDhvNXEsGPb24JdEhenD/pmxUGiyE72bayM5qoYshLkZF5858qlF8ljNS2EjSvZn4AiNmMjLebRzDTLHgFPO",
+        "UI/dQ574DyXLigzZ25tO5lOCgbh2cK8Lcx+YJPKAHLa+47WX/52+clzKdpAIFqPe1P+3w1wFHm9/L2NwuhxzsdiA6xeiVwuduoU7YjZLoPwEY0eka381KrPE8ckN0THaXUot8Te5SWI14iYpVK5S3O3FRfRFFVDaICcTmAzyblpjt/oQAEDRR5VfhqA0NGy2/AB096RmUbb4vIZVmhoZ2YwfDEXYZ3M5iQHzgcW7i8Y=",
+        "CsHlJ3lN3D8/4uOgfKoK4VUe+5VO05qZxNIq1XeEPhJraRpp8p8W3VQ2zaHzHkMEKJzH4OBl8mqWNpiHUfVK+oscqYk1K+0o+nAPG2THk2wix03Y+ntTUZ7V/oqVtAVB86BASRfcP8KhLqKsZ/8rIyiuQmApVt4Xhh5tE81XuMLUzzqs/ZR7VxXGh7HrPVAw+6cE9sEG/JMQrRQRmXU5g5QXOylG7cM04B/kFn5KyZ5s3uTpTmgUMoZY2Vj+Pd5o",
+        "ryBb0HJCXflxKHf8Ct1f2G1Gexif8ulrYZzeRy5I2J/iuQKJioMbLRbzxjxouGrqteFSsH5pPV+IuCK3f4Qz/KAqMei2HSL6hzRQeo67c8Jw1RMTEdkbMOd4jhRPBg0o7SZow+10nASUttkVwdaxSw==",
+        "J6PGRQ3LMTxVY10CTWlpt8ro6yTxIeOVfN7mY1UDr+Rp+atsVbpfxnHD8GC9XRakTmW1iOc5DMnV2vZ8f0t66Ke84XzID491j49JyZd1z2xmyO0VZ3dPYTHEQl5I5excbNNy4iHiLcZwmh+7cjpBz0GToUPBPCAFoCSDzff4QxvbYhlpgL873fspbPsOm0k+BjEtIdqgOIRKhgCq4rQQ4w==",
+        "iqRsmThkxQvyRtWYuFp6rTjXtkDJs4VGiuEgk5+pgcfPHLMdvoXSBKGdnLPo6z13DBgw1HlrdjH8DvRXm3I+aw=="
       ]
     },
-    "hints": [
-      {
-        "title": "提示例子",
-        "cipher": {
-          "decipher_id": 9,
-          "cipher": ["mncVmdzA2VUFukN1VsSNlA=="]
-        }
-      }
-    ]
+    "skip": {
+      "decipher_id": 1002,
+      "cipher": [
+        "p0le3sqyryEtfb0IyniLE6Y6HdID9CuZhUVavV2yGOg="
+      ]
+    },
+    "hints": []
   },
   {
     "puzzle_id": 11,
     "title": "Meta",
     "meta": true,
-    "skip": {
-      "decipher_id": 13,
-      "cipher": ["XXaEvaMbfd1qwz3PUrhHFg=="]
-    },
     "content": {
-      "decipher_id": 14,
+      "decipher_id": 1101,
       "cipher": [
-        "pIxrQWmIiPKQ+ezDQNn4zA==",
-        "TpA6MgsheWu/r4ANALFf/mJ1NzUHzeG39XiOfoBnVnS69EG9ahV7gpk7sdBvr1zkFzKdjEE67P45yqsN/DwL4aP03NufDQ9dNkXbVzYC5FVmhz95BgNlptkJWrYI6vup"
+        "WYBtYTBat48RiSjsejZ8/Mqfl2VvojyFmgUDbZA8NNxI1DNYYHGWS7k3dCAsj4gjKFLXb8qJ/v+T5wUsUyOq0OwDyqZk6duiYsCSrbwf6avoCT34/1Qx2F5AUDgvAhx+x4PQfOHp83rKeOchoEhUW3oSENPYSTamkVvkRxSySxF/mq0j6BZpZj6te2Z3244OGVA1sLGsYEEc1wde7KIom/Xt53Lctv95v8XhA8SxndlfHLA792QrUZqTtsNSyE9shyoZs7TkSW6+fa6gRiyj84oTOAkcOmFbnOMiS6x8lGWKeuazDz5OHji8vRQf8De4fkKggKzEadNKL8N1GnI4n7wIBxN/9HsQaqFeSAHBL+zdSBfBPbuRdf4U7i7LAqL82ZgtpFvyXIfqQXiTe1ckSh0FpSIYbV08zh3dY6rPdC04oRQE9IL9EKaoyrvaJWiC8Turh7rTGmEaT32y/Nfk+ihzXm8hVt/550rdh6JJD5rXnZR6LdJf2oVyuGocdVCme1EjA0UQi/QlU68PhuB8SSgN1De+M0b/OEOg6sE1hoUWGFlv7uXcdaT9JMYPu9czHel5Glj66hBlouum0GTw7p3k5xnHWs8erGSU56e31CQ=",
+        "Yk5P0VkbwOupgUWisvM1jeobRp7S+v8ChUPKLcIrZ3kc2wNng/Ce4/pDvmlSsHZutu9kJJ/06cZfojuZ2Gipq0IihD0SoiHt6TzgCPc24Ni0xbWj+bZEajZn66cXUuBhohgrE1Ist4lPvn181Mwi3HuKrNM5f4HkgpRWjHiK+y/Ip2jaoFQ6QYMr7/LxiREd"
       ]
     },
-    "hints": [
-      {
-        "title": "提示例子",
-        "cipher": {
-          "decipher_id": 12,
-          "cipher": ["1tI8meLcZw2YRAEe33LUBw=="]
-        }
-      }
-    ]
+    "skip": {
+      "decipher_id": 1102,
+      "cipher": [
+        "q5MA06xk574XIOAE3FBJcA=="
+      ]
+    },
+    "hints": []
   }
 ]
