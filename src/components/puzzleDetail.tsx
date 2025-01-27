@@ -45,14 +45,14 @@ export const redirectToNewPage = (url: string, delay: number) => {
   setTimeout(() => {
     window.location.href = url;
   }, delay);
-}
+};
 
 // 将输入的答案去空格、改为全大写字母
 export const formatter = (value: string) => {
-  let plaintext = value.replace(/\s+/g, "")
-  let text = plaintext.toUpperCase()
-  return text
-}
+  let plaintext = value.replace(/\s+/g, "");
+  let text = plaintext.toUpperCase();
+  return text;
+};
 
 export const PuzzleDetail = (props: PuzzleDetailProp) => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -106,7 +106,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
       message: msg,
       description: detail,
       showProgress,
-      pauseOnHover
+      pauseOnHover,
     });
   };
   const onConfetti = () => {
@@ -267,13 +267,11 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
       console.error("getdeckey", resp.data);
       if (String(resp.data) == "未登录") {
         message.error("错误！" + String(resp.data));
-        redirectToNewPage("/userLogin", 1500)
-      }
-      else if (String(resp.data) == "不在队伍中") {
+        redirectToNewPage("/userLogin", 1500);
+      } else if (String(resp.data) == "不在队伍中") {
         message.error("错误！" + String(resp.data));
-        redirectToNewPage("/team", 1500)
-      }
-      else {
+        redirectToNewPage("/team", 1500);
+      } else {
         message.error("错误！" + String(resp.data));
       }
     } else {
@@ -535,7 +533,9 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             display: !unlocked || loading ? "none" : undefined,
           }}
           placeholder={
-            pending.current ? "错误答案惩罚，请稍后再试" : "请在此处输入答案（按下回车键提交答案）"
+            pending.current
+              ? "错误答案惩罚，请稍后再试"
+              : "请在此处输入答案（按下回车键提交答案）"
           }
           value={input}
           onChange={(e) => setInput(e.target.value)}
