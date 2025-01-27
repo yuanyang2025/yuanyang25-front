@@ -176,3 +176,9 @@ export interface StaffListOracleResp {
   oracles: StaffOracleAbstract[];
   //oracles: string[]
 }
+
+export type RankResp =
+  | {
+      Success: { rank_record: number; time: TimeStamp };
+    }
+  | "NotFound";
