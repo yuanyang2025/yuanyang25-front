@@ -10,6 +10,7 @@ import { UserRegisterPage } from "./pages/userRegister";
 import { UserLoginPage } from "./pages/userLogin";
 import { TeamManagementPage } from "./pages/Team";
 import { StaffOraclePage } from "./pages/staff";
+import { FinishPage } from "./pages/finish";
 
 // import 'antd/dist/antd.css';
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/team" element={<TeamManagementPage />} />
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/staff" element={<StaffOraclePage />} />
+            <Route path="/finish" element={<FinishPage />} />
           </Routes>
         }
       />
