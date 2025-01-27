@@ -32,6 +32,7 @@ export const FinishPage = () => {
       setRank("NotFound");
     } else {
       setRank(query.data);
+      onConfetti();
     }
     setLoadingRank(false);
   };
@@ -86,8 +87,6 @@ export const FinishPage = () => {
   }
 
   const pass_date = new Date(rank.Success.time * 1000);
-
-  onConfetti();
 
   return (
     <div style={{ padding: 100 }}>
