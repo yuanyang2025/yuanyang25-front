@@ -84,8 +84,8 @@ export const UserLoginPage: React.FC = () => {
       alert(resp.data);
     } else {
       if (resp.data.Success) {
-        message.success("登录成功！3秒后将跳转至题目页。");
-        redirectToNewPage("/dashboard", 3000)
+        message.success("登录成功！2秒后将跳转至题目页。");
+        redirectToNewPage("/dashboard", 1500)
       } else {
         message.error("登录失败！");
       }

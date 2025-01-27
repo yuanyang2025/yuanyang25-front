@@ -47,6 +47,13 @@ export const redirectToNewPage = (url: string, delay: number) => {
   }, delay);
 }
 
+// 将输入的答案去空格、改为全大写字母
+export const formatter = (value: string) => {
+  let plaintext = value.replace(/\s+/g, "")
+  let text = plaintext.toUpperCase()
+  return text
+}
+
 export const PuzzleDetail = (props: PuzzleDetailProp) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [input, setInput] = useState<string>();
@@ -260,11 +267,11 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
       console.error("getdeckey", resp.data);
       if (String(resp.data) == "未登录") {
         message.error("错误！" + String(resp.data));
-        redirectToNewPage("/userLogin", 3000)
+        redirectToNewPage("/userLogin", 1500)
       }
       else if (String(resp.data) == "不在队伍中") {
         message.error("错误！" + String(resp.data));
-        redirectToNewPage("/team", 3000)
+        redirectToNewPage("/team", 1500)
       }
       else {
         message.error("错误！" + String(resp.data));
@@ -532,7 +539,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
           }
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onPressEnter={() => onSubmit(input)}
+          onPressEnter={() => onSubmit(formatter(input as string))}
           disabled={loading || !unlocked || pending.current}
           onFocus={() => console.log("current", pending.current)}
         />

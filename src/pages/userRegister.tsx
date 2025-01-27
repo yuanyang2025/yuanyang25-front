@@ -62,8 +62,8 @@ export const UserRegisterPage: React.FC = () => {
       alert(resp.data);
     } else {
       if (resp.data.Success) {
-        message.success("注册/重置密码成功!3秒后将跳转至组队页。");
-        redirectToNewPage("/team", 3000)
+        message.success("注册/重置密码成功！2秒后将跳转至组队页。");
+        redirectToNewPage("/team", 1500)
       } else {
         message.error(
           "注册码解析失败!请检查是否已在公众号上获取最新的注册码。",
