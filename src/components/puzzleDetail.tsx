@@ -41,6 +41,19 @@ export interface PuzzleDetailProp {
   ) => void;
 }
 
+export const redirectToNewPage = (url: string, delay: number) => {
+  setTimeout(() => {
+    window.location.href = url;
+  }, delay);
+};
+
+// 将输入的答案去空格、改为全大写字母
+export const formatter = (value: string) => {
+  let plaintext = value.replace(/\s+/g, "");
+  let text = plaintext.toUpperCase();
+  return text;
+};
+
 export const PuzzleDetail = (props: PuzzleDetailProp) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [input, setInput] = useState<string>();
@@ -86,10 +99,14 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     msg: string,
     detail: string,
     type: "info" | "success" | "warning" | "error",
+    pauseOnHover: boolean = true,
+    showProgress: boolean = true,
   ) => {
     api[type]({
       message: msg,
       description: detail,
+      showProgress,
+      pauseOnHover,
     });
   };
   const onConfetti = () => {
@@ -135,7 +152,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         setUnlocked(true);
         onToast(
           "解锁成功",
-          `花费点数${resp.data.Success.price}，剩余点数${resp.data.Success.new_balance}`,
+          `消耗灵力值${resp.data.Success.price}，剩余灵力值${resp.data.Success.new_balance}`,
           "info",
         );
         context?.getInfo();
@@ -175,8 +192,8 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
         const time = new Date(resp.data.WrongAnswer.try_again_after * 1000);
         onToast(
           "答案错误",
-          `扣除点数${resp.data.WrongAnswer.penalty_token}，
-                    剩余点数${resp.data.WrongAnswer.new_balance}；请于${time.toLocaleString()}之后再试`,
+          `消耗灵力值${resp.data.WrongAnswer.penalty_token}，
+                    剩余灵力值${resp.data.WrongAnswer.new_balance}；请于${time.toLocaleString()}之后再试`,
           "error",
         );
         context.getInfo();
@@ -216,8 +233,8 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
       } else if (resp.data.Success) {
         onToast(
           "答案正确",
-          `获得点数${resp.data.Success.award_token}，
-                    目前点数${resp.data.Success.new_balance}`,
+          `获得灵力值${resp.data.Success.award_token}，
+                    目前灵力值${resp.data.Success.new_balance}`,
           "success",
         );
         if (resp.data.Success.finish) {
@@ -248,7 +265,15 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     );
     if (!isOk(resp)) {
       console.error("getdeckey", resp.data);
-      message.error("错误！" + String(resp.data));
+      if (String(resp.data) == "未登录") {
+        message.error("错误！" + String(resp.data));
+        redirectToNewPage("/userLogin", 1500);
+      } else if (String(resp.data) == "不在队伍中") {
+        message.error("错误！" + String(resp.data));
+        redirectToNewPage("/team", 1500);
+      } else {
+        message.error("错误！" + String(resp.data));
+      }
     } else {
       if (resp.data.Price) {
         setPrice(dec_id, resp.data.Price);
@@ -333,7 +358,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
               {/* <LockFilled /> */}
               <Skeleton title={false} />
               <Popconfirm
-                title={`是否确认花费 ${price} 解锁？`}
+                title={`是否确认消耗 ${price} 点灵力值解锁？`}
                 okText="解锁"
                 cancelText="取消"
                 onConfirm={() => onUnlock(dec_id)}
@@ -344,7 +369,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                   icon={<UnlockFilled />}
                   style={{ marginBottom: "5px" }}
                 >
-                  {`解锁本条提示（${price}点数）`}
+                  {`解锁本条提示（${price}点灵力值）`}
                 </Button>
               </Popconfirm>
             </div>
@@ -353,11 +378,11 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
               status="warning"
               title={props?.skip ? "你尚未解锁答案" : "你尚未解锁该题"}
               subTitle={
-                price === undefined ? undefined : `解锁所需点数：${price}`
+                price === undefined ? undefined : `解锁所需灵力值：${price}`
               }
               extra={[
                 <Popconfirm
-                  title={`是否确认花费 ${price} 解锁？`}
+                  title={`是否确认消耗 ${price} 点灵力值解锁？`}
                   okText="解锁"
                   cancelText="取消"
                   onConfirm={() => onUnlock(dec_id)}
@@ -481,7 +506,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
                 disabled: !unlocked,
               },
               {
-                label: "解析",
+                label: "揭秘",
                 key: "skip",
                 children: loading ? (
                   <Spin className="content" />
@@ -508,11 +533,13 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
             display: !unlocked || loading ? "none" : undefined,
           }}
           placeholder={
-            pending.current ? "错误答案惩罚，请稍后再试" : "请在此处输入答案"
+            pending.current
+              ? "错误答案惩罚，请稍后再试"
+              : "请在此处输入答案（按下回车键提交答案）"
           }
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onPressEnter={() => onSubmit(input)}
+          onPressEnter={() => onSubmit(formatter(input as string))}
           disabled={loading || !unlocked || pending.current}
           onFocus={() => console.log("current", pending.current)}
         />

@@ -18,6 +18,7 @@ import { LoginResp } from "../data/interface/network";
 import LogoutButton from "../components/logoutButton";
 import { InfoContext } from "../layout";
 import { LockOutlined } from "@ant-design/icons";
+import { redirectToNewPage } from "../components/puzzleDetail";
 
 type LoginFieldType = {
   userId: string;
@@ -83,9 +84,10 @@ export const UserLoginPage: React.FC = () => {
       alert(resp.data);
     } else {
       if (resp.data.Success) {
-        message.success("登录成功！");
+        message.success("登录成功！2秒后将跳转至题目页。");
+        redirectToNewPage("/dashboard", 1500);
       } else {
-        message.error("登录失败");
+        message.error("登录失败！");
       }
     }
     //更新导航栏上的信息

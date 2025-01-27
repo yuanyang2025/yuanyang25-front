@@ -59,12 +59,12 @@ export const Oracle = (props: OracleProp) => {
       return;
     } else if (resp.data == "TooManyActiveOracle") {
       console.error(resp.data);
-      message.error("提交失败！您有太多未回复的神谕请求。请等待staff回复。");
+      message.error("提交失败！您有太多未回复的神谕请求。请等待蛇官回复。");
     } else {
       console.log(resp.data);
       notification.open({
         message: "提交成功！",
-        description: `花费点数${Math.abs(resp.data.Sucess.cost)}，当前点数${resp.data.Sucess.new_balance}
+        description: `消耗灵力值${Math.abs(resp.data.Sucess.cost)}，当前灵力值${resp.data.Sucess.new_balance}
                     请等待staff回复您的提问！`,
         type: "success",
         showProgress: true,
@@ -126,7 +126,7 @@ export const Oracle = (props: OracleProp) => {
           open={isOracleCreateOpen}
           onCancel={() => setIsOracleCreateOpen(false)}
           onOk={create_oracle}
-          okText={"支付8888蛇币以提问"}
+          okText={"消耗8888灵力值请求神谕"}
           cancelText={"取消"}
         >
           <TextArea
@@ -138,8 +138,7 @@ export const Oracle = (props: OracleProp) => {
           />
 
           <p style={{ height: 50 }}>
-            为了公平性，您的需要在提问时先支付8888蛇币作为押金。staff
-            会评判提供信息的价值来定价，在回复时多退少补。
+            为了公平性，您的需要在提问时先支付8888点灵力值作为押金。蛇官们会评判并根据提供信息的价值来定价，在回复时多退少补。
           </p>
         </Modal>
 
@@ -156,7 +155,7 @@ export const Oracle = (props: OracleProp) => {
           <Spin />
         ) : (
           <div>
-            {inActiveOracleList.length > 0 ? "staff 已经回复以下神谕:" : ""}
+            {inActiveOracleList.length > 0 ? "蛇官已经回复以下神谕:" : ""}
             <Flex wrap gap="small">
               {Array.from(inActiveOracleList, (data, i) => (
                 <Button
@@ -168,7 +167,7 @@ export const Oracle = (props: OracleProp) => {
                 </Button>
               ))}
             </Flex>
-            {activeOracleList.length > 0 ? "请等待 staff 回复以下神谕：" : ""}
+            {activeOracleList.length > 0 ? "请等待蛇官回复以下神谕：" : ""}
             <Flex wrap gap="small">
               {Array.from(activeOracleList, (data, i) => (
                 <Button
@@ -216,7 +215,7 @@ export const Oracle = (props: OracleProp) => {
                   disabled={true}
                   value={
                     currentOracle?.active
-                      ? "staff尚未处理退费"
+                      ? "蛇官尚未处理退费"
                       : currentOracle?.refund
                   }
                   variant="borderless"
@@ -227,7 +226,7 @@ export const Oracle = (props: OracleProp) => {
                   disabled={true}
                   value={
                     currentOracle?.active
-                      ? "staff尚未处理"
+                      ? "蛇官尚未决定"
                       : String(
                           (currentOracle?.cost as number) -
                             (currentOracle?.refund as number),
@@ -241,7 +240,7 @@ export const Oracle = (props: OracleProp) => {
                   disabled={true}
                   value={
                     currentOracle?.active
-                      ? "staff尚未回答"
+                      ? "蛇官尚未回答"
                       : currentOracle?.response
                   }
                   style={{ height: 120, resize: "none" }}

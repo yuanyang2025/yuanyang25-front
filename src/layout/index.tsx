@@ -10,6 +10,7 @@ import {
   TeamOutlined,
   InfoCircleOutlined,
   CustomerServiceOutlined,
+  NotificationFilled,
   // SearchOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
@@ -50,6 +51,11 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
       key: "team",
       name: "组队",
       icon: <TeamOutlined />,
+    },
+    {
+      key: "noticeboard",
+      name: "公告",
+      icon: <NotificationFilled />,
     },
     {
       key: "staff",
@@ -144,7 +150,7 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
             ) : info ? (
               `${info.user_id ? "用户ID " + info.user_id : ""}  ${
                 info.team_id ? "队伍ID " + info.team_id : ""
-              }  ${info.token_balance ? "余额 " + info.token_balance : ""}`
+              }  ${info.token_balance ? "灵力值 " + info.token_balance : ""}`
             ) : undefined}
           </div>
         </div>
