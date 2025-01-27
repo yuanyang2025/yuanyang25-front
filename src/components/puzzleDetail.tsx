@@ -23,6 +23,9 @@ import {
 import { isOk, request } from "../utils/network";
 import { cipher, decipher } from "../utils/cipher";
 import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import 'katex/dist/katex.min.css';
 import "./puzzleDetail.css";
 
 import { UnlockFilled } from "@ant-design/icons";
@@ -380,7 +383,10 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
     return (
       <div>
         {
-          <ReactMarkdown>
+          <ReactMarkdown
+            remarkPlugins={[remarkMath]}
+            rehypePlugins={[rehypeKatex]}
+          >
             {decipher(
               props.skip
                 ? puzzle.skip.cipher
