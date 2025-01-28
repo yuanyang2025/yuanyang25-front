@@ -12,14 +12,18 @@
     },
     "skip": {
       "decipher_id": 102,
-      "cipher": ["q8eUcjZRnPuzmKh9cg5hH5iCKtXb8Ifn0yf1+ABIg/g="]
+      "cipher": [
+        "q8eUcjZRnPuzmKh9cg5hH5iCKtXb8Ifn0yf1+ABIg/g="
+      ]
     },
     "hints": [
       {
         "title": "我毫无头绪",
         "cipher": {
           "decipher_id": 103,
-          "cipher": ["OtLX/1CHBme/fAmSwiaVXKMWoRhl+akqBDN9pIbhaiE="]
+          "cipher": [
+            "OtLX/1CHBme/fAmSwiaVXKMWoRhl+akqBDN9pIbhaiE="
+          ]
         }
       },
       {
@@ -58,13 +62,15 @@
     "content": {
       "decipher_id": 201,
       "cipher": [
-        "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",
+        "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"
       ]
     },
     "skip": {
       "decipher_id": 202,
-      "cipher": ["/0m8WE1OJDhRIJGUZntIoVAyeSHU3BuLPzPEs3vOOjs="]
+      "cipher": [
+        "/0m8WE1OJDhRIJGUZntIoVAyeSHU3BuLPzPEs3vOOjs="
+      ]
     },
     "hints": [
       {
@@ -110,7 +116,9 @@
     },
     "skip": {
       "decipher_id": 302,
-      "cipher": ["71EFJsFf+tymJl4Y9T4nsQ=="]
+      "cipher": [
+        "71EFJsFf+tymJl4Y9T4nsQ=="
+      ]
     },
     "hints": [
       {
@@ -126,7 +134,9 @@
         "title": "这道题的核心诡计是？",
         "cipher": {
           "decipher_id": 304,
-          "cipher": ["jUYdQ0d++4X/MZVqDcI7LuUTrEj6R/09CW5IN3B+OEk="]
+          "cipher": [
+            "jUYdQ0d++4X/MZVqDcI7LuUTrEj6R/09CW5IN3B+OEk="
+          ]
         }
       },
       {
@@ -153,7 +163,9 @@
     },
     "skip": {
       "decipher_id": 402,
-      "cipher": ["0ZJFxq2Eq9Pcp46u56qtJA=="]
+      "cipher": [
+        "0ZJFxq2Eq9Pcp46u56qtJA=="
+      ]
     },
     "hints": [
       {
@@ -252,7 +264,9 @@
     },
     "skip": {
       "decipher_id": 502,
-      "cipher": ["O0CdCjVsPmIa+lbVWBedRw=="]
+      "cipher": [
+        "O0CdCjVsPmIa+lbVWBedRw=="
+      ]
     },
     "hints": [
       {
@@ -307,7 +321,9 @@
     },
     "skip": {
       "decipher_id": 602,
-      "cipher": ["Xn36uw3IV+ayQzE2UW2g5A=="]
+      "cipher": [
+        "Xn36uw3IV+ayQzE2UW2g5A=="
+      ]
     },
     "hints": [
       {
@@ -379,7 +395,9 @@
     },
     "skip": {
       "decipher_id": 702,
-      "cipher": ["u1lpCnr3I2MYTZ4mxiF/9A=="]
+      "cipher": [
+        "u1lpCnr3I2MYTZ4mxiF/9A=="
+      ]
     },
     "hints": [
       {
@@ -395,7 +413,9 @@
         "title": "需要听原样哪期",
         "cipher": {
           "decipher_id": 704,
-          "cipher": ["zTuF7r2RfdNf1kZ4h1HAWQ=="]
+          "cipher": [
+            "zTuF7r2RfdNf1kZ4h1HAWQ=="
+          ]
         }
       },
       {
@@ -422,7 +442,9 @@
     },
     "skip": {
       "decipher_id": 802,
-      "cipher": ["MxCPZvkrPwonFq4EFOPuu+AI3O9AjXO+7njlsIsw79E="]
+      "cipher": [
+        "MxCPZvkrPwonFq4EFOPuu+AI3O9AjXO+7njlsIsw79E="
+      ]
     },
     "hints": [
       {
@@ -510,7 +532,9 @@
         "title": "我想知道9F谜题的思路",
         "cipher": {
           "decipher_id": 812,
-          "cipher": ["68hxpUuJBYDYZKWemoHcJwu9uHbkIk+unGxDTUhbirs="]
+          "cipher": [
+            "68hxpUuJBYDYZKWemoHcJwu9uHbkIk+unGxDTUhbirs="
+          ]
         }
       },
       {
@@ -616,7 +640,9 @@
         "title": "能不能告诉我本题的主题是什么",
         "cipher": {
           "decipher_id": 824,
-          "cipher": ["k7UAVr6JjZvp/ye1LifOyq1QQBZEI/B1bLSiZ73EbNs="]
+          "cipher": [
+            "k7UAVr6JjZvp/ye1LifOyq1QQBZEI/B1bLSiZ73EbNs="
+          ]
         }
       },
       {
@@ -652,7 +678,9 @@
     },
     "skip": {
       "decipher_id": 902,
-      "cipher": ["4gVolqr28vWu3N5XrGtFtg=="]
+      "cipher": [
+        "4gVolqr28vWu3N5XrGtFtg=="
+      ]
     },
     "hints": [
       {
@@ -686,7 +714,9 @@
         "title": "英文还有什么其他意思呢",
         "cipher": {
           "decipher_id": 906,
-          "cipher": ["6RCUVYMxcYj3jepeOjfzyw=="]
+          "cipher": [
+            "6RCUVYMxcYj3jepeOjfzyw=="
+          ]
         }
       },
       {
@@ -775,28 +805,36 @@
     },
     "skip": {
       "decipher_id": 1002,
-      "cipher": ["p0le3sqyryEtfb0IyniLE6Y6HdID9CuZhUVavV2yGOg="]
+      "cipher": [
+        "p0le3sqyryEtfb0IyniLE6Y6HdID9CuZhUVavV2yGOg="
+      ]
     },
     "hints": [
       {
         "title": "不知道CQ是什么听哪期原样？",
         "cipher": {
           "decipher_id": 1003,
-          "cipher": ["8Tq/ZYINmgPie8OmYRapOQ=="]
+          "cipher": [
+            "8Tq/ZYINmgPie8OmYRapOQ=="
+          ]
         }
       },
       {
         "title": "不懂八字听哪期原样？",
         "cipher": {
           "decipher_id": 1004,
-          "cipher": ["U3AY7cGfzYLwHK7BnDUuFA=="]
+          "cipher": [
+            "U3AY7cGfzYLwHK7BnDUuFA=="
+          ]
         }
       },
       {
         "title": "第十道搞不懂听哪期原样？",
         "cipher": {
           "decipher_id": 1005,
-          "cipher": ["IlUushzWxjkGHuEHpBgqAg=="]
+          "cipher": [
+            "IlUushzWxjkGHuEHpBgqAg=="
+          ]
         }
       }
     ]
@@ -814,7 +852,9 @@
     },
     "skip": {
       "decipher_id": 1102,
-      "cipher": ["q5MA06xk574XIOAE3FBJcA=="]
+      "cipher": [
+        "q5MA06xk574XIOAE3FBJcA=="
+      ]
     },
     "hints": []
   }
