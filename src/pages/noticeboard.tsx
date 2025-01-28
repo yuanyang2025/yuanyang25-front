@@ -40,7 +40,7 @@ export const NoticeBoard = () => {
             <p>3、与龙年类似，本次闯关的获奖结算共有3种模式，但又略有区别：</p>
             <div style={{ textAlign: "center" }}>
               <img
-                src="https://mmbiz.qpic.cn/mmbiz_png/yvMGNJZUwCfenq9icZBx1uPyIia3jicQk6y08Jspiax8uiaEc7VdmKDsYp4HjF5LyTx6jpTlQF6BnUXtc6SlwFcMsNw/640?wx_fmt=png&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"
+                src="https://maxpcimg.cc/i/2025/01/28/6798c1f76292d.png"
                 style={{ width: "100%" }}
               ></img>
             </div>
@@ -133,7 +133,7 @@ export const NoticeBoard = () => {
             </p>
             <div style={{ textAlign: "center" }}>
               <img
-                src="https://mmbiz.qpic.cn/mmbiz_jpg/yvMGNJZUwCfenq9icZBx1uPyIia3jicQk6yw1gDmu7OiaUR0PAAnWhv7AtIMnNdAbKXZ1PiacylItc27745oVcEDnrg/640?wx_fmt=jpeg&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"
+                src="https://maxpcimg.cc/i/2025/01/28/6798c1f5a0ece.jpeg"
                 style={{ width: "100%" }}
               ></img>
             </div>
