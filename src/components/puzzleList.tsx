@@ -56,7 +56,7 @@ export const PuzzleList = (props: PuzzleListProp) => {
             <div
               style={{ alignSelf: "right", marginLeft: "10px", opacity: "0.5" }}
             >
-              {`${st.passed}/${st.unlocked}`}
+              {`${st.passed - 1}/${st.unlocked - 1}`}
             </div>
           )}
         </div>
