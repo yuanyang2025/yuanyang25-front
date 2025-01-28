@@ -7,11 +7,11 @@ export const HomePage = () => {
       <div style={{ width: "100%", height: "100%" }}>
         <div style={{ width: "94%", margin: "3%" }}>
           <div style={{ textAlign: "center" }}>
-            <Carousel autoplay>
+              <Carousel autoplay>
               <div>
-                <img
+              <img
                 src="https://maxpcimg.cc/i/2025/01/27/67979f84dbbf6.png"
-                width="100%"
+                style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
                 onClick={() => {
                   window.location.href = "/dashboard";
                 }}
@@ -22,6 +22,7 @@ export const HomePage = () => {
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a83446200.png"
+                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
                   alt="蛇年岽半仙"
                   title="蛇年岽半仙"
                   />
@@ -29,6 +30,7 @@ export const HomePage = () => {
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a834d7ed3.png"
+                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
                   alt="灵气值"
                   title="灵气值"
                   />
@@ -36,6 +38,7 @@ export const HomePage = () => {
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a8361cec6.png"
+                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
                   alt="灵蛇塔"
                   title="灵蛇塔"
                   />
@@ -43,11 +46,13 @@ export const HomePage = () => {
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a837084b8.png"
+                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
                   alt="蛇年的蛇官们"
                   title="蛇年的蛇官们"
                   />
               </div>
-            </Carousel>
+              </Carousel>
+                
             
           </div>
           <hr
@@ -126,7 +131,7 @@ export const HomePage = () => {
                 </strong>
               </li>
               <br />
-              <li>队伍人数多与少，并不会影响龙币获取与消费。</li>
+              <li>队伍人数多与少，并不会影响灵力值的积累和消耗。</li>
               <br />
               <li>
                 单人闯关视作一个队伍。但无论您是单人闯关或是团队协作，都需要先加入或创建队伍，否则无法提交答案。
@@ -191,9 +196,7 @@ export const HomePage = () => {
               </li>
             </ul>
             <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本次赛制使用“FM”（Final
-              Meta，即最终元谜题）完赛制。除了普通谜题外，每一区都有一个“元谜题”（Meta），
-              需要解谜者利用这一轮次中已经获得的普通题目的答案。最终出现的元谜题即为FM。
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本次闯关采用Meta完赛制，解决最后的元谜题（Meta）后即算作通关。
             </p>
             <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、本次闯关中的题目由标题，引言（即flavor
@@ -206,7 +209,7 @@ export const HomePage = () => {
               </li>
             </ul>
             <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本次闯关每分可以获得一定量的灵力值，解出谜题也可以获得灵力值。您可以使用灵力值在题目页进行解锁题目、解锁提示、购买答案和请求神谕等操作。
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本次闯关每分钟可以获得一定量的灵力值，解出谜题也可以获得灵力值。您可以使用灵力值在题目页进行解锁题目、解锁提示、购买答案和请求神谕等操作。
             </p>
             <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、遇到对题目本身正确性的疑惑，欢迎发送神谕。神谕，即人工提示，位于题目页签中最右侧。点击即可切换到对应页签下，并可根据提示完成操作。您也可以通过邮件联系我们，联系我们的邮箱：yuanyang2024staff@126.com
