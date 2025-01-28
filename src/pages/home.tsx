@@ -1,5 +1,3 @@
-import { Carousel } from "antd";
-
 // page home @ /
 export const HomePage = () => {
   return (
@@ -7,53 +5,15 @@ export const HomePage = () => {
       <div style={{ width: "100%", height: "100%" }}>
         <div style={{ width: "94%", margin: "3%" }}>
           <div style={{ textAlign: "center" }}>
-              <Carousel autoplay>
-              <div>
               <img
                 src="https://maxpcimg.cc/i/2025/01/27/67979f84dbbf6.png"
-                style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
+                style={{maxWidth:"90%", height:"auto"}}
                 onClick={() => {
                   window.location.href = "/dashboard";
                 }}
                 alt="点击进入灵蛇塔！"
                 title="点击进入灵蛇塔！"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://maxpcimg.cc/i/2025/01/27/6797a83446200.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
-                  alt="蛇年岽半仙"
-                  title="蛇年岽半仙"
-                  />
-              </div>
-              <div>
-                <img
-                  src="https://maxpcimg.cc/i/2025/01/27/6797a834d7ed3.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
-                  alt="灵气值"
-                  title="灵气值"
-                  />
-              </div>
-              <div>
-                <img
-                  src="https://maxpcimg.cc/i/2025/01/27/6797a8361cec6.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
-                  alt="灵蛇塔"
-                  title="灵蛇塔"
-                  />
-              </div>
-              <div>
-                <img
-                  src="https://maxpcimg.cc/i/2025/01/27/6797a837084b8.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
-                  alt="蛇年的蛇官们"
-                  title="蛇年的蛇官们"
-                  />
-              </div>
-              </Carousel>
-                
-            
+              />
           </div>
           <hr
             style={{
