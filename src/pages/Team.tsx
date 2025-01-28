@@ -94,7 +94,7 @@ export const TeamManagementPage: React.FC = () => {
       } else if ("Success" in resp.data) {
         message.warning("已退出队伍！");
       } else {
-        message.error("退出队伍失败，未知错误。" + resp.data);
+        message.error("退出队伍失败：" + resp.data);
       }
     }
     context.getInfo();
@@ -105,7 +105,7 @@ export const TeamManagementPage: React.FC = () => {
 
     if (!isOk(resp)) {
       console.error("GetInviteCode:", resp.data);
-      message.error("获取队伍邀请码失败" + resp.data);
+      message.error("获取队伍邀请码失败：" + resp.data);
     } else {
       if ("Success" in resp.data) {
         message.open({

@@ -4,8 +4,8 @@ export const NoticeBoard = () => {
   return (
     <div>
       <Alert
-        message="测试公告"
-        description="这是一条测试公告文本。此公告仅能放置文字。"
+        message="倒计时！"
+        description="新春闯关即将开始！"
         showIcon
         type="info"
       />
