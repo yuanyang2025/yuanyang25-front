@@ -6,8 +6,24 @@ import { PuzzleData } from "../data/constants";
 import { PuzzleDetail } from "../components/puzzleDetail";
 import { KeyData } from "../data/interface/puzzle";
 
+function storePuzzle(puzzle: number): void {
+  localStorage.setItem("puzzle", puzzle.toString());
+}
+
+function getPuzzle(or_default: number): number {
+  const puzzle = localStorage.getItem("puzzle");
+  return puzzle ? parseInt(puzzle, 10) : or_default;
+}
+
 export const DashboardPage = () => {
-  const [puzzleId, setPuzzleId] = useState<number>(PuzzleData[0].puzzle_id);
+  const [puzzleId, _setPuzzleId] = useState<number>(
+    getPuzzle(PuzzleData[0].puzzle_id),
+  );
+
+  const setPuzzleId = (newPuzzleId: number) => {
+    _setPuzzleId(newPuzzleId); // 更新状态
+    storePuzzle(newPuzzleId); // 同步存储到 localStorage, 使页面刷新后打开的tab不变！
+  };
 
   const keys = useRef<Map<number, KeyData>>(new Map());
 
