@@ -33,7 +33,6 @@ import confetti from "canvas-confetti";
 import { InfoContext } from "../layout";
 import React from "react";
 import { Oracle } from "./oracle";
-import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 export interface PuzzleDetailProp {
@@ -414,7 +413,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
       <div>
         {
           <ReactMarkdown
-            remarkPlugins={[remarkMath, remarkGfm]}
+            remarkPlugins={[remarkMath]}
             rehypePlugins={[rehypeKatex, rehypeRaw]}
           >
             {decipher(
