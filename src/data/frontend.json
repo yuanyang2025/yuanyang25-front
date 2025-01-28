@@ -645,7 +645,96 @@
       "decipher_id": 902,
       "cipher": ["4gVolqr28vWu3N5XrGtFtg=="]
     },
-    "hints": []
+    "hints": [
+      {
+        "title": "我完全不知道这道题在干什么，怎么办？",
+        "cipher": {
+          "decipher_id": 903,
+          "cipher": [
+            "aQCIIt5EnqlAU358GWN/+qZtNVUheafRul2uZDd37B3NcPnqYAQYXiGIdSqTBAyYy1C+Mq2g6icd4W599t+E+w=="
+          ]
+        }
+      },
+      {
+        "title": "中文诗是什么用",
+        "cipher": {
+          "decipher_id": 904,
+          "cipher": [
+            "Ael/Is2LZ7GfwTMzFRMyzo4Jt54gjllp76RnIfxAG5QPEJUtJN6LhRDCDqBUhHDpasgJYCOsKsFecHTBB04ejQ=="
+          ]
+        }
+      },
+      {
+        "title": "英文看起来完全没有逻辑，怎么理解呢",
+        "cipher": {
+          "decipher_id": 905,
+          "cipher": [
+            "UjaOwbYE3D3O3YmXfBoDJ20JQtUVThAsGJRNUZzw2AinsBfY5RZaaZD4yNjXgMKf/3BkMtIk6fXevWX2wrBD38Lg2H4uzFVDul7z+x1WNWY="
+          ]
+        }
+      },
+      {
+        "title": "英文还有什么其他意思呢",
+        "cipher": {
+          "decipher_id": 906,
+          "cipher": ["6RCUVYMxcYj3jepeOjfzyw=="]
+        }
+      },
+      {
+        "title": "英文格式有什么意义",
+        "cipher": {
+          "decipher_id": 907,
+          "cipher": [
+            "T1I+T/tHqzzaAaFBl3S1KyO5u95FLXQUqhhDpV/Fli7GLjRVaomthX9NTKKe1qEd405EcETqEXg+X3Si8jI39g=="
+          ]
+        }
+      },
+      {
+        "title": "我不会处理倒着的英语了，怎么办",
+        "cipher": {
+          "decipher_id": 908,
+          "cipher": [
+            "aNU0fIQAymyGXb6iazHGxDD+Gf84vQFBu2mi+UlRxeDJPIALMxf2zt1cglLW7250"
+          ]
+        }
+      },
+      {
+        "title": "我英语处理完了，有什么用呢",
+        "cipher": {
+          "decipher_id": 909,
+          "cipher": [
+            "hfRbxH1Qc4PCDBLoeg7Au/sRePw9he7DLHAuiT8SCKLbdSPJPNN0BqyWTgSfGtXGZXwXH763yzcZJ1hu6C+M87b4scrXP4bB5Jw2nOjiBUc="
+          ]
+        }
+      },
+      {
+        "title": "我得到三个中间答案了，然后呢。。。",
+        "cipher": {
+          "decipher_id": 910,
+          "cipher": [
+            "JcuIYZDSMQQ9GsLW2+glNGf7xVQLsvDumapXysgsPbwezcZ4sbcaJ/kIdM46HApX"
+          ]
+        }
+      },
+      {
+        "title": "我的最终答案看起来不像一个词啊？？？",
+        "cipher": {
+          "decipher_id": 911,
+          "cipher": [
+            "r895SDqT7e5KWzdKUEDuoiQ7GSsxM5Wo+6MSS6WU9mDj/tEbUEN8u78gyZUbT43f"
+          ]
+        }
+      },
+      {
+        "title": "我不想处理英语了，能告诉我结果吗？",
+        "cipher": {
+          "decipher_id": 912,
+          "cipher": [
+            "lfthOnyyT4XiKAtdaYNvWloNZ3QqWU4+ZkzVJIL0uNsSSFUErKRZ8CtH1dU6fKfeTw9RxXlNWMHp4Y09T4O3DCiIMfVQr/tbrF6mdwHuCCYWh99uO3IzmKNRXAfyTlGbV9tIw0dIdE6xLuAtEn83h6k35ca3dPsE4QBBr3z75+NATJZEeoFuo4XBB0yvRXJe2cd7Fxg1SKalOJQymLStqxmTh5Ogn0CRPCrKDNvAATU="
+          ]
+        }
+      }
+    ]
   },
   {
     "puzzle_id": 10,
