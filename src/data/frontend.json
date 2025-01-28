@@ -309,7 +309,62 @@
       "decipher_id": 602,
       "cipher": ["Xn36uw3IV+ayQzE2UW2g5A=="]
     },
-    "hints": []
+    "hints": [
+      {
+        "title": "这道题的主题是什么？",
+        "cipher": {
+          "decipher_id": 603,
+          "cipher": [
+            "Yld2gbxr4oHJVm7FKuk7j5rEhWUS0orcDqcEpDxLWpQsH0ia/qI0Ajhir+8iDwf1m7u3H7AQM5Yzo7Ah+TUSKpN9JyedPDeFlPpQXriiEMA="
+          ]
+        }
+      },
+      {
+        "title": "这道题是什么意思？",
+        "cipher": {
+          "decipher_id": 604,
+          "cipher": [
+            "EDp3HdvPIHV3Ahu8bdbCSfDikLeLH0kr5A5qBxVXRORVEpLnMrWeMn/sSPi1PIrTmUv8lWkTcHeFxUmw9Nw7qFboplW0W8LAq10Kp7IjoHDA3nKcJyNnk4WZ9TX6gQ9Qu1H0ngH95h1DQ0ITEHbn3f/wKlAcZKms/ZsIeCygvYgnXcnZZ/FLX+ISG0LrrfwA"
+          ]
+        }
+      },
+      {
+        "title": "我可以支付这个提示的价格，换取一个我想要的答案吗？",
+        "cipher": {
+          "decipher_id": 605,
+          "cipher": [
+            "PKjCTr+zXlhyikmYrMb5m1psPG7/REZ01398kjopeNeVpu7pTjACALZ4CnPMQuP7j5wUdBHlfo1JJvPg0JcDiZTPFTdB/qZIl5doMez7fXdOZ3BHTYDgWhqS84Kd9wEKzB+B0OotXhe0xwRyeedOdiDBWR5NEj0vF9dWKFzkJZfGvPVMDnVkbAZp9h9XDpdB0Sy03ttaLDRZSlm6YDRg8G1WYgjI+zGayyjQXM0HSu0="
+          ]
+        }
+      },
+      {
+        "title": "我可以支付这个提示的价格，换取三个我想要的空格中内容（非答案）吗？",
+        "cipher": {
+          "decipher_id": 606,
+          "cipher": [
+            "M7qXkJ0UVFkKc6n+vxvJIZoDfgQVmqK6nLG1R9GhSsWn/RF0FPq1X6nQIci9+8z8zBwY4G6cePYN6iOWCdRTXzH5o68W7qFrEcoGFh0qTyZRXT3EQUlUIOCdGE0hRIb6M7OjDA6SjxRqvB/jed+rY7j7kp3oHBUkYVcrzcn/3i8B1S3P/F0uXY7mtgcKZ6GDG1J8m8GF+hGAPFSpJ/O4kIQTiVF7JBuow9PNOKp48Qo="
+          ]
+        }
+      },
+      {
+        "title": "我做出了下面的所有图片，可我不知道怎么排序......",
+        "cipher": {
+          "decipher_id": 607,
+          "cipher": [
+            "7me4xyD037oRjVs/x92OfL70t0EqdvY+HDRoX/jgh/hFYUc879hTiqw7ajt/NNQVC4ju4tG8fxp80tJ0HI2GIiRAZSz3IZek2HeEZaTYXbA="
+          ]
+        }
+      },
+      {
+        "title": "我做出了下面的所有图片，可我不知道怎么提取......",
+        "cipher": {
+          "decipher_id": 608,
+          "cipher": [
+            "SglLZtDA7jMJ3EsnpnXvTnTx05S/dN5ciE6FU53G0WmENGSXOPj0QsX8vii7LecifU8IvHgeDcGuiR2A4wSNAQsAh3br22GV9jKLgX4xd+Wnt1K/6RYEofXZ5Cvr8mAeLsy+kKln+tZ62DgtUs1zPtekWohqulYw6FecC0TNiuI="
+          ]
+        }
+      }
+    ]
   },
   {
     "puzzle_id": 7,
