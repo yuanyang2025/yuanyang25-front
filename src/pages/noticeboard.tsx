@@ -13,7 +13,7 @@ export const NoticeBoard = () => {
       <br />
       <Alert
         message="比赛开始！"
-        description="蛇年新春闯关已于2025.01.88 20:00 正式开始！祝各位选手在灵蛇塔中取得佳绩，探寻出最终的奥秘~"
+        description="蛇年新春闯关已于2025.01.28 20:00 正式开始！祝各位选手在灵蛇塔中取得佳绩，探寻出最终的奥秘~"
         showIcon
         type="info"
       />
