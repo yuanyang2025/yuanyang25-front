@@ -7,53 +7,76 @@ export const HomePage = () => {
       <div style={{ width: "100%", height: "100%" }}>
         <div style={{ width: "94%", margin: "3%" }}>
           <div style={{ textAlign: "center" }}>
-              <Carousel autoplay>
+            <Carousel autoplay>
               <div>
-              <img
-                src="https://maxpcimg.cc/i/2025/01/27/67979f84dbbf6.png"
-                style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
-                onClick={() => {
-                  window.location.href = "/dashboard";
-                }}
-                alt="点击进入灵蛇塔！"
-                title="点击进入灵蛇塔！"
+                <img
+                  src="https://maxpcimg.cc/i/2025/01/27/67979f84dbbf6.png"
+                  style={{
+                    maxHeight: "85%",
+                    maxWidth: "85%",
+                    alignContent: "center",
+                    justifyContent: "center",
+                  }}
+                  onClick={() => {
+                    window.location.href = "/dashboard";
+                  }}
+                  alt="点击进入灵蛇塔！"
+                  title="点击进入灵蛇塔！"
                 />
               </div>
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a83446200.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
+                  style={{
+                    maxHeight: "85%",
+                    maxWidth: "85%",
+                    alignContent: "center",
+                    justifyContent: "center",
+                  }}
                   alt="蛇年岽半仙"
                   title="蛇年岽半仙"
-                  />
+                />
               </div>
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a834d7ed3.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
+                  style={{
+                    maxHeight: "85%",
+                    maxWidth: "85%",
+                    alignContent: "center",
+                    justifyContent: "center",
+                  }}
                   alt="灵气值"
                   title="灵气值"
-                  />
+                />
               </div>
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a8361cec6.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
+                  style={{
+                    maxHeight: "85%",
+                    maxWidth: "85%",
+                    alignContent: "center",
+                    justifyContent: "center",
+                  }}
                   alt="灵蛇塔"
                   title="灵蛇塔"
-                  />
+                />
               </div>
               <div>
                 <img
                   src="https://maxpcimg.cc/i/2025/01/27/6797a837084b8.png"
-                  style={{maxHeight: "85%", maxWidth: "85%", alignContent:"center", justifyContent:"center"}}
+                  style={{
+                    maxHeight: "85%",
+                    maxWidth: "85%",
+                    alignContent: "center",
+                    justifyContent: "center",
+                  }}
                   alt="蛇年的蛇官们"
                   title="蛇年的蛇官们"
-                  />
+                />
               </div>
-              </Carousel>
-                
-            
+            </Carousel>
           </div>
           <hr
             style={{
@@ -182,18 +205,14 @@ export const HomePage = () => {
             <hr />
             <h2>四、注意事项</h2>
             <ul>
-              <li style={{ fontWeight: "bold" }}>
-                背景介绍
-              </li>
+              <li style={{ fontWeight: "bold" }}>背景介绍</li>
             </ul>
             <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是音频节目《原来是这样》的第九届新春闯关。你可以前往喜马拉雅APP或喜马拉雅小程序查询到该音频节目的全部期数和系列。作为受众为叨友的闯关活动，有相当一部分谜题围绕这系列节目进行展开。此外，其公众号叨科学上也有着许多篇科普文章，并开设了周边店铺。
             </p>
             <br />
             <ul>
-              <li style={{ fontWeight: "bold" }}>
-                赛制一览
-              </li>
+              <li style={{ fontWeight: "bold" }}>赛制一览</li>
             </ul>
             <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本次闯关采用Meta完赛制，解决最后的元谜题（Meta）后即算作通关。
@@ -204,9 +223,7 @@ export const HomePage = () => {
             </p>
             <br />
             <ul>
-              <li style={{ fontWeight: "bold" }}>
-                特别赛制
-              </li>
+              <li style={{ fontWeight: "bold" }}>特别赛制</li>
             </ul>
             <p>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本次闯关每分钟可以获得一定量的灵力值，解出谜题也可以获得灵力值。您可以使用灵力值在题目页进行解锁题目、解锁提示、购买答案和请求神谕等操作。
@@ -237,25 +254,23 @@ export const HomePage = () => {
             </p>
             <br />
             <ul>
-              <li style={{ fontWeight: "bold"}}>
-                常用工具
-              </li>
+              <li style={{ fontWeight: "bold" }}>常用工具</li>
               <ul>
-                <li >
+                <li>
                   当你只知道一个词或词组的一部分字母的时候，
                   <a href="https://nutrimatic.org">Nutrimatic</a>
                   可以在庞大的语料库里进行模式匹配，帮助你找到需要的词语。你可以输入“coAAr”来查询一个开头为co，结尾是r的五字母英文单词。
                 </li>
-                <li >
+                <li>
                   当你需要一些现代密码学加密/解密，文字/图片处理的时候，
                   <a href="https://www.toolhelper.cn/">锤子在线工具网</a>
                   里面提供的工具或许可以帮助你。
                 </li>
-                <li >
+                <li>
                   <a href="https://zi.tools">字统网</a>
                   可以让你更轻松的从组成汉字的笔画部件中找出对应的汉字。
                 </li>
-                <li >
+                <li>
                   你可以在
                   <a href="https://www.cross-plus-a.com/index.htm">Cross+A</a>
                   中搜索到一些纸笔谜题的规则。
@@ -265,9 +280,7 @@ export const HomePage = () => {
                   <a href="https://www.gushiwen.cn">古诗文网</a>
                   中（或其他同类型网站）搜索到你可能需要的诗句。
                 </li>
-                <li >
-                  有时候搜索引擎或人工智能也是个不错的选择。
-                </li>
+                <li>有时候搜索引擎或人工智能也是个不错的选择。</li>
               </ul>
               <li>
                 注意：对于部分题目，您不需要将所有的答案解出，可在持有部分“正确的中间答案”的情况下使用工具或搜索引擎模糊匹配。
@@ -275,9 +288,7 @@ export const HomePage = () => {
             </ul>
             <br />
             <ul>
-              <li style={{ fontWeight: "bold" }}>
-                提示系统
-              </li>
+              <li style={{ fontWeight: "bold" }}>提示系统</li>
             </ul>
             <ol>
               <li>
