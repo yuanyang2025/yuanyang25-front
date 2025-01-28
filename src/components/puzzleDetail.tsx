@@ -25,7 +25,7 @@ import { cipher, decipher } from "../utils/cipher";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import 'katex/dist/katex.min.css';
+import "katex/dist/katex.min.css";
 import "./puzzleDetail.css";
 
 import { UnlockFilled } from "@ant-design/icons";
@@ -244,10 +244,12 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
           onToast("解密成功！", "", "success");
           setDisabled(true);
           onConfetti();
-          setTimeout(() => {
-            window.location.reload();
-          }, 2500);
         }
+
+        if (puzzle?.content.decipher_id) {
+          setKey(puzzle.content.decipher_id, resp.data.Success.key);
+        }
+
         pending.current = false;
       } else {
         // unreachable
