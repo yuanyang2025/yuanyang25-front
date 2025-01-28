@@ -54,7 +54,8 @@ export const redirectToNewPage = (url: string, delay: number) => {
 
 // 将输入的答案去空格、改为全大写字母
 export const formatter = (value: string) => {
-  let plaintext = value.replace(/\s+/g, "");
+  // let plaintext = value.replace(/\s+/g, "");
+  let plaintext = value;
   let text = plaintext.toUpperCase();
   return text;
 };
