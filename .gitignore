@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 examples-2025
+
+update.sh

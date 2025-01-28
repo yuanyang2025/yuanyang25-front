@@ -4,8 +4,16 @@ export const NoticeBoard = () => {
   return (
     <div style={{ width: "device-width" }}>
       <Alert
+        message="提示大降价"
+        description="2025.01.28 23:20 开始提示将有大降价！祝各位选手闯关顺利"
+        showIcon
+        type="info"
+      />
+      <br />
+      <br />
+      <Alert
         message="比赛开始！"
-        description="蛇年新春闯关已于2025.01.08 20:00 正式开始！祝各位选手在灵蛇塔中取得佳绩，探寻出最终的奥秘~"
+        description="蛇年新春闯关已于2025.01.88 20:00 正式开始！祝各位选手在灵蛇塔中取得佳绩，探寻出最终的奥秘~"
         showIcon
         type="info"
       />
