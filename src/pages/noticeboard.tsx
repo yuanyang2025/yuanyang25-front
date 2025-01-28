@@ -11,6 +11,44 @@ export const NoticeBoard = () => {
       />
       <br />
       <br />
+      <Alert 
+        message="更新 & 用法提示"
+        description={
+          <div>
+            <p>
+            技术组现已发现部分题目问题和功能问题。
+            </p>
+            <p>
+            本公告中将写入最新的更改。
+            </p>
+            <ul>
+              <li>
+              针对iOS用户的题目页加载错误已经修复。
+              </li>
+              <li>
+              部分题目的文本已经修正。
+              </li>
+              <li>
+                新增了注册页面关于用户ID的提示。
+              </li>
+            </ul>
+            <strong>
+            另外请认真阅读首页的用法提示，不要将注册码/TOTP混为一谈。用户状态在导航栏的右上角。
+            </strong>
+          </div>
+        }
+        showIcon
+      />
+      <br />
+      <br />
+      <Alert 
+        message="诚信比赛提醒"
+        description="技术组现已发现部分队伍存在交流答案的嫌疑。在此对所有队伍发出一次诚信比赛的提醒。若被查实将立即惩罚！"
+        showIcon
+        type="warning"
+      />
+      <br />
+      <br />
       <Alert
         message="赛制说明"
         description={
