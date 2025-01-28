@@ -5,9 +5,9 @@ import { Button, Menu, message } from "antd";
 import {
   RightOutlined,
   LeftOutlined,
-  QuestionOutlined,
   DownOutlined,
   MenuOutlined,
+  StarTwoTone,
 } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { PuzzleData } from "../data/constants";
@@ -34,7 +34,7 @@ export const PuzzleList = (props: PuzzleListProp) => {
       key: `puzzle-${data.puzzle_id}`,
       className: "puzzle-item",
       onClick: () => setActive(data.puzzle_id),
-      icon: <QuestionOutlined />,
+      icon: <StarTwoTone />,
       label: (
         <div
           style={{
