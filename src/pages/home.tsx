@@ -5,15 +5,15 @@ export const HomePage = () => {
       <div style={{ width: "100%", height: "100%" }}>
         <div style={{ width: "94%", margin: "3%" }}>
           <div style={{ textAlign: "center" }}>
-              <img
-                src="https://maxpcimg.cc/i/2025/01/27/67979f84dbbf6.png"
-                style={{maxWidth:"90%", height:"auto"}}
-                onClick={() => {
-                  window.location.href = "/dashboard";
-                }}
-                alt="点击进入灵蛇塔！"
-                title="点击进入灵蛇塔！"
-              />
+            <img
+              src="https://maxpcimg.cc/i/2025/01/27/67979f84dbbf6.png"
+              style={{ maxWidth: "90%", height: "auto" }}
+              onClick={() => {
+                window.location.href = "/dashboard";
+              }}
+              alt="点击进入灵蛇塔！"
+              title="点击进入灵蛇塔！"
+            />
           </div>
           <hr
             style={{
