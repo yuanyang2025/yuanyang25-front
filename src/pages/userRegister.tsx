@@ -62,7 +62,11 @@ export const UserRegisterPage: React.FC = () => {
       alert(resp.data);
     } else {
       if (resp.data.Success) {
-        message.success("注册/重置密码成功！3秒后将跳转至组队页。您的用户ID是：" + String(resp.data.Success) + "请妥善保管！");
+        message.success(
+          "注册/重置密码成功！3秒后将跳转至组队页。您的用户ID是：" +
+            String(resp.data.Success) +
+            "请妥善保管！",
+        );
         redirectToNewPage("/team", 3000);
       } else {
         message.error(
