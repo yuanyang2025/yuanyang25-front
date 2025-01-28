@@ -17,7 +17,7 @@ import { isOk, request } from "../utils/network";
 
 export interface PuzzleListProp {
   puzzleId: number;
-  setPuzzleId: React.Dispatch<React.SetStateAction<number>>;
+  setPuzzleId: (id: number) => void;
 }
 
 export const PuzzleList = (props: PuzzleListProp) => {
