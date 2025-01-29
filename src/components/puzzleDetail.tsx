@@ -34,6 +34,7 @@ import { InfoContext } from "../layout";
 import React from "react";
 import { Oracle } from "./oracle";
 import rehypeRaw from "rehype-raw";
+import { QueryBalanceButton } from "./queryBalanceButton";
 
 export interface PuzzleDetailProp {
   puzzleId: number;
@@ -553,6 +554,7 @@ export const PuzzleDetail = (props: PuzzleDetailProp) => {
           onFocus={() => console.log("current", pending.current)}
         />
       </div>
+      <QueryBalanceButton />
     </div>
   );
 };
