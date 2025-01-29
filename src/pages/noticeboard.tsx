@@ -4,22 +4,6 @@ export const NoticeBoard = () => {
   return (
     <div style={{ width: "device-width" }}>
       <Alert
-        message="提示大降价"
-        description="2025.01.28 23:20 开始提示将有大降价！祝各位选手闯关顺利"
-        showIcon
-        type="info"
-      />
-      <br />
-      <br />
-      <Alert
-        message="比赛开始！"
-        description="蛇年新春闯关已于2025.01.28 20:00 正式开始！祝各位选手在灵蛇塔中取得佳绩，探寻出最终的奥秘~"
-        showIcon
-        type="info"
-      />
-      <br />
-      <br />
-      <Alert
         message="更新 & 用法提示"
         description={
           <div>
@@ -44,6 +28,43 @@ export const NoticeBoard = () => {
         description="技术组现已发现部分队伍存在交流答案的嫌疑。在此对所有队伍发出一次诚信比赛的提醒。若被查实将立即惩罚！"
         showIcon
         type="warning"
+      />
+      <br />
+      <br />
+      <Alert
+        message="比赛违规处罚 & 警告"
+        description={
+          <div>
+            <p style={{ fontWeight: "bolder", fontSize: "120%" }}>
+              数次三番强调过的诚信问题，还是有人不能领会和遵守规范。
+            </p>
+            <strong style={{ color: "red" }}>
+              经过技术组跟踪和策划组成员研判，以下队伍存在违规行为：
+            </strong>
+            <ul>
+              <li>队伍 34</li>
+              <li>队伍 41</li>
+              <li>队伍 54</li>
+              <li>队伍 101</li>
+              <li>队伍 29</li>
+              <li>队伍 160</li>
+              <li>
+                以上队伍存在交流未解锁题目内容、线索和答案的嫌疑。现在对以上队伍发出最后警告，若再次被发现违规将
+                <strong style={{ color: "red" }}>立即移出排行榜！</strong>
+              </li>
+            </ul>
+          </div>
+        }
+        showIcon
+        type="warning"
+      />
+      <br />
+      <br />
+      <Alert
+        message="比赛开始！"
+        description="蛇年新春闯关已于2025.01.28 20:00 正式开始！祝各位选手在灵蛇塔中取得佳绩，探寻出最终的奥秘~"
+        showIcon
+        type="info"
       />
       <br />
       <br />
