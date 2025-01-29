@@ -19,9 +19,9 @@ import { isOk, request } from "../utils/network";
 
 const { Header, Content } = Layout;
 
-export const InfoContext = React.createContext<{ getInfo: () => void } | null>(
-  null,
-);
+export const InfoContext = React.createContext<{
+  getInfo: () => Promise<GetInfoResp | null>;
+} | null>(null);
 
 interface MenuItem {
   key: string;
@@ -69,8 +69,10 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
     if (!isOk(resp)) {
       console.error("info", resp.data);
       setInfo(undefined);
+      return null;
     } else {
       setInfo(resp.data);
+      return resp.data;
     }
   };
 

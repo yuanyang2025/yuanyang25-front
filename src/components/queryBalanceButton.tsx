@@ -1,27 +1,22 @@
 import { FloatButton, message } from "antd";
-import React, { useEffect, useState } from "react";
-import { isOk, request } from "../utils/network";
-import { GetInfoResp } from "../data/interface/network";
+import React from "react";
+
 import { DollarCircleFilled } from "@ant-design/icons";
 import confetti from "canvas-confetti";
 import { HeartTwoTone } from "@ant-design/icons";
+import { InfoContext } from "../layout";
 
 export const QueryBalanceButton: React.FC = () => {
-  const [info, setInfo] = useState<GetInfoResp | undefined>();
+  const context = React.useContext(InfoContext);
+  if (!context) return null;
+
   const getInfo = async () => {
-    const resp = await request<GetInfoResp>(`/api/info`, "GET");
-    if (!isOk(resp)) {
-      console.error("info", resp.data);
-      setInfo(undefined);
-    } else {
-      setInfo(resp.data);
-    }
-  };
-  useEffect(() => {
-    getInfo();
-  }, []);
-  const queryBalance = () => {
+    const info = await context.getInfo();
     message.info("当前灵力值：" + String(info?.token_balance));
+  };
+
+  const queryBalance = async () => {
+    await getInfo();
   };
   const onConfetti = () => {
     confetti({
