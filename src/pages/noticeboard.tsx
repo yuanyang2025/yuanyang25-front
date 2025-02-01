@@ -26,6 +26,36 @@ export const NoticeBoard = () => {
       <br />
       <br />
       <Alert
+        message="竞速和灵力积累赛段已结束！"
+        description={
+          <div>
+            <p style={{ fontSize: "230%", fontWeight: "bolder" }}>
+              恭喜 队伍32 的探险家们取得本次蛇年新春闯关竞速赛段的冠军！
+            </p>
+            <p style={{ fontSize: "160%", fontWeight: "bold" }}>
+              恭喜 队伍9、队伍65
+              的探险家们取得本次蛇年新春闯关竞速赛段的亚军和季军！
+            </p>
+            <p style={{ fontSize: "130%", fontWeight: "bold" }}>
+              恭喜 队伍4、队伍24、队伍55、队伍71、队伍86、队伍171
+              的1810006、hhyyzh、GXFQE_GSC、秦家锏、城岭北、test_952178获得本次蛇年新春闯关灵力积累赛段的奖励！
+            </p>
+            <p>
+              请灵力赛段获奖选手们发送邮件到Dscience2014@126.com，标题为【我是灵蛇塔修炼高手！】，并请附上：
+            </p>
+            <ul>
+              <li> 队伍id；</li>
+              <li> 用户id和用户名；</li>
+              <li> 您注册账号时使用的微信号；</li>
+              <li> 您的快递信息（收件人姓名/昵称、联系电话、收货地址）。</li>
+            </ul>
+          </div>
+        }
+        showIcon
+      />
+      <br />
+      <br />
+      <Alert
         message="诚挚道歉！"
         description={
           <div>

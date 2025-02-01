@@ -261,6 +261,11 @@ export const FinishPage = () => {
           </tbody>
         </table>
       </div>
+      <p>
+        另外欢迎您加入我们的
+        <a href="https://qm.qq.com/q/calfd8PHWw">完赛QQ群：1014406570</a>
+        ，验证答案是【声音在空气里燃成灰烬】。
+      </p>
     </div>
   );
 };
