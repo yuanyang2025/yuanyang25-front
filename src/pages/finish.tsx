@@ -200,7 +200,7 @@ export const FinishPage = () => {
             <tr>
               <td>听力测试</td>
               <td>侦侦、雨木目</td>
-              <td>侦侦、李骋昊</td>
+              <td>Ocean、李骋昊</td>
             </tr>
             <tr>
               <td>鹅鹅鹅</td>
@@ -265,6 +265,13 @@ export const FinishPage = () => {
         另外欢迎您加入我们的
         <a href="https://qm.qq.com/q/calfd8PHWw">完赛QQ群：1014406570</a>
         ，验证答案是【声音在空气里燃成灰烬】。
+      </p>
+      <p>
+        也欢迎您填写
+        <a href="https://docs.qq.com/form/page/DUndBWXpObEhOSm9B?qqInfo=eyJtc2dJZCI6Ijc0NjcxNDIyODg4NTMxMTE1NjQiLCJjaGF0VHlwZSI6MiwicGVlclVpZCI6IjEwMTQ0MDY1NzAiLCJlbGVtSWQiOiI3NDY3MTQyMjg4ODUzMTExNTYwIiwic2VuZGVyVWlkIjoidV84Q1JxSGlHOUQ1LVBVOTBabUdjVVl3In0%3D&client=qqclient_online">
+          赛后调查问卷
+        </a>
+        ，和出题组聊聊做完之后的感受~
       </p>
     </div>
   );
