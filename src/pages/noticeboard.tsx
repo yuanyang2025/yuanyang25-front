@@ -4,6 +4,33 @@ export const NoticeBoard = () => {
   return (
     <div style={{ width: "device-width" }}>
       <Alert
+        message="比赛结束！"
+        description={
+          <div>
+            <p style={{ fontSize: "230%", fontWeight: "bolder" }}>
+              蛇年新春闯关已于2025.02.04 20:00 CST 正式结束！
+            </p>
+            <strong>
+              为了方便各位看题和解锁题目、提示和答案，从2025.02.04 21:45 CST
+              起，灵力值的回复速度由25点/分钟上涨至10000点/分钟。
+              另外，讨论也将全面开放。神谕功能即刻起下线，您可以查看已经被回复过的神谕，但不能再发起新的神谕请求。
+            </strong>
+            <p>
+              另外，欢迎各位填写
+              <a href="https://docs.qq.com/form/page/DUndBWXpObEhOSm9B?qqInfo=eyJtc2dJZCI6Ijc0NjcxNDIyODg4NTMxMTE1NjQiLCJjaGF0VHlwZSI6MiwicGVlclVpZCI6IjEwMTQ0MDY1NzAiLCJlbGVtSWQiOiI3NDY3MTQyMjg4ODUzMTExNTYwIiwic2VuZGVyVWlkIjoidV84Q1JxSGlHOUQ1LVBVOTBabUdjVVl3In0%3D&client=qqclient_online">
+                赛后调查问卷
+              </a>
+              ，和出题组聊聊做完之后的感受~
+            </p>
+            <p>衷心感谢各位七天以来的支持！</p>
+          </div>
+        }
+        showIcon
+        type="success"
+      />
+      <br />
+      <br />
+      <Alert
         message="更新 & 用法提示"
         description={
           <div>

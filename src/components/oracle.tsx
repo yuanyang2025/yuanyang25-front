@@ -143,9 +143,6 @@ export const Oracle = (props: OracleProp) => {
         </Modal>
 
         <Flex align="start" gap="middle">
-          <Button type="primary" onClick={() => setIsOracleCreateOpen(true)}>
-            请求神谕
-          </Button>
           <Button type="primary" onClick={() => onChange(puzzleId)}>
             查询神谕
           </Button>
