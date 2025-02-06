@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { RankResp } from "../data/interface/network";
 import { request, isOk } from "../utils/network";
-import { message, Spin, Input, Button } from "antd";
+import { Spin } from "antd";
 import React from "react";
 import { InfoContext } from "../layout";
 import confetti from "canvas-confetti";
@@ -10,11 +10,8 @@ export const FinishPage = () => {
   const context = React.useContext(InfoContext);
   if (!context) return null;
 
-  const [loadingEmail, setLoadingEmail] = useState<boolean>(true);
   const [loadingRank, setLoadingRank] = useState<boolean>(true);
   const [rank, setRank] = useState<RankResp>("NotFound");
-  const [email, setEmail] = useState<string>("");
-  const [newEmail, setNewEmail] = useState<string>("");
 
   const onConfetti = () => {
     confetti({
@@ -37,46 +34,10 @@ export const FinishPage = () => {
     setLoadingRank(false);
   };
 
-  const fetchEmail = async () => {
-    setLoadingEmail(true);
-    const query = await request<string>(`/api/my_email`, "GET");
-    if (!isOk(query)) {
-      setEmail("");
-    } else {
-      setEmail(query.data);
-    }
-    setLoadingEmail(false);
-  };
-
-  const submitEmail = async (email: string) => {
-    const query = await request<string>(`/api/my_email`, "POST", {
-      email: email,
-    });
-    if (!isOk(query)) {
-      message.error("上传 email 失败");
-    } else {
-      setEmail(email);
-      message.success("上传 email 成功");
-    }
-  };
-
   useEffect(() => {
     context.getInfo();
     fetchRank();
-    fetchEmail();
   }, []);
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewEmail(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    if (newEmail.length > 100) {
-      message.error("电子邮件长度不能超过 100 字符");
-      return;
-    }
-    submitEmail(newEmail);
-  };
 
   if (loadingRank) {
     return <Spin />;
@@ -94,36 +55,10 @@ export const FinishPage = () => {
       <h2> 通关排名： {rank.Success.rank_record} </h2>
 
       <h2> 通关时间： {pass_date.toLocaleString()}</h2>
-      <div>
-        {loadingEmail ? (
-          <Spin size="small" />
-        ) : (
-          <h2>
-            电子邮箱： {email ? email + "  请以此邮箱发送通关邮件。" : "未上传"}{" "}
-          </h2>
-        )}
-
-        <div style={{ marginTop: 20, width: "500px" }}>
-          <Input
-            value={newEmail}
-            onChange={handleEmailChange}
-            placeholder="输入新的电子邮件"
-            maxLength={100}
-          />
-        </div>
-        <Button
-          type="primary"
-          onClick={handleSubmit}
-          style={{ marginTop: 10 }}
-          disabled={loadingEmail}
-        >
-          上传电子邮件
-        </Button>
-      </div>
 
       <p> 说明: 此排名中没有排除由于任何原因被剥夺获奖资格的队伍，仅供参考。</p>
       <div style={{ textAlign: "center", fontWeight: "bold" }}>
-        <p style={{ fontStyle: "italic" }}>
+        <p style={{ fontStyle: "italic", fontSize: "120%" }}>
           在不可见的虚无中，眼前的一切，化作金光照耀，降临在你随身的箱箧里。蛇影随诗的咏唱现形，咏诵《天演诀》，宝库中飞出：
         </p>
         <img
@@ -133,23 +68,14 @@ export const FinishPage = () => {
         ></img>
         <p style={{ color: "gray" }}>衔月飞蛇勋章</p>
       </div>
-      <p> 烛阴智库密钥（通关邮件要求）：</p>
-      <p>
+      <p style={{ fontWeight: "bolder", fontSize: "160%" }}>
         {" "}
-        接下来请您编辑一封邮件到Dscience2014@126.com，标题为【灵蛇塔我通关了】+
-        您的昵称.
+        但很可惜，你似乎来得太晚了，塔顶的宝藏都已被人瓜分完毕。
       </p>
-      <p> 在您的通关邮件中，请带上您的：</p>
-      <ul>
-        <li> 队伍id；</li>
-        <li> 用户id和用户名；</li>
-        <li> 您注册账号时使用的微信号；</li>
-        <li> 您的快递信息（收件人姓名/昵称、联系电话、收货地址）。</li>
-      </ul>
-
-      <strong>我们会妥善保管您的个人信息。邮件内容仅旭岽一人可查看。</strong>
-      <p>接下来是剧情时刻：</p>
-      <div style={{ fontStyle: "italic" }}>
+      <p style={{ fontWeight: "bold", fontSize: "140%" }}>接下来是剧情时刻：</p>
+      <div
+        style={{ fontStyle: "italic", fontSize: "115%", fontWeight: "bold" }}
+      >
         <p>
           &emsp;&emsp;整个空间最后坍缩成蛇形衔尾环，塔身化作无数发光鳞片消散于晨雾中，唯留林间回荡着岽半仙的声音：
           <br />
