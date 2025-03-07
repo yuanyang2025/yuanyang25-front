@@ -15,7 +15,7 @@ export const request = async <T>(
 
   // 链接本地后端调试时注释掉这一部分
   if (url.startsWith("/api/")) {
-    url = `https://back-sbojkjgphc.cn-beijing.fcapp.run${url.slice(4)}`; // 去掉 '/api' 前缀
+    url = `https://yuanyang25.thunt.top${url.slice(4)}`; // 去掉 '/api' 前缀
   }
 
   if (method !== "GET" && data) {
